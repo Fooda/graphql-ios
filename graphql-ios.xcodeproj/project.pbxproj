@@ -19,6 +19,12 @@
 		A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */; };
 		A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776522A5AE1400708DD3 /* GraphQLRequestFormatter.swift */; };
 		A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */; };
+		A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */; };
+		A5B6777422A5B0E100708DD3 /* GraphQLOperationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */; };
+		A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777222A5B0E100708DD3 /* GraphQLError.swift */; };
+		A5B6777922A5B10200708DD3 /* GraphQLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */; };
+		A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */; };
+		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,12 @@
 		A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLValidating.swift; sourceTree = "<group>"; };
 		A5B6776522A5AE1400708DD3 /* GraphQLRequestFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLRequestFormatter.swift; sourceTree = "<group>"; };
 		A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLClientProtocol.swift; sourceTree = "<group>"; };
+		A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLNamedOperationError.swift; sourceTree = "<group>"; };
+		A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLOperationError.swift; sourceTree = "<group>"; };
+		A5B6777222A5B0E100708DD3 /* GraphQLError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLError.swift; sourceTree = "<group>"; };
+		A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLPayload.swift; sourceTree = "<group>"; };
+		A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLDecodable.swift; sourceTree = "<group>"; };
+		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +120,7 @@
 		A5B6774722A5ACF700708DD3 /* graphql-ios */ = {
 			isa = PBXGroup;
 			children = (
+				A5B6776E22A5B04800708DD3 /* Models */,
 				A5B6775F22A5ADEE00708DD3 /* Service */,
 				A5B6774822A5ACF700708DD3 /* graphql_ios.h */,
 				A5B6774922A5ACF700708DD3 /* Info.plist */,
@@ -136,6 +149,27 @@
 				A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		A5B6776E22A5B04800708DD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5B6776F22A5B06000708DD3 /* Errors */,
+				A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */,
+				A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */,
+				A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5B6776F22A5B06000708DD3 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				A5B6777222A5B0E100708DD3 /* GraphQLError.swift */,
+				A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */,
+				A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		F40FC23B399D73BAFA52EA45 /* Frameworks */ = {
@@ -305,10 +339,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
 				A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */,
 				A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */,
 				A5B6776722A5AE1400708DD3 /* GraphQLParameters.swift in Sources */,
+				A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */,
+				A5B6777422A5B0E100708DD3 /* GraphQLOperationError.swift in Sources */,
 				A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */,
+				A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */,
+				A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */,
+				A5B6777922A5B10200708DD3 /* GraphQLPayload.swift in Sources */,
 				A5B6776822A5AE1400708DD3 /* GraphQLOperation.swift in Sources */,
 				A5B6776922A5AE1400708DD3 /* GraphQLOperationType.swift in Sources */,
 				A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */,
@@ -386,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -444,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

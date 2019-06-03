@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-enum GraphQLParameters {
+public enum GraphQLParameters {
     case base([String: Any])
     case input([String: Any])
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-protocol GraphQLValidating {
+public protocol GraphQLValidating {
     func validateResponse() throws
 }
 

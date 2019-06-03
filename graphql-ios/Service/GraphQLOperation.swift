@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-protocol GraphQLOperation: GraphQLNode {
+public protocol GraphQLOperation: GraphQLNode {
     var type: GraphQLOperationType { get }
     var authentication: Authentication { get }
     var name: String { get }

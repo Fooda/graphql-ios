@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-enum GraphQLOperationType: String {
+public enum GraphQLOperationType: String {
     case query
     case mutation
 }
