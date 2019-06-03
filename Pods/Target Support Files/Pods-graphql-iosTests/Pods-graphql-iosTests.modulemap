@@ -1,0 +1,6 @@
+module Pods_graphql_iosTests {
+  umbrella header "Pods-graphql-iosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
