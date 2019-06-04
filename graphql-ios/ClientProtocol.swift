@@ -9,7 +9,7 @@
 public protocol ClientProtocol {}
 
 extension ClientProtocol {
-    func validateResponse<T: APIError>(statusCode: Int, responseError: Error?, errors: [T]) throws {
+    public func validateResponse<T: APIError>(statusCode: Int, responseError: Error?, errors: [T]) throws {
         switch statusCode {
         case 401, 403:
             throw RemoteResourceError.invalidCredentials
@@ -37,7 +37,7 @@ extension ClientProtocol {
         }
     }
 
-    func requestHeaders(with customHeader: [String: String]?, clientToken: String?, authentication: Authentication) throws -> [String: String] {
+    public func requestHeaders(with customHeader: [String: String]?, clientToken: String?, authentication: Authentication) throws -> [String: String] {
         var headers: [String: String] = ["X-AppPlatform": "iOS",
                                          "X-AppVersion": Bundle.appVersion,
                                          "X-AppBundle": Bundle.bundleId ?? "/"]
