@@ -15,10 +15,9 @@ extension ClientProtocol {
             throw RemoteResourceError.invalidCredentials
         case 503:
             let siteMaintenance = RemoteResourceError.siteMaintenance
-            // TODO: Notification handling
-//            NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
-//                                            object: nil,
-//                                            userInfo: [Constants.NotificationKeys.remoteResourceError: siteMaintenance])
+            NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
+                                            object: nil,
+                                            userInfo: ["remote_resource_error": siteMaintenance])
             throw siteMaintenance
         case 500...:
             throw RemoteResourceError.serverError(statusCode: statusCode, errors: errors)

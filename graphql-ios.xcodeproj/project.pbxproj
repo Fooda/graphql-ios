@@ -31,6 +31,7 @@
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
 		A52B12C122A6E76400EAA97E /* HostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12C022A6E76400EAA97E /* HostProtocol.swift */; };
+		A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */; };
 		A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B6774522A5ACF700708DD3 /* graphql_ios.framework */; };
 		A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */; };
 		A5B6775622A5ACF700708DD3 /* graphql_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,6 +88,7 @@
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
 		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
 		A52B12C022A6E76400EAA97E /* HostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProtocol.swift; sourceTree = "<group>"; };
+		A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extra.swift"; sourceTree = "<group>"; };
 		A5B6774522A5ACF700708DD3 /* graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B6774822A5ACF700708DD3 /* graphql_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graphql_ios.h; sourceTree = "<group>"; };
 		A5B6774922A5ACF700708DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				A52B12BC22A6C36F00EAA97E /* String+Extra.swift */,
 				A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */,
+				A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				A52B12B822A6C21F00EAA97E /* MappingError.swift in Sources */,
 				A52B129122A6BCD100EAA97E /* FoodaJSONDecoder.swift in Sources */,
 				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
+				A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */,
 				A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */,
 				A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */,
 				A5B6776722A5AE1400708DD3 /* GraphQLParameters.swift in Sources */,
