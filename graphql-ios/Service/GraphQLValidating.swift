@@ -11,7 +11,7 @@ public protocol GraphQLValidating {
 }
 
 extension GraphQLValidating where Self: GraphQLPayload {
-    func validateResponse() throws {
+    public func validateResponse() throws {
         guard let statusCode = errors.first?.error.code else { return }
         switch statusCode {
         case 401, 403:

@@ -11,4 +11,9 @@
 public struct GraphQLNamedOperationError: Encodable, CustomDictionaryLiteral {
     let name: String
     let error: GraphQLOperationError
+
+    public init(name: String, error: GraphQLOperationError) {
+        self.name = name
+        self.error = error
+    }
 }

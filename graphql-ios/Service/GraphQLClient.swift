@@ -11,7 +11,7 @@ import Alamofire
 import enum Swift.Result
 
 public struct GraphQLClient: GraphQLClientProtocol {
-    static let shared = GraphQLClient()
+    public static let shared = GraphQLClient()
     private let manager: Alamofire.SessionManager
     private let decoder: FoodaJSONDecoder
     private let requestFormatter: GraphQLRequestFormatter

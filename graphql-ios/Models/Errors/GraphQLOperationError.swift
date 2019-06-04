@@ -8,8 +8,8 @@
 
 // Query/operation level GraphQL error
 public struct GraphQLOperationError: APIError, Equatable, Codable {
-    let code: Int
-    let message: String
+    public let code: Int
+    public let message: String
     
     public var title: String {
         return message
