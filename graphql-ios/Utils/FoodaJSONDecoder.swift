@@ -6,7 +6,6 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-// TODO: Move this to a different framework? REST? Decoding? 
 public class FoodaJSONDecoder: JSONDecoder {
     override init() {
         super.init()
@@ -18,7 +17,6 @@ public class FoodaJSONDecoder: JSONDecoder {
         do {
             return try self.decode(T.self, from: reData)
         } catch {
-            // TODO
 //            Logger.shared.unexpectedJson(type: String(describing: T.self), json: obj)
             throw error
         }

@@ -28,7 +28,6 @@
 		A52B12B422A6C20700EAA97E /* DebugError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B322A6C20700EAA97E /* DebugError.swift */; };
 		A52B12B622A6C21300EAA97E /* RemoteResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B522A6C21300EAA97E /* RemoteResourceError.swift */; };
 		A52B12B822A6C21F00EAA97E /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B722A6C21E00EAA97E /* MappingError.swift */; };
-		A52B12BA22A6C24F00EAA97E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B922A6C24F00EAA97E /* Constants.swift */; };
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
 		A52B12C122A6E76400EAA97E /* HostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12C022A6E76400EAA97E /* HostProtocol.swift */; };
@@ -85,7 +84,6 @@
 		A52B12B322A6C20700EAA97E /* DebugError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugError.swift; sourceTree = "<group>"; };
 		A52B12B522A6C21300EAA97E /* RemoteResourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteResourceError.swift; sourceTree = "<group>"; };
 		A52B12B722A6C21E00EAA97E /* MappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
-		A52B12B922A6C24F00EAA97E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
 		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
 		A52B12C022A6E76400EAA97E /* HostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProtocol.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 				A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */,
 				A5B6774822A5ACF700708DD3 /* graphql_ios.h */,
 				A5B6774922A5ACF700708DD3 /* Info.plist */,
-				A52B12B922A6C24F00EAA97E /* Constants.swift */,
 			);
 			path = "graphql-ios";
 			sourceTree = "<group>";
@@ -473,7 +470,6 @@
 				A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */,
 				A52B12A322A6BD2D00EAA97E /* UserNode.swift in Sources */,
 				A5B6777922A5B10200708DD3 /* GraphQLPayload.swift in Sources */,
-				A52B12BA22A6C24F00EAA97E /* Constants.swift in Sources */,
 				A52B12B622A6C21300EAA97E /* RemoteResourceError.swift in Sources */,
 				A5B6776822A5AE1400708DD3 /* GraphQLOperation.swift in Sources */,
 				A5B6776922A5AE1400708DD3 /* GraphQLOperationType.swift in Sources */,

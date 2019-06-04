@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-// TODO: May not need this import 
 import enum Swift.Result
 
 public struct GraphQLClient: GraphQLClientProtocol {
@@ -47,33 +46,32 @@ private extension GraphQLClient {
                                                                           headers: Headers? = nil,
                                                                           completion: @escaping ((Result<U, Error>) -> Void)) {
         let requestId = UUID().uuidString
-        //        Logger.shared.log(logLevel: .info, message: "graphql_start", parameters: [
-        //            "url": url,
-        //            "requestId": requestId,
-        //            "type": operation.type.rawValue,
-        //            "name": operation.name
-        //        ])
+//        Logger.shared.log(logLevel: .info, message: "graphql_start", parameters: [
+//            "url": url,
+//            "requestId": requestId,
+//            "type": operation.type.rawValue,
+//            "name": operation.name
+//            ])
         var updatedHeaders: Headers
         do {
-            // TODO: Handle host
             updatedHeaders = try requestHeaders(with: headers, clientToken: host.token, authentication: operation.authentication)
         } catch {
             completion(.failure(error))
-            //            Logger.shared.log(logLevel: .error, message: "graphql_invalid_header", parameters: [
-            //                "url": url,
-            //                "requestId": requestId,
-            //                "type": operation.type.rawValue,
-            //                "name": operation.name,
-            //                "error": error.localizedDescription
-            //            ])
+//            Logger.shared.log(logLevel: .error, message: "graphql_invalid_header", parameters: [
+//                "url": url,
+//                "requestId": requestId,
+//                "type": operation.type.rawValue,
+//                "name": operation.name,
+//                "error": error.localizedDescription
+//                ])
             return
         }
 
         manager.request("\(host.baseURL)/graphql",
-                        method: method,
-                        parameters: parameters,
-                        encoding: JSONEncoding.default,
-                        headers: updatedHeaders)
+            method: method,
+            parameters: parameters,
+            encoding: JSONEncoding.default,
+            headers: updatedHeaders)
             .validate()
             .responseJSON { response in
                 self.handleResponse(operation: operation,
@@ -95,18 +93,18 @@ private extension GraphQLClient {
                                                                 completion: @escaping ((Result<U, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
 
-        //        Logger.shared.log(logLevel: .info, message: "graphql_complete", parameters: [
-        //            "url": url,
-        //            "requestId": requestId,
-        //            "status": statusCode,
-        //            "type": operation.type.rawValue,
-        //            "name": operation.name,
-        //            "variables": parameters?["variables"] ?? [:],
-        //            "timeline": ["latency": response.timeline.latency,
-        //                         "request": response.timeline.requestDuration,
-        //                         "parsing": response.timeline.serializationDuration,
-        //                         "total": response.timeline.totalDuration]
-        //        ])
+//        Logger.shared.log(logLevel: .info, message: "graphql_complete", parameters: [
+//            "url": url,
+//            "requestId": requestId,
+//            "status": statusCode,
+//            "type": operation.type.rawValue,
+//            "name": operation.name,
+//            "variables": parameters?["variables"] ?? [:],
+//            "timeline": ["latency": response.timeline.latency,
+//                         "request": response.timeline.requestDuration,
+//                         "parsing": response.timeline.serializationDuration,
+//                         "total": response.timeline.totalDuration]
+//            ])
 
         let data = response.data ?? Data()
         let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? ObjectNotation
@@ -130,20 +128,20 @@ private extension GraphQLClient {
 
             completion(.success(result))
         } catch {
-            //            Logger.shared.log(logLevel: .error, message: "graphql_failure", parameters: [
-            //                "url": url,
-            //                "requestId": requestId,
-            //                "status": statusCode,
-            //                "type": operation.type.rawValue,
-            //                "name": operation.name,
-            //                "variables": parameters?["variables"] ?? [:],
-            //                "timeline": ["latency": response.timeline.latency,
-            //                             "request": response.timeline.requestDuration,
-            //                             "parsing": response.timeline.serializationDuration,
-            //                             "total": response.timeline.totalDuration],
-            //                "response": rawJson ?? [:],
-            //                "error": (error as? DebugError)?.debugDescription ?? error.localizedDescription
-            //            ])
+//            Logger.shared.log(logLevel: .error, message: "graphql_failure", parameters: [
+//                "url": url,
+//                "requestId": requestId,
+//                "status": statusCode,
+//                "type": operation.type.rawValue,
+//                "name": operation.name,
+//                "variables": parameters?["variables"] ?? [:],
+//                "timeline": ["latency": response.timeline.latency,
+//                             "request": response.timeline.requestDuration,
+//                             "parsing": response.timeline.serializationDuration,
+//                             "total": response.timeline.totalDuration],
+//                "response": rawJson ?? [:],
+//                "error": (error as? DebugError)?.debugDescription ?? error.localizedDescription
+//                ])
             completion(.failure(error))
         }
     }
@@ -155,16 +153,16 @@ private extension GraphQLClient {
                                                                     rawJson: ObjectNotation?,
                                                                     response: DataResponse<Any>) {
         for error in result.errors {
-            //            Logger.shared.log(logLevel: .error, message: "graphql_operation_error", parameters: [
-            //                "url": url,
-            //                "requestId": requestId,
-            //                "status": response.response?.statusCode ?? 0,
-            //                "type": operation.type.rawValue,
-            //                "name": operation.name,
-            //                "variables": parameters?["variables"] ?? [:],
-            //                "response": rawJson ?? [:],
-            //                "operation_error": error.dictionary
-            //            ])
+//            Logger.shared.log(logLevel: .error, message: "graphql_operation_error", parameters: [
+//                "url": url,
+//                "requestId": requestId,
+//                "status": response.response?.statusCode ?? 0,
+//                "type": operation.type.rawValue,
+//                "name": operation.name,
+//                "variables": parameters?["variables"] ?? [:],
+//                "response": rawJson ?? [:],
+//                "operation_error": error.dictionary
+//                ])
         }
     }
 }
