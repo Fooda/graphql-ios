@@ -9,8 +9,8 @@
 // Used for analytics
 // contains application level error and its corresponding query name
 public struct GraphQLNamedOperationError: Encodable, CustomDictionaryLiteral {
-    let name: String
-    let error: GraphQLOperationError
+    public let name: String
+    public let error: GraphQLOperationError
 
     public init(name: String, error: GraphQLOperationError) {
         self.name = name
