@@ -31,6 +31,7 @@
 		A52B12BA22A6C24F00EAA97E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B922A6C24F00EAA97E /* Constants.swift */; };
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
+		A52B12C122A6E76400EAA97E /* HostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12C022A6E76400EAA97E /* HostProtocol.swift */; };
 		A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B6774522A5ACF700708DD3 /* graphql_ios.framework */; };
 		A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */; };
 		A5B6775622A5ACF700708DD3 /* graphql_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,6 +88,7 @@
 		A52B12B922A6C24F00EAA97E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
 		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
+		A52B12C022A6E76400EAA97E /* HostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProtocol.swift; sourceTree = "<group>"; };
 		A5B6774522A5ACF700708DD3 /* graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B6774822A5ACF700708DD3 /* graphql_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graphql_ios.h; sourceTree = "<group>"; };
 		A5B6774922A5ACF700708DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */,
+				A52B12C022A6E76400EAA97E /* HostProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				A52B12A022A6BD2D00EAA97E /* SessionNode.swift in Sources */,
 				A5B6777422A5B0E100708DD3 /* GraphQLOperationError.swift in Sources */,
 				A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */,
+				A52B12C122A6E76400EAA97E /* HostProtocol.swift in Sources */,
 				A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */,
 				A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */,
 				A52B12A822A6BE7F00EAA97E /* Authentication.swift in Sources */,
