@@ -217,15 +217,15 @@
 			isa = PBXGroup;
 			children = (
 				A52B12BB22A6C35E00EAA97E /* Extensions */,
-				A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */,
-				A52B12A722A6BE7F00EAA97E /* Authentication.swift */,
-				A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */,
 				A52B12B222A6C1F400EAA97E /* Errors */,
 				A52B12AF22A6BFDE00EAA97E /* Protocols */,
 				A52B128F22A6BCC000EAA97E /* Utils */,
 				A5B6776E22A5B04800708DD3 /* Models */,
 				A5B6775F22A5ADEE00708DD3 /* Service */,
 				A52B129222A6BD2D00EAA97E /* Nodes */,
+				A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */,
+				A52B12A722A6BE7F00EAA97E /* Authentication.swift */,
+				A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */,
 				A5B6774822A5ACF700708DD3 /* graphql_ios.h */,
 				A5B6774922A5ACF700708DD3 /* Info.plist */,
 				A52B12B922A6C24F00EAA97E /* Constants.swift */,
