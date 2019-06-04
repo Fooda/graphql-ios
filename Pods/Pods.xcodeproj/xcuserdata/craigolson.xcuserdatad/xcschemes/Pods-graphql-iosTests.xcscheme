@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DAC39C8F6422C3A54BB37B8A7E50BB77"
+               BlueprintIdentifier = "A9AAD8E7BE18D532EE01E059FE518657"
+               BuildableName = "libPods-graphql-iosTests.a"
                BlueprintName = "Pods-graphql-iosTests"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libPods-graphql-iosTests.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

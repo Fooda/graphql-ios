@@ -11,7 +11,7 @@ public struct GraphQLOperationError: APIError, Equatable, Codable {
     let code: Int
     let message: String
     
-    var title: String {
+    public var title: String {
         return message
     }
 }

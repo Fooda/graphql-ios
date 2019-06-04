@@ -11,7 +11,7 @@
 public struct GraphQLError: APIError, Decodable {
     let message: String
     
-    var title: String {
+    public var title: String {
         return message
     }
 }

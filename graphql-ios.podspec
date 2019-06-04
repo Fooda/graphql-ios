@@ -57,7 +57,6 @@ s.author             = { "Craig Olson" => "craig.olson@fooda.com" }
 #  the deployment target. You can optionally include the target after the platform.
 #
 
-s.platform     = :ios
 s.platform     = :ios, "9.0"
 s.swift_version = "5.0"
 
@@ -67,7 +66,7 @@ s.swift_version = "5.0"
 #  Supports git, hg, bzr, svn and HTTP.
 #
 
-s.source       = { :git => "git@github.com:Fooda/graphql-ios.git", :tag => "#{s.version}" }
+s.source       = { :git => "git@github.com:Fooda/graphql-ios.git", :tag => s.version.to_s }
 
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -87,7 +86,7 @@ s.source_files  = "graphql-ios/**/*.{swift}", "graphql-ios/**/**/*.{swift}"
 #  the lib prefix of their name.
 #
 
-s.dependency 'Alamofire', '4.5.1'
+s.dependency 'Alamofire', '4.8.2'
 
 # s.library   = "iconv"
 # s.libraries = "iconv", "xml2"
