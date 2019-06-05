@@ -6,12 +6,12 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-public protocol CustomDictionaryLiteral {
+internal protocol CustomDictionaryLiteral {
     var dictionary: [String: Any] { get }
 }
 
 extension CustomDictionaryLiteral where Self: Encodable {
-    public var dictionary: [String: Any] {
+    internal var dictionary: [String: Any] {
         return (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(self))) as? [String: Any] ?? [:]
     }
 }
