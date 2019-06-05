@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO: Deprecate
 public enum MappingError: DebugError {
     case unexpectedJSON
     case unexpectedUserInfo

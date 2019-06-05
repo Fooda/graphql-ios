@@ -117,7 +117,7 @@ private extension GraphQLClient {
 
             if let errors = apiResponse.errors, !errors.isEmpty {
                 // handle base error, 200 status code
-                throw RemoteResourceError.requestError(statusCode: statusCode, errors: errors)
+                throw RemoteGraphQLError.requestError(statusCode: statusCode, errors: errors)
             }
             guard let result = apiResponse.data else {
                 throw MappingError.unexpectedJSON

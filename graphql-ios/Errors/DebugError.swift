@@ -6,6 +6,7 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
+// TODO: Deprecate
 protocol DebugError: LocalizedError {
     var debugDescription: String { get }
 }

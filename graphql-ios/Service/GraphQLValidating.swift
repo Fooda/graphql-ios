@@ -15,19 +15,19 @@ extension GraphQLValidating where Self: GraphQLPayload {
         guard let statusCode = errors.first?.error.code else { return }
         switch statusCode {
         case 401, 403:
-            let invalidCredentials = RemoteResourceError.invalidCredentials
+            let invalidCredentials = RemoteGraphQLError.invalidCredentials
             NotificationCenter.default.post(name: Notification.Name.UserUnauthorized,
                                             object: nil,
                                             userInfo: ["remote_resource_error": invalidCredentials])
             throw invalidCredentials
         case 503:
-            let siteMaintenance = RemoteResourceError.siteMaintenance
+            let siteMaintenance = RemoteGraphQLError.siteMaintenance
             NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
                                             object: nil,
                                             userInfo: ["remote_resource_error": siteMaintenance])
             throw siteMaintenance
         case 400...:
-            throw RemoteResourceError.graphQLError(errors: errors)
+            throw RemoteGraphQLError.operationErrors(errors)
         default:
             break
         }
