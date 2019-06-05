@@ -12,24 +12,24 @@ extension ClientProtocol {
     public func validateResponse(statusCode: Int, responseError: Error?, errors: [GraphQLError]) throws {
         switch statusCode {
         case 401, 403:
-            throw RemoteGraphQLError.invalidCredentials
+            throw GraphQLRemoteError.invalidCredentials
         case 503:
-            let siteMaintenance = RemoteGraphQLError.siteMaintenance
+            let siteMaintenance = GraphQLRemoteError.siteMaintenance
             NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
                                             object: nil,
                                             userInfo: ["remote_resource_error": siteMaintenance])
             throw siteMaintenance
         case 500...:
-            throw RemoteGraphQLError.serverError(statusCode: statusCode, errors: errors)
+            throw GraphQLRemoteError.serverError(statusCode: statusCode, errors: errors)
         case 400..<500:
-            throw RemoteGraphQLError.requestError(statusCode: statusCode, errors: errors)
+            throw GraphQLRemoteError.requestError(statusCode: statusCode, errors: errors)
         case 0:
             if let urlError = responseError as? URLError {
-                throw RemoteGraphQLError.networkError(urlError)
+                throw GraphQLRemoteError.networkError(urlError)
             } else if let genericError = responseError {
                 throw genericError
             } else {
-                throw RemoteGraphQLError.unknown
+                throw GraphQLRemoteError.unknown
             }
         default:
             break

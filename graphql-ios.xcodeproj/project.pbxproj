@@ -25,8 +25,6 @@
 		A52B12AC22A6BF0000EAA97E /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */; };
 		A52B12AE22A6BF7A00EAA97E /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */; };
 		A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */; };
-		A52B12B422A6C20700EAA97E /* DebugError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B322A6C20700EAA97E /* DebugError.swift */; };
-		A52B12B822A6C21F00EAA97E /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B722A6C21E00EAA97E /* MappingError.swift */; };
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
 		A52B12C122A6E76400EAA97E /* HostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12C022A6E76400EAA97E /* HostProtocol.swift */; };
@@ -47,7 +45,7 @@
 		A5B6777922A5B10200708DD3 /* GraphQLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */; };
 		A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */; };
 		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
-		A5C595E522A811C100028D1F /* RemoteGraphQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* RemoteGraphQLError.swift */; };
+		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +80,6 @@
 		A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
 		A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDictionaryLiteral.swift; sourceTree = "<group>"; };
-		A52B12B322A6C20700EAA97E /* DebugError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugError.swift; sourceTree = "<group>"; };
-		A52B12B722A6C21E00EAA97E /* MappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
 		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
 		A52B12C022A6E76400EAA97E /* HostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProtocol.swift; sourceTree = "<group>"; };
@@ -107,7 +103,7 @@
 		A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLPayload.swift; sourceTree = "<group>"; };
 		A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLDecodable.swift; sourceTree = "<group>"; };
 		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
-		A5C595E422A811C100028D1F /* RemoteGraphQLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGraphQLError.swift; sourceTree = "<group>"; };
+		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,16 +173,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		A52B12B222A6C1F400EAA97E /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				A52B12B322A6C20700EAA97E /* DebugError.swift */,
-				A52B12B722A6C21E00EAA97E /* MappingError.swift */,
-				A5C595E422A811C100028D1F /* RemoteGraphQLError.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		A52B12BB22A6C35E00EAA97E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				A52B12BB22A6C35E00EAA97E /* Extensions */,
-				A52B12B222A6C1F400EAA97E /* Errors */,
 				A52B12AF22A6BFDE00EAA97E /* Protocols */,
 				A52B128F22A6BCC000EAA97E /* Utils */,
 				A5B6776E22A5B04800708DD3 /* Models */,
@@ -274,6 +259,7 @@
 		A5B6776F22A5B06000708DD3 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */,
 				A5B6777222A5B0E100708DD3 /* GraphQLError.swift */,
 				A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */,
 				A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */,
@@ -448,16 +434,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52B12B422A6C20700EAA97E /* DebugError.swift in Sources */,
 				A52B129E22A6BD2D00EAA97E /* CreateSessionNode.swift in Sources */,
 				A52B129D22A6BD2D00EAA97E /* ErrorNode.swift in Sources */,
-				A52B12B822A6C21F00EAA97E /* MappingError.swift in Sources */,
 				A52B129122A6BCD100EAA97E /* FoodaJSONDecoder.swift in Sources */,
 				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
 				A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */,
 				A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */,
 				A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */,
-				A5C595E522A811C100028D1F /* RemoteGraphQLError.swift in Sources */,
+				A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */,
 				A5B6776722A5AE1400708DD3 /* GraphQLParameters.swift in Sources */,
 				A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */,
 				A52B12A022A6BD2D00EAA97E /* SessionNode.swift in Sources */,

@@ -1,12 +1,12 @@
 //
-//  RemoteGraphQLError.swift
+//  GraphQLRemoteError.swift
 //  graphql-ios
 //
 //  Created by Craig Olson on 6/5/19.
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-public enum RemoteGraphQLError: DebugError {
+public enum GraphQLRemoteError: LocalizedError {
     case invalidCredentials // 401 or 403
     case siteMaintenance // 503
     case serverError(statusCode: Int, errors: [GraphQLError])
