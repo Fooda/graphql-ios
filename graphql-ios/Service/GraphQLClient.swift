@@ -12,19 +12,19 @@ import enum Swift.Result
 public struct GraphQLClient: GraphQLClientProtocol {
     public static let shared = GraphQLClient()
     private let manager: Alamofire.SessionManager
-    private let decoder: FoodaJSONDecoder
+    private let decoder: GraphQLJSONDecoder
     private let requestFormatter: GraphQLRequestFormatter
     private let responseValidator: GraphQLResponseValidator
 
     private init() {
         let configuration = URLSessionConfiguration.default
         manager = Alamofire.SessionManager(configuration: configuration)
-        decoder = FoodaJSONDecoder()
+        decoder = GraphQLJSONDecoder()
         requestFormatter = GraphQLRequestFormatter()
         responseValidator = GraphQLResponseValidator()
     }
 
-    public func performOperation<T: GraphQLOperation, U: GraphQLPayload, V: HostProtocol>(_ operation: T,
+    public func performOperation<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(_ operation: T,
                                                                                           host: V,
                                                                                           parameters: GraphQLParameters? = nil,
                                                                                           headers: [String: String]? = nil,
@@ -41,7 +41,7 @@ public struct GraphQLClient: GraphQLClientProtocol {
 
 // MARK: - Private Methods
 private extension GraphQLClient {
-    func request<T: GraphQLOperation, U: GraphQLPayload, V: HostProtocol>(operation: T,
+    func request<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
                                                                           host: V,
                                                                           method: HTTPMethod,
                                                                           parameters: Parameters? = nil,

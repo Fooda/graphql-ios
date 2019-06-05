@@ -1,12 +1,12 @@
 //
-//  FoodaJSONDecoder.swift
+//  GraphQLJSONDecoder.swift
 //  iFooda
 //
 //  Created by Blake Macnair on 4/4/19.
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-public class FoodaJSONDecoder: JSONDecoder {
+internal class GraphQLJSONDecoder: JSONDecoder {
     override init() {
         super.init()
         self.keyDecodingStrategy = .convertFromSnakeCase

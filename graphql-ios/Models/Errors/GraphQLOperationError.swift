@@ -10,8 +10,4 @@
 public struct GraphQLOperationError: Equatable, Codable {
     public let code: Int
     public let message: String
-    
-//    public var title: String {
-//        return message
-//    }
 }
