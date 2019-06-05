@@ -14,18 +14,20 @@ public struct GraphQLClient: GraphQLClientProtocol {
     private let manager: Alamofire.SessionManager
     private let decoder: FoodaJSONDecoder
     private let requestFormatter: GraphQLRequestFormatter
+    private let responseValidator: GraphQLResponseValidator
 
     private init() {
         let configuration = URLSessionConfiguration.default
         manager = Alamofire.SessionManager(configuration: configuration)
         decoder = FoodaJSONDecoder()
         requestFormatter = GraphQLRequestFormatter()
+        responseValidator = GraphQLResponseValidator()
     }
 
     public func performOperation<T: GraphQLOperation, U: GraphQLPayload, V: HostProtocol>(_ operation: T,
                                                                                           host: V,
                                                                                           parameters: GraphQLParameters? = nil,
-                                                                                          headers: Headers? = nil,
+                                                                                          headers: [String: String]? = nil,
                                                                                           completion: @escaping ((Result<U, Error>) -> Void)) {
         let requestBody = requestFormatter.requestBody(operation, parameters: parameters)
         request(operation: operation,
@@ -43,7 +45,7 @@ private extension GraphQLClient {
                                                                           host: V,
                                                                           method: HTTPMethod,
                                                                           parameters: Parameters? = nil,
-                                                                          headers: Headers? = nil,
+                                                                          headers: [String: String]? = nil,
                                                                           completion: @escaping ((Result<U, Error>) -> Void)) {
         let requestId = UUID().uuidString
 //        Logger.shared.log(logLevel: .info, message: "graphql_start", parameters: [
@@ -52,7 +54,7 @@ private extension GraphQLClient {
 //            "type": operation.type.rawValue,
 //            "name": operation.name
 //            ])
-        var updatedHeaders: Headers
+        var updatedHeaders: [String: String]
         do {
             updatedHeaders = try requestHeaders(with: headers, clientToken: host.token, authentication: operation.authentication)
         } catch {
@@ -88,7 +90,7 @@ private extension GraphQLClient {
                                                                 requestId: String,
                                                                 method: HTTPMethod,
                                                                 parameters: Parameters?,
-                                                                headers: Headers?,
+                                                                headers: [String: String]?,
                                                                 response: DataResponse<Any>,
                                                                 completion: @escaping ((Result<U, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
@@ -107,13 +109,13 @@ private extension GraphQLClient {
 //            ])
 
         let data = response.data ?? Data()
-        let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? ObjectNotation
+        let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
 
         do {
             let data = response.data ?? Data()
             let apiResponse = try decoder.decode(GraphQLResponse<U>.self, from: data)
 
-            try self.validateResponse(statusCode: statusCode, responseError: response.error, errors: apiResponse.errors ?? [])
+            try self.responseValidator.validateResponse(statusCode: statusCode, responseError: response.error, errors: apiResponse.errors ?? [])
 
             if let errors = apiResponse.errors, !errors.isEmpty {
                 // handle base error, 200 status code
@@ -146,11 +148,46 @@ private extension GraphQLClient {
         }
     }
 
+    func requestHeaders(with customHeader: [String: String]?, clientToken: String?, authentication: GraphQLAuthentication) throws -> [String: String] {
+        var headers: [String: String] = ["X-AppPlatform": "iOS",
+                                         "X-AppVersion": Bundle.appVersion,
+                                         "X-AppBundle": Bundle.bundleId ?? "/"]
+
+        // custom headers
+        if let customHeader = customHeader {
+            for (key, value) in customHeader {
+                headers[key] = value
+            }
+        }
+
+        // client token
+        if let clientToken = clientToken {
+            headers["X-ClientToken"] = clientToken
+        }
+
+        // session token
+        switch authentication {
+        case .authenticated:
+            // TODO: How to handle invalid session token
+            //            guard let sessionToken = UserManager.sessionToken else {
+            //                throw RemoteResourceError.invalidCredentials
+            //            }
+            //            headers["X-SessionToken"] = sessionToken
+            break
+        case .anonymous:
+            //            if let sessionToken = UserManager.sessionToken {
+            //                headers["X-SessionToken"] = sessionToken
+            //            }
+            break
+        }
+        return headers
+    }
+
     func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
                                                                     requestId: String,
                                                                     parameters: Parameters?,
                                                                     result: U,
-                                                                    rawJson: ObjectNotation?,
+                                                                    rawJson: [String: Any]?,
                                                                     response: DataResponse<Any>) {
         for error in result.errors {
 //            Logger.shared.log(logLevel: .error, message: "graphql_operation_error", parameters: [

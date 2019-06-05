@@ -7,11 +7,11 @@
 //
 
 // Query/operation level GraphQL error
-public struct GraphQLOperationError: APIError, Equatable, Codable {
+public struct GraphQLOperationError: Equatable, Codable {
     public let code: Int
     public let message: String
     
-    public var title: String {
-        return message
-    }
+//    public var title: String {
+//        return message
+//    }
 }

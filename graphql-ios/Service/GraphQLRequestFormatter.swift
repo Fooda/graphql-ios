@@ -7,7 +7,7 @@
 //
 
 internal struct GraphQLRequestFormatter {
-    func requestBody<T: GraphQLOperation>(_ operation: T, parameters: GraphQLParameters?) -> ObjectNotation {
+    func requestBody<T: GraphQLOperation>(_ operation: T, parameters: GraphQLParameters?) -> [String: Any] {
         var json = [String: Any]()
         json["query"] = operation.description
         json["variables"] = parameters?.dictionary

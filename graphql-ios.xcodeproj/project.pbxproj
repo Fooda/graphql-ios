@@ -20,10 +20,6 @@
 		A52B12A422A6BD2D00EAA97E /* PhoneNumberNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129A22A6BD2D00EAA97E /* PhoneNumberNode.swift */; };
 		A52B12A522A6BD2D00EAA97E /* BannerStyleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129B22A6BD2D00EAA97E /* BannerStyleNode.swift */; };
 		A52B12A622A6BD2D00EAA97E /* CampaignBannerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129C22A6BD2D00EAA97E /* CampaignBannerNode.swift */; };
-		A52B12A822A6BE7F00EAA97E /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12A722A6BE7F00EAA97E /* Authentication.swift */; };
-		A52B12AA22A6BECA00EAA97E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12A922A6BEC900EAA97E /* APIError.swift */; };
-		A52B12AC22A6BF0000EAA97E /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */; };
-		A52B12AE22A6BF7A00EAA97E /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */; };
 		A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */; };
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
@@ -46,6 +42,8 @@
 		A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */; };
 		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
 		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
+		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
+		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +73,6 @@
 		A52B129A22A6BD2D00EAA97E /* PhoneNumberNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberNode.swift; sourceTree = "<group>"; };
 		A52B129B22A6BD2D00EAA97E /* BannerStyleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerStyleNode.swift; sourceTree = "<group>"; };
 		A52B129C22A6BD2D00EAA97E /* CampaignBannerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignBannerNode.swift; sourceTree = "<group>"; };
-		A52B12A722A6BE7F00EAA97E /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		A52B12A922A6BEC900EAA97E /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
-		A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDictionaryLiteral.swift; sourceTree = "<group>"; };
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
 		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
@@ -104,6 +98,8 @@
 		A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLDecodable.swift; sourceTree = "<group>"; };
 		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
+		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
+		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,9 +208,7 @@
 				A5B6776E22A5B04800708DD3 /* Models */,
 				A5B6775F22A5ADEE00708DD3 /* Service */,
 				A52B129222A6BD2D00EAA97E /* Nodes */,
-				A52B12AD22A6BF7A00EAA97E /* Typealiases.swift */,
-				A52B12A722A6BE7F00EAA97E /* Authentication.swift */,
-				A52B12AB22A6BF0000EAA97E /* ClientProtocol.swift */,
+				A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */,
 				A5B6774822A5ACF700708DD3 /* graphql_ios.h */,
 				A5B6774922A5ACF700708DD3 /* Info.plist */,
 			);
@@ -240,6 +234,7 @@
 				A5B6776022A5AE1300708DD3 /* GraphQLParameters.swift */,
 				A5B6776522A5AE1400708DD3 /* GraphQLRequestFormatter.swift */,
 				A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */,
+				A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -251,7 +246,6 @@
 				A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */,
 				A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */,
 				A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */,
-				A52B12A922A6BEC900EAA97E /* APIError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,6 +431,7 @@
 				A52B129E22A6BD2D00EAA97E /* CreateSessionNode.swift in Sources */,
 				A52B129D22A6BD2D00EAA97E /* ErrorNode.swift in Sources */,
 				A52B129122A6BCD100EAA97E /* FoodaJSONDecoder.swift in Sources */,
+				A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */,
 				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
 				A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */,
 				A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */,
@@ -450,10 +445,8 @@
 				A52B12C122A6E76400EAA97E /* HostProtocol.swift in Sources */,
 				A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */,
 				A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */,
-				A52B12A822A6BE7F00EAA97E /* Authentication.swift in Sources */,
 				A52B12A222A6BD2D00EAA97E /* GetUserNode.swift in Sources */,
 				A52B12A122A6BD2D00EAA97E /* CampaignNode.swift in Sources */,
-				A52B12AE22A6BF7A00EAA97E /* Typealiases.swift in Sources */,
 				A52B12A522A6BD2D00EAA97E /* BannerStyleNode.swift in Sources */,
 				A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */,
 				A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */,
@@ -462,12 +455,11 @@
 				A5B6776822A5AE1400708DD3 /* GraphQLOperation.swift in Sources */,
 				A5B6776922A5AE1400708DD3 /* GraphQLOperationType.swift in Sources */,
 				A52B12A422A6BD2D00EAA97E /* PhoneNumberNode.swift in Sources */,
+				A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */,
 				A52B129F22A6BD2D00EAA97E /* GraphQLNode.swift in Sources */,
 				A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */,
-				A52B12AC22A6BF0000EAA97E /* ClientProtocol.swift in Sources */,
 				A52B12A622A6BD2D00EAA97E /* CampaignBannerNode.swift in Sources */,
 				A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */,
-				A52B12AA22A6BECA00EAA97E /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

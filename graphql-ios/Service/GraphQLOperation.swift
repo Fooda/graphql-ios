@@ -8,6 +8,6 @@
 
 public protocol GraphQLOperation: GraphQLNode {
     var type: GraphQLOperationType { get }
-    var authentication: Authentication { get }
+    var authentication: GraphQLAuthentication { get }
     var name: String { get }
 }

@@ -8,7 +8,7 @@
 
 // Base level graphql error
 // At the same level as "data"
-public struct GraphQLError: APIError, Decodable {
+public struct GraphQLError: Decodable {
     let message: String
     
     public var title: String {
