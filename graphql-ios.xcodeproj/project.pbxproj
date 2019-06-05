@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		428D7647000DE752743F2E02 /* libPods-graphql-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B111CFCF6A4CAA63C1624A5 /* libPods-graphql-ios.a */; };
-		865876398B8A0017BC19BCD4 /* libPods-graphql-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */; };
+		3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */; };
 		A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */; };
 		A52B129D22A6BD2D00EAA97E /* ErrorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129322A6BD2D00EAA97E /* ErrorNode.swift */; };
 		A52B129E22A6BD2D00EAA97E /* CreateSessionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129422A6BD2D00EAA97E /* CreateSessionNode.swift */; };
@@ -58,10 +57,7 @@
 
 /* Begin PBXFileReference section */
 		34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.release.xcconfig"; sourceTree = "<group>"; };
-		86D6F969B8B85629B06F76E2 /* Pods-graphql-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CAC723269A642BB899C8B86 /* Pods-graphql-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		8E012869F18E7243818B4B29 /* Pods-graphql-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		9B111CFCF6A4CAA63C1624A5 /* libPods-graphql-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLJSONDecoder.swift; sourceTree = "<group>"; };
 		A52B129322A6BD2D00EAA97E /* ErrorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorNode.swift; sourceTree = "<group>"; };
 		A52B129422A6BD2D00EAA97E /* CreateSessionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionNode.swift; sourceTree = "<group>"; };
@@ -101,6 +97,7 @@
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
 		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				428D7647000DE752743F2E02 /* libPods-graphql-ios.a in Frameworks */,
+				3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */,
-				865876398B8A0017BC19BCD4 /* libPods-graphql-iosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +125,6 @@
 			children = (
 				8CAC723269A642BB899C8B86 /* Pods-graphql-ios.debug.xcconfig */,
 				34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */,
-				86D6F969B8B85629B06F76E2 /* Pods-graphql-iosTests.debug.xcconfig */,
-				8E012869F18E7243818B4B29 /* Pods-graphql-iosTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -264,8 +258,8 @@
 		F40FC23B399D73BAFA52EA45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B111CFCF6A4CAA63C1624A5 /* libPods-graphql-ios.a */,
 				CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */,
+				FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -307,7 +301,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5B6775C22A5ACF700708DD3 /* Build configuration list for PBXNativeTarget "graphql-iosTests" */;
 			buildPhases = (
-				102DF429F75CD2F8E9C0AC72 /* [CP] Check Pods Manifest.lock */,
 				A5B6774A22A5ACF700708DD3 /* Sources */,
 				A5B6774B22A5ACF700708DD3 /* Frameworks */,
 				A5B6774C22A5ACF700708DD3 /* Resources */,
@@ -377,28 +370,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		102DF429F75CD2F8E9C0AC72 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-graphql-iosTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		11BB2BA8E3C1E531876403D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,7 +632,6 @@
 		};
 		A5B6775D22A5ACF700708DD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86D6F969B8B85629B06F76E2 /* Pods-graphql-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -681,7 +651,6 @@
 		};
 		A5B6775E22A5ACF700708DD3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E012869F18E7243818B4B29 /* Pods-graphql-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

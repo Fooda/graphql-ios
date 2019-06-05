@@ -1,4 +1,4 @@
-module Pods_graphql_ios {
+framework module Pods_graphql_ios {
   umbrella header "Pods-graphql-ios-umbrella.h"
 
   export *
