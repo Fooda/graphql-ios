@@ -25,7 +25,7 @@ public enum GraphQLRemoteError: LocalizedError {
         case .siteMaintenance:
             return "Sorry for the inconvenience but we're performing scheduled maintenance at the moment. If you need to you can always contact us at info@fooda.com. We'll be back online shortly!".localized()
         case let .serverError(_, errors), let .requestError(_, errors):
-            return errors.first?.title ?? defaultMessage
+            return errors.first?.message ?? defaultMessage
         case let .operationErrors(errors):
             return errors.first?.error.message ?? defaultMessage
         case let .networkError(urlError):

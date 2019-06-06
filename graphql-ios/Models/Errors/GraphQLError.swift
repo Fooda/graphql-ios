@@ -10,8 +10,4 @@
 // At the same level as "data"
 public struct GraphQLError: Decodable {
     let message: String
-    
-    public var title: String {
-        return message
-    }
 }
