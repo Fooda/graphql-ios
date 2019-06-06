@@ -43,6 +43,7 @@
 		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
 		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
 		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
+		A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
 		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
+		A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLLogging.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 			children = (
 				A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */,
 				A52B12C022A6E76400EAA97E /* GraphQLHost.swift */,
+				A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */,
 				A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */,
 				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
+				A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */,
 				A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */,
 				A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */,
 				A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */,

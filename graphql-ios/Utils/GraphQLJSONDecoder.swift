@@ -7,6 +7,8 @@
 //
 
 internal class GraphQLJSONDecoder: JSONDecoder {
+    var logger: GraphQLLogging?
+
     override init() {
         super.init()
         self.keyDecodingStrategy = .convertFromSnakeCase
@@ -17,7 +19,12 @@ internal class GraphQLJSONDecoder: JSONDecoder {
         do {
             return try self.decode(T.self, from: reData)
         } catch {
-//            Logger.shared.unexpectedJson(type: String(describing: T.self), json: obj)
+            logger?.errorGraphQL("unexpected_json",
+                                 params: [
+                                    "type": String(describing: T.self),
+                                    "json": obj
+                ])
+
             throw error
         }
     }

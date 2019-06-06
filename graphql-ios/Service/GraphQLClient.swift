@@ -15,6 +15,7 @@ public struct GraphQLClient: GraphQLClientProtocol {
     private let decoder: GraphQLJSONDecoder
     private let requestFormatter: GraphQLRequestFormatter
     private let responseValidator: GraphQLResponseValidator
+    private var logger: GraphQLLogging?
 
     private init() {
         let configuration = URLSessionConfiguration.default
@@ -24,11 +25,16 @@ public struct GraphQLClient: GraphQLClientProtocol {
         responseValidator = GraphQLResponseValidator()
     }
 
+    public mutating func configure(logger: GraphQLLogging) {
+        self.logger = logger
+        decoder.logger = logger
+    }
+
     public func performOperation<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(_ operation: T,
-                                                                                          host: V,
-                                                                                          parameters: GraphQLParameters? = nil,
-                                                                                          headers: [String: String]? = nil,
-                                                                                          completion: @escaping ((Result<U, Error>) -> Void)) {
+                                                                                         host: V,
+                                                                                         parameters: GraphQLParameters? = nil,
+                                                                                         headers: [String: String]? = nil,
+                                                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
         let requestBody = requestFormatter.requestBody(operation, parameters: parameters)
         request(operation: operation,
                 host: host,
@@ -42,30 +48,33 @@ public struct GraphQLClient: GraphQLClientProtocol {
 // MARK: - Private Methods
 private extension GraphQLClient {
     func request<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
-                                                                          host: V,
-                                                                          method: HTTPMethod,
-                                                                          parameters: Parameters? = nil,
-                                                                          headers: [String: String]? = nil,
-                                                                          completion: @escaping ((Result<U, Error>) -> Void)) {
+                                                                         host: V,
+                                                                         method: HTTPMethod,
+                                                                         parameters: Parameters? = nil,
+                                                                         headers: [String: String]? = nil,
+                                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
+        let url = "\(host.baseURL)/graphql"
         let requestId = UUID().uuidString
-//        Logger.shared.log(logLevel: .info, message: "graphql_start", parameters: [
-//            "url": url,
-//            "requestId": requestId,
-//            "type": operation.type.rawValue,
-//            "name": operation.name
-//            ])
+        logger?.infoGraphQL("graphql_start",
+                            params: [
+                                "url": url,
+                                "requestId": requestId,
+                                "type": operation.type.rawValue,
+                                "name": operation.name
+            ])
         var updatedHeaders: [String: String]
         do {
             updatedHeaders = try requestHeaders(with: headers, clientToken: host.token, authentication: operation.authentication)
         } catch {
             completion(.failure(error))
-//            Logger.shared.log(logLevel: .error, message: "graphql_invalid_header", parameters: [
-//                "url": url,
-//                "requestId": requestId,
-//                "type": operation.type.rawValue,
-//                "name": operation.name,
-//                "error": error.localizedDescription
-//                ])
+            logger?.errorGraphQL("graphql_invalid_header",
+                                 params: [
+                                    "url": url,
+                                    "requestId": requestId,
+                                    "type": operation.type.rawValue,
+                                    "name": operation.name,
+                                    "error": error.localizedDescription
+                ])
             return
         }
 
@@ -77,6 +86,7 @@ private extension GraphQLClient {
             .validate()
             .responseJSON { response in
                 self.handleResponse(operation: operation,
+                                    host: host,
                                     requestId: requestId,
                                     method: method,
                                     parameters: parameters,
@@ -86,27 +96,29 @@ private extension GraphQLClient {
         }
     }
 
-    func handleResponse<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                requestId: String,
-                                                                method: HTTPMethod,
-                                                                parameters: Parameters?,
-                                                                headers: [String: String]?,
-                                                                response: DataResponse<Any>,
-                                                                completion: @escaping ((Result<U, Error>) -> Void)) {
+    func handleResponse<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
+                                                                                host: V,
+                                                                                requestId: String,
+                                                                                method: HTTPMethod,
+                                                                                parameters: Parameters?,
+                                                                                headers: [String: String]?,
+                                                                                response: DataResponse<Any>,
+                                                                                completion: @escaping ((Result<U, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
+        let url = "\(host.baseURL)/graphql"
 
-//        Logger.shared.log(logLevel: .info, message: "graphql_complete", parameters: [
-//            "url": url,
-//            "requestId": requestId,
-//            "status": statusCode,
-//            "type": operation.type.rawValue,
-//            "name": operation.name,
-//            "variables": parameters?["variables"] ?? [:],
-//            "timeline": ["latency": response.timeline.latency,
-//                         "request": response.timeline.requestDuration,
-//                         "parsing": response.timeline.serializationDuration,
-//                         "total": response.timeline.totalDuration]
-//            ])
+        logger?.infoGraphQL("graphql_complete", params: [
+            "url": url,
+            "requestId": requestId,
+            "status": statusCode,
+            "type": operation.type.rawValue,
+            "name": operation.name,
+            "variables": parameters?["variables"] ?? [:],
+            "timeline": ["latency": response.timeline.latency,
+                         "request": response.timeline.requestDuration,
+                         "parsing": response.timeline.serializationDuration,
+                         "total": response.timeline.totalDuration]
+            ])
 
         let data = response.data ?? Data()
         let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
@@ -125,25 +137,26 @@ private extension GraphQLClient {
                 throw GraphQLRemoteError.unexpectedJSON
             }
 
-            logOperationErrors(operation: operation, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
+            logOperationErrors(operation: operation, host: host, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
             try result.validateResponse()
 
             completion(.success(result))
         } catch {
-//            Logger.shared.log(logLevel: .error, message: "graphql_failure", parameters: [
-//                "url": url,
-//                "requestId": requestId,
-//                "status": statusCode,
-//                "type": operation.type.rawValue,
-//                "name": operation.name,
-//                "variables": parameters?["variables"] ?? [:],
-//                "timeline": ["latency": response.timeline.latency,
-//                             "request": response.timeline.requestDuration,
-//                             "parsing": response.timeline.serializationDuration,
-//                             "total": response.timeline.totalDuration],
-//                "response": rawJson ?? [:],
-//                "error": (error as? DebugError)?.debugDescription ?? error.localizedDescription
-//                ])
+            logger?.errorGraphQL("graphql_failure",
+                                 params: [
+                                    "url": url,
+                                    "requestId": requestId,
+                                    "status": statusCode,
+                                    "type": operation.type.rawValue,
+                                    "name": operation.name,
+                                    "variables": parameters?["variables"] ?? [:],
+                                    "timeline": ["latency": response.timeline.latency,
+                                                 "request": response.timeline.requestDuration,
+                                                 "parsing": response.timeline.serializationDuration,
+                                                 "total": response.timeline.totalDuration],
+                                    "response": rawJson ?? [:],
+                                    "error": (error as? GraphQLRemoteError)?.debugDescription ?? error.localizedDescription
+                ])
             completion(.failure(error))
         }
     }
@@ -183,23 +196,26 @@ private extension GraphQLClient {
         return headers
     }
 
-    func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                    requestId: String,
-                                                                    parameters: Parameters?,
-                                                                    result: U,
-                                                                    rawJson: [String: Any]?,
-                                                                    response: DataResponse<Any>) {
+    func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
+                                                                                    host: V,
+                                                                                    requestId: String,
+                                                                                    parameters: Parameters?,
+                                                                                    result: U,
+                                                                                    rawJson: [String: Any]?,
+                                                                                    response: DataResponse<Any>) {
+        let url = "\(host.baseURL)/graphql"
         for error in result.errors {
-//            Logger.shared.log(logLevel: .error, message: "graphql_operation_error", parameters: [
-//                "url": url,
-//                "requestId": requestId,
-//                "status": response.response?.statusCode ?? 0,
-//                "type": operation.type.rawValue,
-//                "name": operation.name,
-//                "variables": parameters?["variables"] ?? [:],
-//                "response": rawJson ?? [:],
-//                "operation_error": error.dictionary
-//                ])
+            logger?.errorGraphQL("graphql_operation_error",
+                                 params: [
+                                    "url": url,
+                                    "requestId": requestId,
+                                    "status": response.response?.statusCode ?? 0,
+                                    "type": operation.type.rawValue,
+                                    "name": operation.name,
+                                    "variables": parameters?["variables"] ?? [:],
+                                    "response": rawJson ?? [:],
+                                    "operation_error": error.dictionary
+                ])
         }
     }
 }
