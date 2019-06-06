@@ -20,12 +20,6 @@ public class GraphQLClient: GraphQLClientProtocol {
     private var logger: GraphQLLogging?
     private var provider: GraphQLProvider.Type?
 
-    // MARK: - Computed properties
-    private var url: String? {
-        guard let host = provider?.host else { return nil }
-        return "\(host.baseURL)/graphql"
-    }
-
     // MARK: - Initializers
     private init() {
         let configuration = URLSessionConfiguration.default
@@ -133,17 +127,17 @@ private extension GraphQLClient {
             ])
 
         let data = response.data ?? Data()
+        // rawJson is for logging purposes only
         let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
 
         do {
-            let data = response.data ?? Data()
-            let apiResponse = try decoder.decode(GraphQLResponse<U>.self, from: data)
+            try self.responseValidator.validateResponse(statusCode: statusCode, responseError: response.error)
 
-            try self.responseValidator.validateResponse(statusCode: statusCode, responseError: response.error, errors: apiResponse.errors ?? [])
+            let apiResponse = try decoder.decode(GraphQLResponse<U>.self, from: data)
 
             if let errors = apiResponse.errors, !errors.isEmpty {
                 // handle base error, 200 status code
-                throw GraphQLRemoteError.requestError(statusCode: statusCode, errors: errors)
+                throw GraphQLRemoteError.protocolError(statusCode: statusCode, errors: errors)
             }
             guard let result = apiResponse.data else {
                 throw GraphQLRemoteError.unexpectedJSON

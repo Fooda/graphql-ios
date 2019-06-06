@@ -9,8 +9,8 @@
 public enum GraphQLRemoteError: LocalizedError {
     case invalidCredentials // 401 or 403
     case siteMaintenance // 503
-    case serverError(statusCode: Int, errors: [GraphQLError])
-    case requestError(statusCode: Int, errors: [GraphQLError])
+    case serverError(statusCode: Int)
+    case protocolError(statusCode: Int, errors: [GraphQLError])
     case networkError(URLError)
     case unexpectedJSON
     case operationErrors(_ errors: [GraphQLNamedOperationError])
@@ -25,13 +25,13 @@ public enum GraphQLRemoteError: LocalizedError {
             return "Invalid credentials".localized()
         case .siteMaintenance:
             return "Sorry for the inconvenience but we're performing scheduled maintenance at the moment. If you need to you can always contact us at info@fooda.com. We'll be back online shortly!".localized()
-        case let .serverError(_, errors), let .requestError(_, errors):
+        case let .protocolError(_, errors: errors):
             return errors.first?.message ?? defaultMessage
         case let .operationErrors(errors):
             return errors.first?.error.message ?? defaultMessage
         case let .networkError(urlError):
             return urlError.localizedDescription
-        case .unexpectedJSON, .unknown, .undefinedHost:
+        case .serverError, .unexpectedJSON, .unknown, .undefinedHost:
             return defaultMessage
         }
     }
@@ -42,10 +42,10 @@ public enum GraphQLRemoteError: LocalizedError {
             return "invalid_credentials"
         case .siteMaintenance:
             return "site_maintenance"
-        case let .serverError(statusCode, _):
+        case let .serverError(statusCode):
             return "server_\(statusCode)"
-        case let .requestError(statusCode, _):
-            return "request_\(statusCode)"
+        case .protocolError:
+            return "protocol_error"
         case .operationErrors:
             return "operation_error"
         case .unknown:
