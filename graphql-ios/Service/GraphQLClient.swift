@@ -9,7 +9,7 @@
 import Alamofire
 import enum Swift.Result
 
-public struct GraphQLClient: GraphQLClientProtocol {
+public class GraphQLClient: GraphQLClientProtocol {
     public static let shared = GraphQLClient()
     private let manager: Alamofire.SessionManager
     private let decoder: GraphQLJSONDecoder
@@ -25,7 +25,7 @@ public struct GraphQLClient: GraphQLClientProtocol {
         responseValidator = GraphQLResponseValidator()
     }
 
-    public mutating func configure(logger: GraphQLLogging) {
+    public func configure(logger: GraphQLLogging) {
         self.logger = logger
         decoder.logger = logger
     }
