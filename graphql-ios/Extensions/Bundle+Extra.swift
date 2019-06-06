@@ -7,11 +7,6 @@
 //
 
 extension Bundle {
-    // MARK: - Class Methods
-    static var appName: String {
-        return main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "/"
-    }
-
     static var appVersion: String {
         return main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "/"
     }
