@@ -15,9 +15,18 @@ public class GraphQLClient: GraphQLClientProtocol {
     private let decoder: GraphQLJSONDecoder
     private let requestFormatter: GraphQLRequestFormatter
     private let responseValidator: GraphQLResponseValidator
-    private var logger: GraphQLLogging?
-    private var provider: GraphQLSessionTokenProvider.Type?
 
+    // MARK: - Configurable properties
+    private var logger: GraphQLLogging?
+    private var provider: GraphQLProvider.Type?
+
+    // MARK: - Computed properties
+    private var url: String? {
+        guard let host = provider?.host else { return nil }
+        return "\(host.baseURL)/graphql"
+    }
+
+    // MARK: - Initializers
     private init() {
         let configuration = URLSessionConfiguration.default
         manager = Alamofire.SessionManager(configuration: configuration)
@@ -26,20 +35,18 @@ public class GraphQLClient: GraphQLClientProtocol {
         responseValidator = GraphQLResponseValidator()
     }
 
-    public func configure(logger: GraphQLLogging, sessionTokenProvider: GraphQLSessionTokenProvider.Type) {
+    public func configure(logger: GraphQLLogging, provider: GraphQLProvider.Type) {
         self.logger = logger
         decoder.logger = logger
-        self.provider = sessionTokenProvider
+        self.provider = provider
     }
 
-    public func performOperation<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(_ operation: T,
-                                                                                         host: V,
+    public func performOperation<T: GraphQLOperation, U: GraphQLPayload>(_ operation: T,
                                                                                          parameters: GraphQLParameters? = nil,
                                                                                          headers: [String: String]? = nil,
                                                                                          completion: @escaping ((Result<U, Error>) -> Void)) {
         let requestBody = requestFormatter.requestBody(operation, parameters: parameters)
         request(operation: operation,
-                host: host,
                 method: .post,
                 parameters: requestBody,
                 headers: headers,
@@ -49,12 +56,15 @@ public class GraphQLClient: GraphQLClientProtocol {
 
 // MARK: - Private Methods
 private extension GraphQLClient {
-    func request<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
-                                                                         host: V,
+    func request<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
                                                                          method: HTTPMethod,
                                                                          parameters: Parameters? = nil,
                                                                          headers: [String: String]? = nil,
                                                                          completion: @escaping ((Result<U, Error>) -> Void)) {
+        guard let host = provider?.host else {
+            completion(.failure(GraphQLRemoteError.undefinedHost))
+            return
+        }
         let url = "\(host.baseURL)/graphql"
         let requestId = UUID().uuidString
         logger?.infoGraphQL("graphql_start",
@@ -98,8 +108,8 @@ private extension GraphQLClient {
         }
     }
 
-    func handleResponse<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
-                                                                                host: V,
+    func handleResponse<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
+                                                                                host: GraphQLHost,
                                                                                 requestId: String,
                                                                                 method: HTTPMethod,
                                                                                 parameters: Parameters?,
@@ -195,8 +205,8 @@ private extension GraphQLClient {
         return headers
     }
 
-    func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(operation: T,
-                                                                                    host: V,
+    func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
+                                                                                    host: GraphQLHost,
                                                                                     requestId: String,
                                                                                     parameters: Parameters?,
                                                                                     result: U,

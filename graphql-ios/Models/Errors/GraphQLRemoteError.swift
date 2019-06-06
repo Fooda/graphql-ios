@@ -14,6 +14,7 @@ public enum GraphQLRemoteError: LocalizedError {
     case networkError(URLError)
     case unexpectedJSON
     case operationErrors(_ errors: [GraphQLNamedOperationError])
+    case undefinedHost
     case unknown
 
     public var errorDescription: String? {
@@ -30,7 +31,7 @@ public enum GraphQLRemoteError: LocalizedError {
             return errors.first?.error.message ?? defaultMessage
         case let .networkError(urlError):
             return urlError.localizedDescription
-        case .unexpectedJSON, .unknown:
+        case .unexpectedJSON, .unknown, .undefinedHost:
             return defaultMessage
         }
     }
@@ -51,6 +52,8 @@ public enum GraphQLRemoteError: LocalizedError {
             return "unknown_error"
         case .unexpectedJSON:
             return "unexpected_json"
+        case .undefinedHost:
+            return "undefined_host"
         case let .networkError(urlError):
             return "network_\((urlError as NSError).debugDescription)"
         }
