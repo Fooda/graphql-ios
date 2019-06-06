@@ -16,6 +16,7 @@ public class GraphQLClient: GraphQLClientProtocol {
     private let requestFormatter: GraphQLRequestFormatter
     private let responseValidator: GraphQLResponseValidator
     private var logger: GraphQLLogging?
+    private var provider: GraphQLSessionTokenProvider.Type?
 
     private init() {
         let configuration = URLSessionConfiguration.default
@@ -25,9 +26,10 @@ public class GraphQLClient: GraphQLClientProtocol {
         responseValidator = GraphQLResponseValidator()
     }
 
-    public func configure(logger: GraphQLLogging) {
+    public func configure(logger: GraphQLLogging, sessionTokenProvider: GraphQLSessionTokenProvider.Type) {
         self.logger = logger
         decoder.logger = logger
+        self.provider = sessionTokenProvider
     }
 
     public func performOperation<T: GraphQLOperation, U: GraphQLPayload, V: GraphQLHost>(_ operation: T,
@@ -181,17 +183,14 @@ private extension GraphQLClient {
         // session token
         switch authentication {
         case .authenticated:
-            // TODO: How to handle invalid session token
-            //            guard let sessionToken = UserManager.sessionToken else {
-            //                throw RemoteResourceError.invalidCredentials
-            //            }
-            //            headers["X-SessionToken"] = sessionToken
-            break
+            guard let sessionToken = provider?.sessionToken else {
+                throw GraphQLRemoteError.invalidCredentials
+            }
+            headers["X-SessionToken"] = sessionToken
         case .anonymous:
-            //            if let sessionToken = UserManager.sessionToken {
-            //                headers["X-SessionToken"] = sessionToken
-            //            }
-            break
+            if let sessionToken = provider?.sessionToken {
+                headers["X-SessionToken"] = sessionToken
+            }
         }
         return headers
     }
