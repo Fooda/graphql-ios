@@ -17,7 +17,7 @@ public final class GraphQLObserver {
     weak var delegate: GraphQLObserverDelegate?
     private let notificationCenter = NotificationCenter.default
 
-    init() {
+    public init() {
         notificationCenter.addObserver(self,
                                        selector: #selector(didReceiveInvalidCredentials),
                                        name: Notification.Name.UserUnauthorized,
