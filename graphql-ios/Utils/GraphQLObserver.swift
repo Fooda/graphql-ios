@@ -14,7 +14,7 @@ public protocol GraphQLObserverDelegate: AnyObject {
 }
 
 public final class GraphQLObserver {
-    weak var delegate: GraphQLObserverDelegate?
+    public weak var delegate: GraphQLObserverDelegate?
     private let notificationCenter = NotificationCenter.default
 
     public init() {
