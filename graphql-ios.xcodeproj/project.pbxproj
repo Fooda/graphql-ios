@@ -41,6 +41,7 @@
 		A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */; };
 		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
 		A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */; };
+		A5BFD28F22AB026600B37555 /* GraphQLObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */; };
 		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
 		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
 		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
@@ -96,6 +97,7 @@
 		A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLDecodable.swift; sourceTree = "<group>"; };
 		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLProvider.swift; sourceTree = "<group>"; };
+		A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLObserver.swift; sourceTree = "<group>"; };
 		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
 		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		A52B128F22A6BCC000EAA97E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */,
 				A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */,
 			);
 			path = Utils;
@@ -427,6 +430,7 @@
 				A52B12A222A6BD2D00EAA97E /* GetUserNode.swift in Sources */,
 				A52B12A122A6BD2D00EAA97E /* CampaignNode.swift in Sources */,
 				A52B12A522A6BD2D00EAA97E /* BannerStyleNode.swift in Sources */,
+				A5BFD28F22AB026600B37555 /* GraphQLObserver.swift in Sources */,
 				A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */,
 				A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */,
 				A52B12A322A6BD2D00EAA97E /* UserNode.swift in Sources */,

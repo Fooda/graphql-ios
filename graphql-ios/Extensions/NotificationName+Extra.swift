@@ -7,6 +7,6 @@
 //
 
 extension Notification.Name {
-    static let UserUnauthorized = Notification.Name("UserUnauthorized")
-    static let SiteMaintenance = Notification.Name("SiteMaintenance")
+    static let UserUnauthorized = Notification.Name("graphql_ios.UserUnauthorized")
+    static let SiteMaintenance = Notification.Name("graphql_ios.SiteMaintenance")
 }
