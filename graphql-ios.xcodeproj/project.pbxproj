@@ -42,6 +42,7 @@
 		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
 		A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */; };
 		A5BFD28F22AB026600B37555 /* GraphQLObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */; };
+		A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */; };
 		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
 		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
 		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
@@ -98,6 +99,7 @@
 		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLProvider.swift; sourceTree = "<group>"; };
 		A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLObserver.swift; sourceTree = "<group>"; };
+		A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteErrorTests.swift; sourceTree = "<group>"; };
 		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
 		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		A5B6775222A5ACF700708DD3 /* graphql-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5BFD29022AEA31900B37555 /* Models */,
 				A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */,
 				A5B6775522A5ACF700708DD3 /* Info.plist */,
 			);
@@ -264,11 +267,19 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		A5BFD29022AEA31900B37555 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F40FC23B399D73BAFA52EA45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */,
-				FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */,
+				6E03848EDD02D7745E3D80E9 /* Pods_graphql_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -450,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
 				A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
