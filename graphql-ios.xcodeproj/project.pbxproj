@@ -52,6 +52,21 @@
 		A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
 		A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
 		A5D2EC6F22AEED0800626D76 /* MockHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6E22AEED0800626D76 /* MockHost.swift */; };
+		A5D2EC7122AEF46200626D76 /* GraphQLParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */; };
+		A5D2EC7322AEF4B200626D76 /* GraphQLRequestFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */; };
+		A5D2EC7522AEF4E500626D76 /* GraphQLValidatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */; };
+		A5D2EC7722AEF5A500626D76 /* MockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7622AEF5A500626D76 /* MockOperation.swift */; };
+		A5D2EC8322AEF8B900626D76 /* CampaignNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7922AEF8B800626D76 /* CampaignNodeTests.swift */; };
+		A5D2EC8422AEF8B900626D76 /* GetUserNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7A22AEF8B800626D76 /* GetUserNodeTests.swift */; };
+		A5D2EC8522AEF8B900626D76 /* GraphQLNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7B22AEF8B800626D76 /* GraphQLNodeTests.swift */; };
+		A5D2EC8622AEF8B900626D76 /* ErrorNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7C22AEF8B900626D76 /* ErrorNodeTests.swift */; };
+		A5D2EC8722AEF8B900626D76 /* CampaignBannerNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7D22AEF8B900626D76 /* CampaignBannerNodeTests.swift */; };
+		A5D2EC8822AEF8B900626D76 /* CreateSessionNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7E22AEF8B900626D76 /* CreateSessionNodeTests.swift */; };
+		A5D2EC8922AEF8B900626D76 /* BannerStyleNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7F22AEF8B900626D76 /* BannerStyleNodeTests.swift */; };
+		A5D2EC8A22AEF8B900626D76 /* SessionNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8022AEF8B900626D76 /* SessionNodeTests.swift */; };
+		A5D2EC8B22AEF8B900626D76 /* UserNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8122AEF8B900626D76 /* UserNodeTests.swift */; };
+		A5D2EC8C22AEF8B900626D76 /* PhoneNumberNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8222AEF8B900626D76 /* PhoneNumberNodeTests.swift */; };
+		A5D2EC8E22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */; };
 		C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */; };
 		E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +134,21 @@
 		A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
 		A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
 		A5D2EC6E22AEED0800626D76 /* MockHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHost.swift; sourceTree = "<group>"; };
+		A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLParametersTests.swift; sourceTree = "<group>"; };
+		A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRequestFormatterTests.swift; sourceTree = "<group>"; };
+		A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLValidatingTests.swift; sourceTree = "<group>"; };
+		A5D2EC7622AEF5A500626D76 /* MockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOperation.swift; sourceTree = "<group>"; };
+		A5D2EC7922AEF8B800626D76 /* CampaignNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC7A22AEF8B800626D76 /* GetUserNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC7B22AEF8B800626D76 /* GraphQLNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC7C22AEF8B900626D76 /* ErrorNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC7D22AEF8B900626D76 /* CampaignBannerNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignBannerNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC7E22AEF8B900626D76 /* CreateSessionNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC7F22AEF8B900626D76 /* BannerStyleNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerStyleNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC8022AEF8B900626D76 /* SessionNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC8122AEF8B900626D76 /* UserNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC8222AEF8B900626D76 /* PhoneNumberNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberNodeTests.swift; sourceTree = "<group>"; };
+		A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidatorTests.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +276,7 @@
 				A5D2EC6822AEE6A300626D76 /* TestHelpers */,
 				A5BFD29022AEA31900B37555 /* Models */,
 				A5D2EC6322AEE5F700626D76 /* Service */,
+				A5D2EC7822AEF89100626D76 /* Nodes */,
 				A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */,
 				A5B6775522A5ACF700708DD3 /* Info.plist */,
 			);
@@ -310,6 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */,
+				A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */,
+				A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */,
+				A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */,
+				A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -329,8 +364,26 @@
 				A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */,
 				A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */,
 				A5D2EC6E22AEED0800626D76 /* MockHost.swift */,
+				A5D2EC7622AEF5A500626D76 /* MockOperation.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A5D2EC7822AEF89100626D76 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2EC7F22AEF8B900626D76 /* BannerStyleNodeTests.swift */,
+				A5D2EC7D22AEF8B900626D76 /* CampaignBannerNodeTests.swift */,
+				A5D2EC7922AEF8B800626D76 /* CampaignNodeTests.swift */,
+				A5D2EC7E22AEF8B900626D76 /* CreateSessionNodeTests.swift */,
+				A5D2EC7C22AEF8B900626D76 /* ErrorNodeTests.swift */,
+				A5D2EC7A22AEF8B800626D76 /* GetUserNodeTests.swift */,
+				A5D2EC7B22AEF8B800626D76 /* GraphQLNodeTests.swift */,
+				A5D2EC8222AEF8B900626D76 /* PhoneNumberNodeTests.swift */,
+				A5D2EC8022AEF8B900626D76 /* SessionNodeTests.swift */,
+				A5D2EC8122AEF8B900626D76 /* UserNodeTests.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 		F40FC23B399D73BAFA52EA45 /* Frameworks */ = {
@@ -561,12 +614,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D2EC8C22AEF8B900626D76 /* PhoneNumberNodeTests.swift in Sources */,
+				A5D2EC7522AEF4E500626D76 /* GraphQLValidatingTests.swift in Sources */,
 				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
 				A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */,
+				A5D2EC7322AEF4B200626D76 /* GraphQLRequestFormatterTests.swift in Sources */,
+				A5D2EC8E22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift in Sources */,
 				A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */,
+				A5D2EC8A22AEF8B900626D76 /* SessionNodeTests.swift in Sources */,
+				A5D2EC8422AEF8B900626D76 /* GetUserNodeTests.swift in Sources */,
 				A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */,
+				A5D2EC8722AEF8B900626D76 /* CampaignBannerNodeTests.swift in Sources */,
+				A5D2EC8522AEF8B900626D76 /* GraphQLNodeTests.swift in Sources */,
 				A5D2EC6F22AEED0800626D76 /* MockHost.swift in Sources */,
+				A5D2EC8322AEF8B900626D76 /* CampaignNodeTests.swift in Sources */,
+				A5D2EC8922AEF8B900626D76 /* BannerStyleNodeTests.swift in Sources */,
+				A5D2EC8822AEF8B900626D76 /* CreateSessionNodeTests.swift in Sources */,
+				A5D2EC8B22AEF8B900626D76 /* UserNodeTests.swift in Sources */,
+				A5D2EC8622AEF8B900626D76 /* ErrorNodeTests.swift in Sources */,
+				A5D2EC7122AEF46200626D76 /* GraphQLParametersTests.swift in Sources */,
 				A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */,
+				A5D2EC7722AEF5A500626D76 /* MockOperation.swift in Sources */,
 				A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

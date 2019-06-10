@@ -13,7 +13,7 @@ class GraphQLClientTests: XCTestCase {
     private lazy var client = GraphQLClient.shared
     private lazy var url = "api.fooda.com/graphql"
 
-    enum MockQuery: GraphQLOperation {
+    enum MockOperation: GraphQLOperation {
         case authenticated
         case anonymous
 
@@ -69,7 +69,7 @@ class GraphQLClientTests: XCTestCase {
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let operation = MockQuery.authenticated
+        let operation = MockOperation.authenticated
         client.performOperation(operation) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
@@ -86,7 +86,7 @@ class GraphQLClientTests: XCTestCase {
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200)
         let promise = expectation(description: "Wait for client")
 
-        let operation = MockQuery.authenticated
+        let operation = MockOperation.authenticated
         client.performOperation(operation) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
@@ -105,7 +105,7 @@ class GraphQLClientTests: XCTestCase {
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let operation = MockQuery.anonymous
+        let operation = MockOperation.anonymous
         client.performOperation(operation) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
@@ -137,7 +137,7 @@ class GraphQLClientTests: XCTestCase {
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 503, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let operation = MockQuery.anonymous
+        let operation = MockOperation.anonymous
         client.performOperation(operation) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
@@ -170,7 +170,7 @@ class GraphQLClientTests: XCTestCase {
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let operation = MockQuery.anonymous
+        let operation = MockOperation.anonymous
         client.performOperation(operation) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
@@ -200,7 +200,7 @@ class GraphQLClientTests: XCTestCase {
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let operation = MockQuery.anonymous
+        let operation = MockOperation.anonymous
         client.performOperation(operation) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
