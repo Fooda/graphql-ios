@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,11 @@
 		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
 		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
 		A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */; };
+		A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */; };
+		A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6622AEE69B00626D76 /* StubManager.swift */; };
+		A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
+		A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
+		A5D2EC6F22AEED0800626D76 /* MockHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6E22AEED0800626D76 /* MockHost.swift */; };
 		C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */; };
 		E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +114,11 @@
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
 		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
 		A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLLogging.swift; sourceTree = "<group>"; };
+		A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientTests.swift; sourceTree = "<group>"; };
+		A5D2EC6622AEE69B00626D76 /* StubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubManager.swift; sourceTree = "<group>"; };
+		A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
+		A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
+		A5D2EC6E22AEED0800626D76 /* MockHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHost.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,7 +243,9 @@
 		A5B6775222A5ACF700708DD3 /* graphql-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2EC6822AEE6A300626D76 /* TestHelpers */,
 				A5BFD29022AEA31900B37555 /* Models */,
+				A5D2EC6322AEE5F700626D76 /* Service */,
 				A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */,
 				A5B6775522A5ACF700708DD3 /* Info.plist */,
 			);
@@ -292,6 +304,33 @@
 				FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A5D2EC6322AEE5F700626D76 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A5D2EC6822AEE6A300626D76 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2EC6922AEEBD700626D76 /* Mocks */,
+				A5D2EC6622AEE69B00626D76 /* StubManager.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		A5D2EC6922AEEBD700626D76 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */,
+				A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */,
+				A5D2EC6E22AEED0800626D76 /* MockHost.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		F40FC23B399D73BAFA52EA45 /* Frameworks */ = {
@@ -523,7 +562,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
+				A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */,
+				A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */,
 				A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */,
+				A5D2EC6F22AEED0800626D76 /* MockHost.swift in Sources */,
+				A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */,
+				A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

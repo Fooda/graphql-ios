@@ -7,5 +7,6 @@ target 'graphql-ios' do
   target 'graphql-iosTests' do
       inherit! :search_paths
       pod 'Alamofire', '4.8.2'
+      pod 'OHHTTPStubs/Swift'
   end
 end

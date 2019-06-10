@@ -18,7 +18,7 @@ public class GraphQLClient: GraphQLClientProtocol {
 
     // MARK: - Configurable properties
     private var logger: GraphQLLogging?
-    private var provider: GraphQLProvider.Type?
+    private var provider: GraphQLProvider?
 
     // MARK: - Initializers
     private init() {
@@ -29,7 +29,7 @@ public class GraphQLClient: GraphQLClientProtocol {
         responseValidator = GraphQLResponseValidator()
     }
 
-    public func configure(logger: GraphQLLogging, provider: GraphQLProvider.Type) {
+    public func configure(logger: GraphQLLogging, provider: GraphQLProvider) {
         self.logger = logger
         decoder.logger = logger
         self.provider = provider
