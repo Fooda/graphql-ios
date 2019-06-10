@@ -36,9 +36,9 @@ public class GraphQLClient: GraphQLClientProtocol {
     }
 
     public func performOperation<T: GraphQLOperation, U: GraphQLPayload>(_ operation: T,
-                                                                                         parameters: GraphQLParameters? = nil,
-                                                                                         headers: [String: String]? = nil,
-                                                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
+                                                                         parameters: GraphQLParameters? = nil,
+                                                                         headers: [String: String]? = nil,
+                                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
         let requestBody = requestFormatter.requestBody(operation, parameters: parameters)
         request(operation: operation,
                 method: .post,
@@ -51,10 +51,10 @@ public class GraphQLClient: GraphQLClientProtocol {
 // MARK: - Private Methods
 private extension GraphQLClient {
     func request<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                         method: HTTPMethod,
-                                                                         parameters: Parameters? = nil,
-                                                                         headers: [String: String]? = nil,
-                                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
+                                                         method: HTTPMethod,
+                                                         parameters: Parameters? = nil,
+                                                         headers: [String: String]? = nil,
+                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
         guard let host = provider?.host else {
             completion(.failure(GraphQLRemoteError.undefinedHost))
             return
@@ -103,13 +103,13 @@ private extension GraphQLClient {
     }
 
     func handleResponse<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                                host: GraphQLHost,
-                                                                                requestId: String,
-                                                                                method: HTTPMethod,
-                                                                                parameters: Parameters?,
-                                                                                headers: [String: String]?,
-                                                                                response: DataResponse<Any>,
-                                                                                completion: @escaping ((Result<U, Error>) -> Void)) {
+                                                                host: GraphQLHost,
+                                                                requestId: String,
+                                                                method: HTTPMethod,
+                                                                parameters: Parameters?,
+                                                                headers: [String: String]?,
+                                                                response: DataResponse<Any>,
+                                                                completion: @escaping ((Result<U, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
         let url = "\(host.baseURL)/graphql"
 
@@ -200,12 +200,12 @@ private extension GraphQLClient {
     }
 
     func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                                    host: GraphQLHost,
-                                                                                    requestId: String,
-                                                                                    parameters: Parameters?,
-                                                                                    result: U,
-                                                                                    rawJson: [String: Any]?,
-                                                                                    response: DataResponse<Any>) {
+                                                                    host: GraphQLHost,
+                                                                    requestId: String,
+                                                                    parameters: Parameters?,
+                                                                    result: U,
+                                                                    rawJson: [String: Any]?,
+                                                                    response: DataResponse<Any>) {
         let url = "\(host.baseURL)/graphql"
         for error in result.errors {
             logger?.errorGraphQL("graphql_operation_error",
