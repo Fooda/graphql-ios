@@ -9,7 +9,7 @@
 public protocol GraphQLNode: CustomStringConvertible {}
 
 extension GraphQLNode {
-    func stringRepresentation(key: String, internalNodes: [GraphQLNode]?) -> String {
+    public func stringRepresentation(key: String, internalNodes: [GraphQLNode]?) -> String {
         if let internalNodes = internalNodes, !internalNodes.isEmpty {
             let internalString = internalNodes.map { $0.description }.joined(separator: "\n")
             return key + " {\n" + internalString + "\n}\n"
