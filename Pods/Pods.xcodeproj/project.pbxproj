@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01C31741CBA65853A6B80B42BEB58D16 /* Pods-graphql-iosTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7D691842DCC4B4B65F892DE30673F5 /* Pods-graphql-iosTests-dummy.m */; };
 		022742787C4A305C3AB968E23ECF7E9C /* OHHTTPStubsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F762FBBB58ACD48CF486238BC34B749 /* OHHTTPStubsResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0341AEEA72F44D9CDF7EB466630F43CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
 		04EF085A573559A0B8D15842204C5B1E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B079F294DA5D9A879E6D53A91F51A1E /* CFNetwork.framework */; };
-		050AB646FDCA7E0FA2A7A5788A3295E0 /* Pods-graphql-iosTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7D691842DCC4B4B65F892DE30673F5 /* Pods-graphql-iosTests-dummy.m */; };
 		051FD68F1510179C79C542C7F1051E76 /* OHHTTPStubsResponse+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 37DC0F233C05F43670B2C9F70F245D62 /* OHHTTPStubsResponse+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14ECF6E40B0356170FEDE170B2EB6F2F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24452617BA03653B4B6B55086B4B9D2 /* Request.swift */; };
 		15B8525E75477E609DB0009B5E58F16C /* NSURLRequest+HTTPBodyTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 877615850AB97132F3476A591D5DD74C /* NSURLRequest+HTTPBodyTesting.m */; };
 		16E8516FF990B1E2891E3E77F36C97A6 /* OHHTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 442495BACF1104090AF5CC3B8CA80D57 /* OHHTTPStubsResponse+JSON.m */; };
-		2154EF85C00B1743DA451DF6F77FB29B /* Pods-graphql-iosTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7174D5FC8083DAEB98F560CB6F813482 /* Pods-graphql-iosTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		225A3562560CE3C2498E86F5EB327072 /* Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = E99B053C78A7C5A3D7126A900A91D263 /* Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29628D5637676F6AD2BF0A7E2A3182CB /* OHHTTPStubsMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8BFC1A87703730A34E61533E1D3E1A /* OHHTTPStubsMethodSwizzling.m */; };
 		316974605E17E62AEED8C0E47B6597D9 /* OHHTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = E21FAC949E957EAE0021C5104B3B21A8 /* OHHTTPStubs.m */; };
 		3A2C0CDE6DB45F620A0931B2F4191F92 /* OHHTTPStubsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02941290E3D8E1E9F825D0EA9855EB4 /* OHHTTPStubsSwift.swift */; };
-		3B33BB26060437EAEAE08B4A0AFAB16A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
 		490E1625EAED3B60740E78E89C6ED202 /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA2E3107DFF06F171F377DB786CC89 /* OHHTTPStubs+NSURLSessionConfiguration.m */; };
 		4920AD2B3D668DB550BEDED6747F925B /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A0426B9E3338824ACEF5EC9366C73 /* ServerTrustPolicy.swift */; };
 		505B75241DCEA8C1FBF9F479C2DDEF31 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A40843D7A5DDDE96F5A86E9ECDB847 /* Timeline.swift */; };
@@ -48,6 +46,8 @@
 		D583829CA1D3C6B9B8F5C085B1D597EF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CBEF1CE241658A3599C9D2AB250322 /* Validation.swift */; };
 		E7BA58DE1AA8F11BAA7E8817D8AB509C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E495D5332F8C7EC885D132D13421E0C7 /* Result.swift */; };
 		E9785FB1BBEC85269D6691FABF847E58 /* NSURLRequest+HTTPBodyTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C6913113331A5564EB323BC51F0AC0 /* NSURLRequest+HTTPBodyTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B6B86980C5023B19913BF5CFBFAE72 /* Pods-graphql-iosTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7174D5FC8083DAEB98F560CB6F813482 /* Pods-graphql-iosTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2E3A97BF29883A4CDA300FAB9A2D013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222DAEF0D819F359AFCFF3D4F927E8A7 /* Foundation.framework */; };
 		F4D82D78C14BF258042CDA3C1B15B7E1 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC45F1E0984FC4EA48B202793FC1A57 /* MultipartFormData.swift */; };
 		F89E03219467FB885E84086B8000B471 /* OHHTTPStubs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 05A47AD4E0249DEF18907FA0EAA4BBBE /* OHHTTPStubs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F95CAA42704C91E9A788981F33F0E4B3 /* OHHTTPStubs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2808A874BAD45DC84CA92613CBD900F4 /* OHHTTPStubs-dummy.m */; };
@@ -62,26 +62,19 @@
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
 		};
-		1A9F0D93DE108C84F01278213A7D1AA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A983A2D06C5B6AA3D6ABA5CCC0A16725;
-			remoteInfo = OHHTTPStubs;
-		};
-		5B0EA74CD8673E2EA520BD4D37660A93 /* PBXContainerItemProxy */ = {
+		9CAFA21FD97CEA0B9C32BA851ED795D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
 		};
-		A927F6DB9E1134BA25FCDC478F0443BB /* PBXContainerItemProxy */ = {
+		A549322946A7EB07861B06357A5A4999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 12050234747B2751C902506E11A8A63C;
-			remoteInfo = "Pods-graphql-ios";
+			remoteGlobalIDString = A983A2D06C5B6AA3D6ABA5CCC0A16725;
+			remoteInfo = OHHTTPStubs;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -166,19 +159,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		476875C1E28AE5F7CD673D4170A6D0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2E3A97BF29883A4CDA300FAB9A2D013 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF1C1A157E8784EA8CC3B4A83868BD5C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9DB01F494FFEC69EDD8FD1C792909027 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE244C42A76E35060BC1A01315DF3E28 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B33BB26060437EAEAE08B4A0AFAB16A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,11 +428,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5D957D9EAE4AD192C193D1881AA065E /* Headers */ = {
+		97118CC5B5312ED58CB1F879A53BE03F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2154EF85C00B1743DA451DF6F77FB29B /* Pods-graphql-iosTests-umbrella.h in Headers */,
+				E9B6B86980C5023B19913BF5CFBFAE72 /* Pods-graphql-iosTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,19 +478,18 @@
 		};
 		A9AAD8E7BE18D532EE01E059FE518657 /* Pods-graphql-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB8E0A50C257C9750BBBCBE7E20967CA /* Build configuration list for PBXNativeTarget "Pods-graphql-iosTests" */;
+			buildConfigurationList = 75CC49DDFEFE0C835B0A5613EC23CE46 /* Build configuration list for PBXNativeTarget "Pods-graphql-iosTests" */;
 			buildPhases = (
-				E5D957D9EAE4AD192C193D1881AA065E /* Headers */,
-				3E033508626888CD967589F35F03E631 /* Sources */,
-				CE244C42A76E35060BC1A01315DF3E28 /* Frameworks */,
-				36031BFEE995A05DAD02F12C840A9340 /* Resources */,
+				97118CC5B5312ED58CB1F879A53BE03F /* Headers */,
+				CAA1FBFC2E2635E611A416FECD996999 /* Sources */,
+				476875C1E28AE5F7CD673D4170A6D0F4 /* Frameworks */,
+				2D1B43958726FE6A27A38551A9514529 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				596ED886CA0248ADB6535842A3774E25 /* PBXTargetDependency */,
-				5970FDE61A262FAECBFFA61F298758C3 /* PBXTargetDependency */,
-				406A2AC3E420FDD4C8DE1BD1A92B4554 /* PBXTargetDependency */,
+				02507ABCE4CB91188786A1DCF2B5F1DD /* PBXTargetDependency */,
+				0C8E9267CE3279D3E497E32807AAF95A /* PBXTargetDependency */,
 			);
 			name = "Pods-graphql-iosTests";
 			productName = "Pods-graphql-iosTests";
@@ -559,7 +551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		36031BFEE995A05DAD02F12C840A9340 /* Resources */ = {
+		2D1B43958726FE6A27A38551A9514529 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -599,19 +591,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E033508626888CD967589F35F03E631 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				050AB646FDCA7E0FA2A7A5788A3295E0 /* Pods-graphql-iosTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		792977AFE2B8CBB878FDF505780118F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D42A7F3672C153B0F58238E3E68F40DA /* Pods-graphql-ios-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAA1FBFC2E2635E611A416FECD996999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01C31741CBA65853A6B80B42BEB58D16 /* Pods-graphql-iosTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,23 +635,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		406A2AC3E420FDD4C8DE1BD1A92B4554 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-graphql-ios";
-			target = 12050234747B2751C902506E11A8A63C /* Pods-graphql-ios */;
-			targetProxy = A927F6DB9E1134BA25FCDC478F0443BB /* PBXContainerItemProxy */;
-		};
-		596ED886CA0248ADB6535842A3774E25 /* PBXTargetDependency */ = {
+		02507ABCE4CB91188786A1DCF2B5F1DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
-			targetProxy = 5B0EA74CD8673E2EA520BD4D37660A93 /* PBXContainerItemProxy */;
+			targetProxy = 9CAFA21FD97CEA0B9C32BA851ED795D8 /* PBXContainerItemProxy */;
 		};
-		5970FDE61A262FAECBFFA61F298758C3 /* PBXTargetDependency */ = {
+		0C8E9267CE3279D3E497E32807AAF95A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OHHTTPStubs;
 			target = A983A2D06C5B6AA3D6ABA5CCC0A16725 /* OHHTTPStubs */;
-			targetProxy = 1A9F0D93DE108C84F01278213A7D1AA4 /* PBXContainerItemProxy */;
+			targetProxy = A549322946A7EB07861B06357A5A4999 /* PBXContainerItemProxy */;
 		};
 		A84E82F8FB309A280F66D2B9B2E8D091 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -670,6 +656,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0C0FF4F6C94E31B37ACB76CE08A0FE01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7274E7954416AE6EBEF5CA449BB7D313 /* Pods-graphql-iosTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		40A9024CCB5DB0FC1A4B1C1DFBFD48ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A292E735A9C80491503B4266BA080876 /* OHHTTPStubs.xcconfig */;
@@ -739,44 +763,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		7F7E4A383BAC22DEE580932080A37D9C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7274E7954416AE6EBEF5CA449BB7D313 /* Pods-graphql-iosTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -974,6 +960,43 @@
 			};
 			name = Release;
 		};
+		BADA0D9455F845FAD5531E661CDEF113 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3A6EF87736F988C50F9D666BC081CFD /* Pods-graphql-iosTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		C15844B438DEF18E1CC2838671C29AE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 30EB34D778586A12CF6A5666E69BF831 /* Pods-graphql-ios.release.xcconfig */;
@@ -1049,43 +1072,6 @@
 			};
 			name = Debug;
 		};
-		FE1B43DE1FA07FF8D0CDE36E1556D8A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3A6EF87736F988C50F9D666BC081CFD /* Pods-graphql-iosTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1094,6 +1080,15 @@
 			buildConfigurations = (
 				916E0404255105F480DC4950B7625F7A /* Debug */,
 				8F17DC3A99F99FBAD606CE6963886315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75CC49DDFEFE0C835B0A5613EC23CE46 /* Build configuration list for PBXNativeTarget "Pods-graphql-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BADA0D9455F845FAD5531E661CDEF113 /* Debug */,
+				0C0FF4F6C94E31B37ACB76CE08A0FE01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1121,15 +1116,6 @@
 			buildConfigurations = (
 				533220A7363132F85843031FA4F2AAAB /* Debug */,
 				9838C58BD1AA67DBD29475983CB12D4A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB8E0A50C257C9750BBBCBE7E20967CA /* Build configuration list for PBXNativeTarget "Pods-graphql-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FE1B43DE1FA07FF8D0CDE36E1556D8A7 /* Debug */,
-				7F7E4A383BAC22DEE580932080A37D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

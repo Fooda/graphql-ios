@@ -1,12 +1,16 @@
 platform :ios, '9.0'
 use_frameworks!
 
-target 'graphql-ios' do
+def availablePods
   pod 'Alamofire', '4.8.2'
+end
 
-  target 'graphql-iosTests' do
-      inherit! :search_paths
-      pod 'Alamofire', '4.8.2'
-      pod 'OHHTTPStubs/Swift'
-  end
+target 'graphql-ios' do
+  availablePods
+end
+
+target 'graphql-iosTests' do
+  inherit! :search_paths
+  availablePods
+  pod 'OHHTTPStubs/Swift'
 end
