@@ -29,7 +29,7 @@ public class GraphQLClient: GraphQLClientProtocol {
         responseValidator = GraphQLResponseValidator()
     }
 
-    public func configure(logger: GraphQLLogging, provider: GraphQLProvider) {
+    public func configure(logger: GraphQLLogging?, provider: GraphQLProvider) {
         self.logger = logger
         decoder.logger = logger
         self.provider = provider
@@ -84,11 +84,11 @@ private extension GraphQLClient {
             return
         }
 
-        manager.request("\(host.baseURL)/graphql",
-            method: method,
-            parameters: parameters,
-            encoding: JSONEncoding.default,
-            headers: updatedHeaders)
+        manager.request(url,
+                        method: method,
+                        parameters: parameters,
+                        encoding: JSONEncoding.default,
+                        headers: updatedHeaders)
             .validate()
             .responseJSON { response in
                 self.handleResponse(operation: operation,
