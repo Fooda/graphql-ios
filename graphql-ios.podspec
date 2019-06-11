@@ -29,15 +29,6 @@ s.description  = "<<-DESC
 This is a graphql client for Fooda iOS applications.
 DESC"
 
-# ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-#
-#  Licensing your code is important. See http://choosealicense.com for more info.
-#  CocoaPods will detect a license file if there is a named LICENSE*
-#  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-#
-
-s.license      = { :type => "MIT", :file => "LICENSE" }
-
 
 # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
