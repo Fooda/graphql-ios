@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "graphql-ios"
-s.version      = "0.1.0"
+s.version      = "1.0.0"
 s.summary      = "A custom GraphQL library for Fooda iOS apps."
 s.homepage     = "https://github.com/Fooda/graphql-ios"
 
