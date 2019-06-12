@@ -3,13 +3,52 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */; };
+		A508FE3D22B036410057838A /* GraphQLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508FE3C22B036410057838A /* GraphQLNode.swift */; };
+		A508FE5622B039C40057838A /* GraphQLNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508FE5522B039C40057838A /* GraphQLNodeTests.swift */; };
+		A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */; };
+		A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */; };
+		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
+		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
+		A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */; };
 		A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B6774522A5ACF700708DD3 /* graphql_ios.framework */; };
 		A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */; };
 		A5B6775622A5ACF700708DD3 /* graphql_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5B6776722A5AE1400708DD3 /* GraphQLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776022A5AE1300708DD3 /* GraphQLParameters.swift */; };
+		A5B6776822A5AE1400708DD3 /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776122A5AE1400708DD3 /* GraphQLOperation.swift */; };
+		A5B6776922A5AE1400708DD3 /* GraphQLOperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776222A5AE1400708DD3 /* GraphQLOperationType.swift */; };
+		A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776322A5AE1400708DD3 /* GraphQLClient.swift */; };
+		A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */; };
+		A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776522A5AE1400708DD3 /* GraphQLRequestFormatter.swift */; };
+		A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */; };
+		A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */; };
+		A5B6777422A5B0E100708DD3 /* GraphQLOperationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */; };
+		A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777222A5B0E100708DD3 /* GraphQLError.swift */; };
+		A5B6777922A5B10200708DD3 /* GraphQLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */; };
+		A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */; };
+		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
+		A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */; };
+		A5BFD28F22AB026600B37555 /* GraphQLObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */; };
+		A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */; };
+		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
+		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
+		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
+		A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */; };
+		A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */; };
+		A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6622AEE69B00626D76 /* StubManager.swift */; };
+		A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
+		A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
+		A5D2EC7122AEF46200626D76 /* GraphQLParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */; };
+		A5D2EC7322AEF4B200626D76 /* GraphQLRequestFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */; };
+		A5D2EC7522AEF4E500626D76 /* GraphQLValidatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */; };
+		A5D2EC7722AEF5A500626D76 /* MockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7622AEF5A500626D76 /* MockOperation.swift */; };
+		A5D2EC8E22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */; };
+		C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */; };
+		E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +62,56 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31ECD3641C634A8788AA2152 /* Pods-graphql-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.release.xcconfig"; sourceTree = "<group>"; };
+		5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CAC723269A642BB899C8B86 /* Pods-graphql-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A508FE3C22B036410057838A /* GraphQLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLNode.swift; sourceTree = "<group>"; };
+		A508FE5522B039C40057838A /* GraphQLNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLNodeTests.swift; sourceTree = "<group>"; };
+		A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLJSONDecoder.swift; sourceTree = "<group>"; };
+		A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDictionaryLiteral.swift; sourceTree = "<group>"; };
+		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
+		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
+		A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extra.swift"; sourceTree = "<group>"; };
 		A5B6774522A5ACF700708DD3 /* graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B6774822A5ACF700708DD3 /* graphql_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graphql_ios.h; sourceTree = "<group>"; };
 		A5B6774922A5ACF700708DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B6774E22A5ACF700708DD3 /* graphql-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "graphql-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphql_iosTests.swift; sourceTree = "<group>"; };
 		A5B6775522A5ACF700708DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5B6776022A5AE1300708DD3 /* GraphQLParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLParameters.swift; sourceTree = "<group>"; };
+		A5B6776122A5AE1400708DD3 /* GraphQLOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
+		A5B6776222A5AE1400708DD3 /* GraphQLOperationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLOperationType.swift; sourceTree = "<group>"; };
+		A5B6776322A5AE1400708DD3 /* GraphQLClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLClient.swift; sourceTree = "<group>"; };
+		A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLValidating.swift; sourceTree = "<group>"; };
+		A5B6776522A5AE1400708DD3 /* GraphQLRequestFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLRequestFormatter.swift; sourceTree = "<group>"; };
+		A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLClientProtocol.swift; sourceTree = "<group>"; };
+		A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLNamedOperationError.swift; sourceTree = "<group>"; };
+		A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLOperationError.swift; sourceTree = "<group>"; };
+		A5B6777222A5B0E100708DD3 /* GraphQLError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLError.swift; sourceTree = "<group>"; };
+		A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLPayload.swift; sourceTree = "<group>"; };
+		A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLDecodable.swift; sourceTree = "<group>"; };
+		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
+		A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLProvider.swift; sourceTree = "<group>"; };
+		A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLObserver.swift; sourceTree = "<group>"; };
+		A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteErrorTests.swift; sourceTree = "<group>"; };
+		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
+		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
+		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
+		A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLLogging.swift; sourceTree = "<group>"; };
+		A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientTests.swift; sourceTree = "<group>"; };
+		A5D2EC6622AEE69B00626D76 /* StubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubManager.swift; sourceTree = "<group>"; };
+		A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
+		A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
+		A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLParametersTests.swift; sourceTree = "<group>"; };
+		A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRequestFormatterTests.swift; sourceTree = "<group>"; };
+		A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLValidatingTests.swift; sourceTree = "<group>"; };
+		A5D2EC7622AEF5A500626D76 /* MockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOperation.swift; sourceTree = "<group>"; };
+		A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidatorTests.swift; sourceTree = "<group>"; };
+		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */,
+				C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +129,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */,
+				E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45D13B9FBE9387DF89215450 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CAC723269A642BB899C8B86 /* Pods-graphql-ios.debug.xcconfig */,
+				34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */,
+				FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */,
+				31ECD3641C634A8788AA2152 /* Pods-graphql-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A52B128F22A6BCC000EAA97E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A5BFD28E22AB026600B37555 /* GraphQLObserver.swift */,
+				A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A52B12AF22A6BFDE00EAA97E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */,
+				A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */,
+				A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A52B12BB22A6C35E00EAA97E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A52B12BC22A6C36F00EAA97E /* String+Extra.swift */,
+				A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */,
+				A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A5B6773B22A5ACF700708DD3 = {
 			isa = PBXGroup;
 			children = (
 				A5B6774722A5ACF700708DD3 /* graphql-ios */,
 				A5B6775222A5ACF700708DD3 /* graphql-iosTests */,
 				A5B6774622A5ACF700708DD3 /* Products */,
+				45D13B9FBE9387DF89215450 /* Pods */,
+				F40FC23B399D73BAFA52EA45 /* Frameworks */,
+				A5D2EC6222AEE13200626D76 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +200,11 @@
 		A5B6774722A5ACF700708DD3 /* graphql-ios */ = {
 			isa = PBXGroup;
 			children = (
+				A52B12BB22A6C35E00EAA97E /* Extensions */,
+				A52B12AF22A6BFDE00EAA97E /* Protocols */,
+				A52B128F22A6BCC000EAA97E /* Utils */,
+				A5B6776E22A5B04800708DD3 /* Models */,
+				A5B6775F22A5ADEE00708DD3 /* Service */,
 				A5B6774822A5ACF700708DD3 /* graphql_ios.h */,
 				A5B6774922A5ACF700708DD3 /* Info.plist */,
 			);
@@ -80,10 +214,110 @@
 		A5B6775222A5ACF700708DD3 /* graphql-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2EC6822AEE6A300626D76 /* TestHelpers */,
+				A5BFD29022AEA31900B37555 /* Models */,
+				A5D2EC6322AEE5F700626D76 /* Service */,
 				A5B6775322A5ACF700708DD3 /* graphql_iosTests.swift */,
 				A5B6775522A5ACF700708DD3 /* Info.plist */,
 			);
 			path = "graphql-iosTests";
+			sourceTree = "<group>";
+		};
+		A5B6775F22A5ADEE00708DD3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A508FE3C22B036410057838A /* GraphQLNode.swift */,
+				A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */,
+				A5B6776322A5AE1400708DD3 /* GraphQLClient.swift */,
+				A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */,
+				A5B6776122A5AE1400708DD3 /* GraphQLOperation.swift */,
+				A5B6776222A5AE1400708DD3 /* GraphQLOperationType.swift */,
+				A5B6776022A5AE1300708DD3 /* GraphQLParameters.swift */,
+				A5B6776522A5AE1400708DD3 /* GraphQLRequestFormatter.swift */,
+				A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */,
+				A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A5B6776E22A5B04800708DD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5B6776F22A5B06000708DD3 /* Errors */,
+				A5B6777722A5B10200708DD3 /* GraphQLDecodable.swift */,
+				A5B6777622A5B10200708DD3 /* GraphQLPayload.swift */,
+				A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5B6776F22A5B06000708DD3 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */,
+				A5B6777222A5B0E100708DD3 /* GraphQLError.swift */,
+				A5B6777022A5B0E000708DD3 /* GraphQLNamedOperationError.swift */,
+				A5B6777122A5B0E000708DD3 /* GraphQLOperationError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		A5BFD29022AEA31900B37555 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5D2EC6222AEE13200626D76 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A5D2EC6322AEE5F700626D76 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A508FE5522B039C40057838A /* GraphQLNodeTests.swift */,
+				A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */,
+				A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */,
+				A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */,
+				A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */,
+				A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A5D2EC6822AEE6A300626D76 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2EC6922AEEBD700626D76 /* Mocks */,
+				A5D2EC6622AEE69B00626D76 /* StubManager.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		A5D2EC6922AEEBD700626D76 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */,
+				A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */,
+				A5D2EC7622AEF5A500626D76 /* MockOperation.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F40FC23B399D73BAFA52EA45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */,
+				8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */,
+				5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5B6775922A5ACF700708DD3 /* Build configuration list for PBXNativeTarget "graphql-ios" */;
 			buildPhases = (
+				11BB2BA8E3C1E531876403D7 /* [CP] Check Pods Manifest.lock */,
 				A5B6774022A5ACF700708DD3 /* Headers */,
 				A5B6774122A5ACF700708DD3 /* Sources */,
 				A5B6774222A5ACF700708DD3 /* Frameworks */,
@@ -122,9 +357,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5B6775C22A5ACF700708DD3 /* Build configuration list for PBXNativeTarget "graphql-iosTests" */;
 			buildPhases = (
+				6F43391ECD37A798AE26B5C4 /* [CP] Check Pods Manifest.lock */,
 				A5B6774A22A5ACF700708DD3 /* Sources */,
 				A5B6774B22A5ACF700708DD3 /* Frameworks */,
 				A5B6774C22A5ACF700708DD3 /* Resources */,
+				4DC062378A184CD23514E879 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +385,7 @@
 				TargetAttributes = {
 					A5B6774422A5ACF700708DD3 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					A5B6774D22A5ACF700708DD3 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -189,11 +427,100 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11BB2BA8E3C1E531876403D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-graphql-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DC062378A184CD23514E879 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F43391ECD37A798AE26B5C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-graphql-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A5B6774122A5ACF700708DD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */,
+				A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */,
+				A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */,
+				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
+				A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */,
+				A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */,
+				A5B6776C22A5AE1400708DD3 /* GraphQLRequestFormatter.swift in Sources */,
+				A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */,
+				A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */,
+				A5B6776722A5AE1400708DD3 /* GraphQLParameters.swift in Sources */,
+				A5B6777A22A5B10200708DD3 /* GraphQLDecodable.swift in Sources */,
+				A5B6777422A5B0E100708DD3 /* GraphQLOperationError.swift in Sources */,
+				A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */,
+				A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */,
+				A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */,
+				A5BFD28F22AB026600B37555 /* GraphQLObserver.swift in Sources */,
+				A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */,
+				A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */,
+				A5B6777922A5B10200708DD3 /* GraphQLPayload.swift in Sources */,
+				A5B6776822A5AE1400708DD3 /* GraphQLOperation.swift in Sources */,
+				A5B6776922A5AE1400708DD3 /* GraphQLOperationType.swift in Sources */,
+				A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */,
+				A508FE3D22B036410057838A /* GraphQLNode.swift in Sources */,
+				A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */,
+				A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +528,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D2EC7522AEF4E500626D76 /* GraphQLValidatingTests.swift in Sources */,
+				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
+				A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */,
+				A5D2EC7322AEF4B200626D76 /* GraphQLRequestFormatterTests.swift in Sources */,
+				A5D2EC8E22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift in Sources */,
+				A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */,
 				A5B6775422A5ACF700708DD3 /* graphql_iosTests.swift in Sources */,
+				A5D2EC7122AEF46200626D76 /* GraphQLParametersTests.swift in Sources */,
+				A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */,
+				A5D2EC7722AEF5A500626D76 /* MockOperation.swift in Sources */,
+				A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */,
+				A508FE5622B039C40057838A /* GraphQLNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -340,7 +678,9 @@
 		};
 		A5B6775A22A5ACF700708DD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CAC723269A642BB899C8B86 /* Pods-graphql-ios.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fooda.graphql-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,7 +706,9 @@
 		};
 		A5B6775B22A5ACF700708DD3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -390,7 +733,9 @@
 		};
 		A5B6775D22A5ACF700708DD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9L5V62P6L2;
 				INFOPLIST_FILE = "graphql-iosTests/Info.plist";
@@ -408,7 +753,9 @@
 		};
 		A5B6775E22A5ACF700708DD3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31ECD3641C634A8788AA2152 /* Pods-graphql-iosTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9L5V62P6L2;
 				INFOPLIST_FILE = "graphql-iosTests/Info.plist";
