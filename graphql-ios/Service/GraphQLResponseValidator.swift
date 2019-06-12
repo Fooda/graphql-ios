@@ -15,7 +15,7 @@ internal class GraphQLResponseValidator {
             let siteMaintenance = GraphQLRemoteError.siteMaintenance
             NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
                                             object: nil,
-                                            userInfo: ["remote_resource_error": siteMaintenance])
+                                            userInfo: ["graphql_resource_error": siteMaintenance])
             throw siteMaintenance
         case 500...:
             throw GraphQLRemoteError.serverError(statusCode: statusCode)
