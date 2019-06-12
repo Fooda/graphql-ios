@@ -7,6 +7,7 @@
 //
 
 public protocol GraphQLProvider {
-    var host: GraphQLHost { get }
+    var fullUrl: String { get }
+    var clientToken: String { get }
     var sessionToken: String? { get }
 }

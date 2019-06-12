@@ -9,11 +9,15 @@
 @testable import graphql_ios
 
 class MockProvider: GraphQLProvider {
-    var host: GraphQLHost = MockHost()
+    var fullUrl: String
+    var clientToken: String
     var sessionToken: String?
 
-    init(host: GraphQLHost = MockHost(), sessionToken: String? = nil) {
-        self.host = host
+    init(fullUrl: String = "api.fooda.com/graphql",
+         clientToken: String = "aaaaaaaaaaaa",
+         sessionToken: String? = nil) {
+        self.fullUrl = fullUrl
+        self.clientToken = clientToken
         self.sessionToken = sessionToken
     }
 }

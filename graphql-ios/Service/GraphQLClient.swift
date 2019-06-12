@@ -55,11 +55,12 @@ private extension GraphQLClient {
                                                          parameters: Parameters? = nil,
                                                          headers: [String: String]? = nil,
                                                          completion: @escaping ((Result<U, Error>) -> Void)) {
-        guard let host = provider?.host else {
+        guard let provider = provider else {
             completion(.failure(GraphQLRemoteError.undefinedHost))
             return
         }
-        let url = "\(host.baseURL)/graphql"
+
+        let url = provider.fullUrl
         let requestId = UUID().uuidString
         logger?.infoGraphQL("graphql_start",
                             params: [
@@ -70,7 +71,7 @@ private extension GraphQLClient {
             ])
         var updatedHeaders: [String: String]
         do {
-            updatedHeaders = try requestHeaders(with: headers, clientToken: host.token, authentication: operation.authentication)
+            updatedHeaders = try requestHeaders(with: headers, clientToken: provider.clientToken, authentication: operation.authentication)
         } catch {
             completion(.failure(error))
             logger?.errorGraphQL("graphql_invalid_header",
@@ -92,7 +93,7 @@ private extension GraphQLClient {
             .validate()
             .responseJSON { response in
                 self.handleResponse(operation: operation,
-                                    host: host,
+                                    url: url,
                                     requestId: requestId,
                                     method: method,
                                     parameters: parameters,
@@ -103,7 +104,7 @@ private extension GraphQLClient {
     }
 
     func handleResponse<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                host: GraphQLHost,
+                                                                url: String,
                                                                 requestId: String,
                                                                 method: HTTPMethod,
                                                                 parameters: Parameters?,
@@ -111,7 +112,6 @@ private extension GraphQLClient {
                                                                 response: DataResponse<Any>,
                                                                 completion: @escaping ((Result<U, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
-        let url = "\(host.baseURL)/graphql"
 
         logger?.infoGraphQL("graphql_complete", params: [
             "url": url,
@@ -143,7 +143,7 @@ private extension GraphQLClient {
                 throw GraphQLRemoteError.unexpectedJSON
             }
 
-            logOperationErrors(operation: operation, host: host, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
+            logOperationErrors(operation: operation, url: url, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
             try result.validateResponse()
 
             completion(.success(result))
@@ -200,13 +200,12 @@ private extension GraphQLClient {
     }
 
     func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                    host: GraphQLHost,
+                                                                    url: String,
                                                                     requestId: String,
                                                                     parameters: Parameters?,
                                                                     result: U,
                                                                     rawJson: [String: Any]?,
                                                                     response: DataResponse<Any>) {
-        let url = "\(host.baseURL)/graphql"
         for error in result.errors {
             logger?.errorGraphQL("graphql_operation_error",
                                  params: [
