@@ -12,6 +12,7 @@ internal class GraphQLJSONDecoder: JSONDecoder {
     override init() {
         super.init()
         self.keyDecodingStrategy = .convertFromSnakeCase
+        self.dateDecodingStrategy = .iso8601
     }
 
     func decodeObjectNotation<T>(_ type: T.Type, from obj: Any) throws -> T where T: Decodable {
