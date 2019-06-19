@@ -10,8 +10,7 @@ import Alamofire
 import enum Swift.Result
 
 public protocol GraphQLClientProtocol {
-    func performOperation<T: GraphQLOperation, U: GraphQLPayload>(_ operation: T,
-                                                                  parameters: GraphQLParameters?,
-                                                                  headers: [String: String]?,
-                                                                  completion: @escaping ((Result<U, Error>) -> Void))
+    func performOperation<T: GraphQLPayload>(request: GraphQLRequest,
+                                             headers: [String: String]?,
+                                             completion: @escaping ((Result<T, Error>) -> Void))
 }
