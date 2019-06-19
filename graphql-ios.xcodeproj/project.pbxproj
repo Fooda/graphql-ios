@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		0FCAD44F22BA9BC800BFA931 /* DateFormatter+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */; };
 		0FCAD45122BA9F3B00BFA931 /* GraphQLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD45022BA9F3B00BFA931 /* GraphQLRequest.swift */; };
+		0FCAD45322BAA4BB00BFA931 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD45222BAA4BB00BFA931 /* MockResponse.swift */; };
 		3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */; };
 		8851E15A22B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851E15922B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift */; };
-		A508FE5622B039C40057838A /* GraphQLNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508FE5522B039C40057838A /* GraphQLNodeTests.swift */; };
 		A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */; };
 		A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */; };
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
@@ -39,10 +39,8 @@
 		A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6622AEE69B00626D76 /* StubManager.swift */; };
 		A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
 		A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
-		A5D2EC7122AEF46200626D76 /* GraphQLParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */; };
-		A5D2EC7322AEF4B200626D76 /* GraphQLRequestFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */; };
 		A5D2EC7522AEF4E500626D76 /* GraphQLValidatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */; };
-		A5D2EC7722AEF5A500626D76 /* MockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7622AEF5A500626D76 /* MockOperation.swift */; };
+		A5D2EC7722AEF5A500626D76 /* MockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7622AEF5A500626D76 /* MockRequest.swift */; };
 		A5D2EC8E22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */; };
 		C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */; };
 		E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */; };
@@ -61,13 +59,13 @@
 /* Begin PBXFileReference section */
 		0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extra.swift"; sourceTree = "<group>"; };
 		0FCAD45022BA9F3B00BFA931 /* GraphQLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRequest.swift; sourceTree = "<group>"; };
+		0FCAD45222BAA4BB00BFA931 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		31ECD3641C634A8788AA2152 /* Pods-graphql-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.release.xcconfig"; sourceTree = "<group>"; };
 		5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8851E15922B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLJSONDecoderTests.swift; sourceTree = "<group>"; };
 		8CAC723269A642BB899C8B86 /* Pods-graphql-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		A508FE5522B039C40057838A /* GraphQLNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLNodeTests.swift; sourceTree = "<group>"; };
 		A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLJSONDecoder.swift; sourceTree = "<group>"; };
 		A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDictionaryLiteral.swift; sourceTree = "<group>"; };
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
@@ -98,10 +96,8 @@
 		A5D2EC6622AEE69B00626D76 /* StubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubManager.swift; sourceTree = "<group>"; };
 		A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
 		A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
-		A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLParametersTests.swift; sourceTree = "<group>"; };
-		A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRequestFormatterTests.swift; sourceTree = "<group>"; };
 		A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLValidatingTests.swift; sourceTree = "<group>"; };
-		A5D2EC7622AEF5A500626D76 /* MockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOperation.swift; sourceTree = "<group>"; };
+		A5D2EC7622AEF5A500626D76 /* MockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequest.swift; sourceTree = "<group>"; };
 		A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidatorTests.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,10 +276,7 @@
 		A5D2EC6322AEE5F700626D76 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				A508FE5522B039C40057838A /* GraphQLNodeTests.swift */,
 				A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */,
-				A5D2EC7022AEF46200626D76 /* GraphQLParametersTests.swift */,
-				A5D2EC7222AEF4B200626D76 /* GraphQLRequestFormatterTests.swift */,
 				A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */,
 				A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */,
 			);
@@ -304,7 +297,8 @@
 			children = (
 				A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */,
 				A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */,
-				A5D2EC7622AEF5A500626D76 /* MockOperation.swift */,
+				A5D2EC7622AEF5A500626D76 /* MockRequest.swift */,
+				0FCAD45222BAA4BB00BFA931 /* MockResponse.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -528,14 +522,12 @@
 				A5D2EC7522AEF4E500626D76 /* GraphQLValidatingTests.swift in Sources */,
 				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
 				A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */,
-				A5D2EC7322AEF4B200626D76 /* GraphQLRequestFormatterTests.swift in Sources */,
 				A5D2EC8E22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift in Sources */,
 				A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */,
-				A5D2EC7122AEF46200626D76 /* GraphQLParametersTests.swift in Sources */,
+				0FCAD45322BAA4BB00BFA931 /* MockResponse.swift in Sources */,
 				A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */,
-				A5D2EC7722AEF5A500626D76 /* MockOperation.swift in Sources */,
+				A5D2EC7722AEF5A500626D76 /* MockRequest.swift in Sources */,
 				A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */,
-				A508FE5622B039C40057838A /* GraphQLNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

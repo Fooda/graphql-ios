@@ -1,5 +1,5 @@
 //
-//  MockOperation.swift
+//  MockRequest.swift
 //  graphql-iosTests
 //
 //  Created by Craig Olson on 6/10/19.
@@ -8,13 +8,13 @@
 
 @testable import graphql_ios
 
-enum MockOperation: GraphQLOperation {
+enum MockRequest: GraphQLRequest {
     case authenticated
     case anonymous
 
-    var type: GraphQLOperationType { return .query }
-    var name: String { return "query" }
-    var description: String { return "" }
+    var name: String { return "name" }
+    var query: String { return "query" }
+    var variables: [String: Any] { return ["key": "value"] }
 
     var authentication: GraphQLAuthentication {
         switch self {
