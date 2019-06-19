@@ -13,7 +13,6 @@ public class GraphQLClient: GraphQLClientProtocol {
     public static let shared = GraphQLClient()
     private let manager: Alamofire.SessionManager
     private let decoder: GraphQLJSONDecoder
-    private let requestFormatter: GraphQLRequestFormatter
     private let responseValidator: GraphQLResponseValidator
 
     // MARK: - Configurable properties
@@ -25,7 +24,6 @@ public class GraphQLClient: GraphQLClientProtocol {
         let configuration = URLSessionConfiguration.default
         manager = Alamofire.SessionManager(configuration: configuration)
         decoder = GraphQLJSONDecoder()
-        requestFormatter = GraphQLRequestFormatter()
         responseValidator = GraphQLResponseValidator()
     }
 
@@ -35,26 +33,22 @@ public class GraphQLClient: GraphQLClientProtocol {
         self.provider = provider
     }
 
-    public func performOperation<T: GraphQLOperation, U: GraphQLPayload>(_ operation: T,
-                                                                         parameters: GraphQLParameters? = nil,
-                                                                         headers: [String: String]? = nil,
-                                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
-        let requestBody = requestFormatter.requestBody(operation, parameters: parameters)
-        request(operation: operation,
-                method: .post,
-                parameters: requestBody,
-                headers: headers,
-                completion: completion)
+    public func performOperation<T: GraphQLPayload>(request: GraphQLRequest,
+                                                    headers: [String: String]? = nil,
+                                                    completion: @escaping ((Result<T, Error>) -> Void)) {
+        self.request(request: request,
+                     method: .post,
+                     headers: headers,
+                     completion: completion)
     }
 }
 
 // MARK: - Private Methods
 private extension GraphQLClient {
-    func request<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                         method: HTTPMethod,
-                                                         parameters: Parameters? = nil,
-                                                         headers: [String: String]? = nil,
-                                                         completion: @escaping ((Result<U, Error>) -> Void)) {
+    func request<T: GraphQLPayload>(request: GraphQLRequest,
+                                    method: HTTPMethod,
+                                    headers: [String: String]? = nil,
+                                    completion: @escaping ((Result<T, Error>) -> Void)) {
         guard let provider = provider else {
             completion(.failure(GraphQLRemoteError.undefinedHost))
             return
@@ -66,25 +60,27 @@ private extension GraphQLClient {
                             params: [
                                 "url": url,
                                 "requestId": requestId,
-                                "type": operation.type.rawValue,
-                                "name": operation.name
+                                "name": request.name
             ])
         var updatedHeaders: [String: String]
         do {
-            updatedHeaders = try requestHeaders(with: headers, clientToken: provider.clientToken, authentication: operation.authentication)
+            updatedHeaders = try requestHeaders(with: headers,
+                                                clientToken: provider.clientToken,
+                                                authentication: request.authentication)
         } catch {
             completion(.failure(error))
             logger?.errorGraphQL("graphql_invalid_header",
                                  params: [
                                     "url": url,
                                     "requestId": requestId,
-                                    "type": operation.type.rawValue,
-                                    "name": operation.name,
+                                    "name": request.name,
                                     "error": error.localizedDescription
                 ])
             return
         }
 
+        let parameters: [String: Any] = ["query": request.query,
+                                         "variables": request.variables]
         manager.request(url,
                         method: method,
                         parameters: parameters,
@@ -92,7 +88,7 @@ private extension GraphQLClient {
                         headers: updatedHeaders)
             .validate()
             .responseJSON { response in
-                self.handleResponse(operation: operation,
+                self.handleResponse(request: request,
                                     url: url,
                                     requestId: requestId,
                                     method: method,
@@ -103,22 +99,21 @@ private extension GraphQLClient {
         }
     }
 
-    func handleResponse<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                url: String,
-                                                                requestId: String,
-                                                                method: HTTPMethod,
-                                                                parameters: Parameters?,
-                                                                headers: [String: String]?,
-                                                                response: DataResponse<Any>,
-                                                                completion: @escaping ((Result<U, Error>) -> Void)) {
+    func handleResponse<T: GraphQLPayload>(request: GraphQLRequest,
+                                           url: String,
+                                           requestId: String,
+                                           method: HTTPMethod,
+                                           parameters: Parameters?,
+                                           headers: [String: String]?,
+                                           response: DataResponse<Any>,
+                                           completion: @escaping ((Result<T, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
 
         logger?.infoGraphQL("graphql_complete", params: [
             "url": url,
             "requestId": requestId,
             "status": statusCode,
-            "type": operation.type.rawValue,
-            "name": operation.name,
+            "name": request.name,
             "variables": parameters?["variables"] ?? [:],
             "timeline": ["latency": response.timeline.latency,
                          "request": response.timeline.requestDuration,
@@ -133,7 +128,7 @@ private extension GraphQLClient {
         do {
             try self.responseValidator.validateResponse(statusCode: statusCode, responseError: response.error)
 
-            let apiResponse = try decoder.decode(GraphQLResponse<U>.self, from: data)
+            let apiResponse = try decoder.decode(GraphQLResponse<T>.self, from: data)
 
             if let errors = apiResponse.errors, !errors.isEmpty {
                 // handle base error, 200 status code
@@ -143,7 +138,7 @@ private extension GraphQLClient {
                 throw GraphQLRemoteError.unexpectedJSON
             }
 
-            logOperationErrors(operation: operation, url: url, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
+            logOperationErrors(request: request, url: url, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
             try result.validateResponse()
 
             completion(.success(result))
@@ -153,8 +148,7 @@ private extension GraphQLClient {
                                     "url": url,
                                     "requestId": requestId,
                                     "status": statusCode,
-                                    "type": operation.type.rawValue,
-                                    "name": operation.name,
+                                    "name": request.name,
                                     "variables": parameters?["variables"] ?? [:],
                                     "timeline": ["latency": response.timeline.latency,
                                                  "request": response.timeline.requestDuration,
@@ -199,21 +193,20 @@ private extension GraphQLClient {
         return headers
     }
 
-    func logOperationErrors<T: GraphQLOperation, U: GraphQLPayload>(operation: T,
-                                                                    url: String,
-                                                                    requestId: String,
-                                                                    parameters: Parameters?,
-                                                                    result: U,
-                                                                    rawJson: [String: Any]?,
-                                                                    response: DataResponse<Any>) {
+    func logOperationErrors<T: GraphQLPayload>(request: GraphQLRequest,
+                                               url: String,
+                                               requestId: String,
+                                               parameters: Parameters?,
+                                               result: T,
+                                               rawJson: [String: Any]?,
+                                               response: DataResponse<Any>) {
         for error in result.errors {
             logger?.errorGraphQL("graphql_operation_error",
                                  params: [
                                     "url": url,
                                     "requestId": requestId,
                                     "status": response.response?.statusCode ?? 0,
-                                    "type": operation.type.rawValue,
-                                    "name": operation.name,
+                                    "name": request.name,
                                     "variables": parameters?["variables"] ?? [:],
                                     "response": rawJson ?? [:],
                                     "operation_error": error.dictionary
