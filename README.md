@@ -37,92 +37,54 @@ GraphQLClient.shared.configure(logger: exampleLogger, provider: exampleProvider)
 ```
 
 ### Make a request 
-The GraphQL client library contains `GraphQLNode` enums which are used to build the request body. Just include the properties 
-that you would like to receive. 
+The GraphQL client library contains `GraphQLRequest` which is used to build the request body.
 
-#### Nodes
-For instance, the Node structure for the mutation "createSession" looks like this:
+Conform to `GraphQLRequest` to make an operation.  An example of "CreateSession" looks like this:
 ```swift
-GraphQLMutation.createSession([
-            .error([
-                .code,
-                .message
-            ]),
-            .session([
-                .token,
-                .user([
-                    .firstName,
-                    .lastName,
-                    .referralCode,
-                    .rewardsPhoneNumber([
-                        .digits
-                    ])
-                ])
-            ])
-```
-and will be converted to: 
-```graphql
+struct CreateSessionRequest: GraphQLRequest {
+    let email: String
+    let password: String
+
+    let authentication: GraphQLAuthentication = .anonymous
+    let name = "CreateSession"
+
+    let query: String = """
 mutation CreateSession($input:CreateSession!) {
     createSession(input:$input) {
         error {
-            code 
-            message 
+            code
+            message
         }
         session {
-            token 
+            token
             user {
-              firstName
-              lastName
-              referralCode
-              rewardsPhoneNumber {
-                digits
-              }
+                firstName
+                lastName
+                referralCode
+                rewardsPhoneNumber {
+                    digits
+                }
             }
         }
     }
 }
-```
+"""
 
-#### Input parameters
-Sometimes the call you're making requires parameters so you will need to build a `GraphQLParameters` object. 
-
-`.base` sends the parameters directly and `.input` nests the parameters inside of an `input` structure 
-
-```swift 
-_ = GraphQLParameters.base([
-  "example": ""
-])
-``` 
-maps to 
-```json 
-{
-  "example": ""
-}
-```
-
-and 
-```swift 
-_ = GraphQLParameters.input([
-  "example": ""
-])
-```
-maps to 
-```json
-{
-  "input": {
-    "example": ""
-  }
+    var variables: [String: Any] {
+        return [
+            "username": email,
+            "password": password
+        ]
+    }
 }
 ```
 
 #### Perform operation
 Call perform operation on the client 
 ```swift 
-let operation = GraphQLMutation.createSession(...)
-let parameters = GraphQLParameters.input([:])
+let request = CreateSessionRequest(email: "email", password: "password")
 
-GraphQLClient.shared.performOperation(operation,
-                                      parameters: parameters,
+GraphQLClient.shared.performOperation(request: request,
                                       headers: nil) { (result: Result<CustomResponse, Error>) in 
   // handle the response                                       
 }
