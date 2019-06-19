@@ -79,8 +79,10 @@ private extension GraphQLClient {
             return
         }
 
-        let parameters: [String: Any] = ["query": request.query,
-                                         "variables": request.variables]
+        var parameters: [String: Any] = ["query": request.query]
+        if !request.variables.isEmpty {
+            parameters["variables"] = request.variables
+        }
         manager.request(url,
                         method: method,
                         parameters: parameters,
