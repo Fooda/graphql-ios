@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FCAD44F22BA9BC800BFA931 /* DateFormatter+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */; };
 		3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */; };
 		8851E15A22B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851E15922B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift */; };
 		A508FE3D22B036410057838A /* GraphQLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508FE3C22B036410057838A /* GraphQLNode.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extra.swift"; sourceTree = "<group>"; };
 		31ECD3641C634A8788AA2152 /* Pods-graphql-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		34572D952D9B40B9BC9F3F60 /* Pods-graphql-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-ios/Pods-graphql-ios.release.xcconfig"; sourceTree = "<group>"; };
 		5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 				A52B12BC22A6C36F00EAA97E /* String+Extra.swift */,
 				A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */,
 				A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */,
+				0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */,
 				A5B6777322A5B0E100708DD3 /* GraphQLNamedOperationError.swift in Sources */,
 				A5B6777522A5B0E100708DD3 /* GraphQLError.swift in Sources */,
+				0FCAD44F22BA9BC800BFA931 /* DateFormatter+Extra.swift in Sources */,
 				A5BFD28F22AB026600B37555 /* GraphQLObserver.swift in Sources */,
 				A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */,
 				A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */,

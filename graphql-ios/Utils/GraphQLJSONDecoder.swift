@@ -8,12 +8,6 @@
 
 internal class GraphQLJSONDecoder: JSONDecoder {
     var logger: GraphQLLogging?
-    private let iso8601Formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        return formatter
-    }()
 
     override init() {
         super.init()
@@ -21,10 +15,10 @@ internal class GraphQLJSONDecoder: JSONDecoder {
         if #available(iOS 10.0, *) {
             self.dateDecodingStrategy = .iso8601
         } else {
-            self.dateDecodingStrategy = .custom { [iso8601Formatter] decoder -> Date in
+            self.dateDecodingStrategy = .custom { decoder -> Date in
                 let container = try decoder.singleValueContainer()
                 let dateString = try container.decode(String.self)
-                guard let date = iso8601Formatter.date(from: dateString) else {
+                guard let date = DateFormatter.iso8601Formatter.date(from: dateString) else {
                     throw DecodingError.dataCorruptedError(in: container, debugDescription: "Couldn't convert the given string to a date")
                 }
                 return date
