@@ -11,7 +11,6 @@ import XCTest
 
 class GraphQLRemoteErrorTests: XCTestCase {
     private let defaultMessage = "We’re having trouble connecting to Fooda, try again in a few minutes. If the problem persists, please contact support. We apologize for this inconvenience.".localized()
-    private let siteMaintenanceMessage = "Sorry for the inconvenience but we're performing scheduled maintenance at the moment. If you need to you can always contact us at info@fooda.com. We'll be back online shortly!"
     private lazy var apiErrors: [GraphQLError] = (0..<2).map { GraphQLError(message: "\($0)") }
     private lazy var graphQLErrors: [GraphQLNamedOperationError] = (0..<2).map {
         GraphQLNamedOperationError(name: "\($0)", error: GraphQLOperationError(code: 200, message: "GraphQLError\($0)"))
@@ -22,7 +21,6 @@ class GraphQLRemoteErrorTests: XCTestCase {
 
     func testErrorDescription() {
         XCTAssertEqual(GraphQLRemoteError.invalidCredentials.errorDescription, "Invalid credentials")
-        XCTAssertEqual(GraphQLRemoteError.siteMaintenance.errorDescription, siteMaintenanceMessage)
 
         XCTAssertEqual(GraphQLRemoteError.serverError(statusCode: 500).errorDescription, defaultMessage)
         XCTAssertEqual(GraphQLRemoteError.protocolError(statusCode: 401, errors: []).errorDescription, defaultMessage)
@@ -37,7 +35,6 @@ class GraphQLRemoteErrorTests: XCTestCase {
 
     func testDebugDescription() {
         XCTAssertEqual(GraphQLRemoteError.invalidCredentials.debugDescription, "invalid_credentials")
-        XCTAssertEqual(GraphQLRemoteError.siteMaintenance.debugDescription, "site_maintenance")
 
         XCTAssertEqual(GraphQLRemoteError.serverError(statusCode: 502).debugDescription, "server_502")
         XCTAssertEqual(GraphQLRemoteError.protocolError(statusCode: 401, errors: []).debugDescription, "protocol_error")

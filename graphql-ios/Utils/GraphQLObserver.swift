@@ -10,7 +10,6 @@ import Foundation
 
 public protocol GraphQLObserverDelegate: AnyObject {
     func didReceiveInvalidCredentials()
-    func didReceiveSiteMaintenance()
 }
 
 public final class GraphQLObserver {
@@ -21,10 +20,6 @@ public final class GraphQLObserver {
         notificationCenter.addObserver(self,
                                        selector: #selector(didReceiveInvalidCredentials),
                                        name: Notification.Name.UserUnauthorized,
-                                       object: nil)
-        notificationCenter.addObserver(self,
-                                       selector: #selector(didReceiveSiteMaintenance),
-                                       name: Notification.Name.SiteMaintenance,
                                        object: nil)
     }
 
@@ -37,9 +32,5 @@ public final class GraphQLObserver {
 private extension GraphQLObserver {
     @objc func didReceiveInvalidCredentials() {
         delegate?.didReceiveInvalidCredentials()
-    }
-
-    @objc func didReceiveSiteMaintenance() {
-        delegate?.didReceiveSiteMaintenance()
     }
 }

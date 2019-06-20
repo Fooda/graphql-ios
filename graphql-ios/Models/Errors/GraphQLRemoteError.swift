@@ -8,7 +8,6 @@
 
 public enum GraphQLRemoteError: LocalizedError {
     case invalidCredentials // 401 or 403
-    case siteMaintenance // 503
     case serverError(statusCode: Int)
     case protocolError(statusCode: Int, errors: [GraphQLError])
     case networkError(URLError)
@@ -23,8 +22,6 @@ public enum GraphQLRemoteError: LocalizedError {
         switch self {
         case .invalidCredentials:
             return "Invalid credentials".localized()
-        case .siteMaintenance:
-            return "Sorry for the inconvenience but we're performing scheduled maintenance at the moment. If you need to you can always contact us at info@fooda.com. We'll be back online shortly!".localized()
         case let .protocolError(_, errors: errors):
             return errors.first?.message ?? defaultMessage
         case let .operationErrors(errors):
@@ -40,8 +37,6 @@ public enum GraphQLRemoteError: LocalizedError {
         switch self {
         case .invalidCredentials:
             return "invalid_credentials"
-        case .siteMaintenance:
-            return "site_maintenance"
         case let .serverError(statusCode):
             return "server_\(statusCode)"
         case .protocolError:

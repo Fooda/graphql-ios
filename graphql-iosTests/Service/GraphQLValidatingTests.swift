@@ -38,22 +38,6 @@ class GraphQLValidatingTests: XCTestCase {
         }
     }
 
-    func testValidateResponseSiteMaintenance() {
-        let response = MockResponse(errors: [GraphQLNamedOperationError(name: "1", error: GraphQLOperationError(code: 503, message: "message")),
-                                             GraphQLNamedOperationError(name: "2", error: GraphQLOperationError(code: 401, message: ""))])
-        do {
-            try response.validateResponse()
-            XCTFail("Expected failure")
-        } catch {
-            guard let remoteError = error as? GraphQLRemoteError,
-                case .siteMaintenance = remoteError else {
-                    XCTFail("Expected remote error")
-                    return
-            }
-            XCTAssertTrue(true)
-        }
-    }
-
     func testValidateClientError() {
         let allErrors = [GraphQLNamedOperationError(name: "1", error: GraphQLOperationError(code: 400, message: "message")),
                          GraphQLNamedOperationError(name: "2", error: GraphQLOperationError(code: 503, message: ""))]

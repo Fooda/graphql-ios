@@ -87,42 +87,6 @@ class GraphQLClientTests: XCTestCase {
         waitForExpectations(timeout: 2.0, handler: nil)
     }
 
-    func testInvalidStatusCode() {
-        let body = """
-            {
-              "errors": [
-                {
-                  "message": "test",
-                  "locations": [
-                    {
-                      "line": 1,
-                      "column": 20
-                    }
-                  ]
-                }
-              ]
-            }
-        """
-        StubManager.shared.stub(url: url, method: "post", responseStatusCode: 503, responseBody: body)
-        let promise = expectation(description: "Wait for client")
-
-        let request = MockRequest.anonymous
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
-            switch result {
-            case .success:
-                XCTFail("Expected failure")
-            case let .failure(error):
-                guard case GraphQLRemoteError.siteMaintenance = error else {
-                    XCTFail("Unexpected error: \(error.localizedDescription)")
-                    return
-                }
-                promise.fulfill()
-            }
-        }
-
-        waitForExpectations(timeout: 2.0, handler: nil)
-    }
-
     func testBaseErrorsStatusCode200() {
         let body = """
             {
