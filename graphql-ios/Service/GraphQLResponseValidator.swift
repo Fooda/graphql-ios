@@ -11,12 +11,6 @@ internal class GraphQLResponseValidator {
         switch statusCode {
         case 401, 403:
             throw GraphQLRemoteError.invalidCredentials
-        case 503:
-            let siteMaintenance = GraphQLRemoteError.siteMaintenance
-            NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
-                                            object: nil,
-                                            userInfo: ["graphql_resource_error": siteMaintenance])
-            throw siteMaintenance
         case 500...:
             throw GraphQLRemoteError.serverError(statusCode: statusCode)
         case 0:

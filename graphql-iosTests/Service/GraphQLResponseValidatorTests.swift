@@ -28,15 +28,6 @@ class GraphQLResponseValidatorTests: XCTestCase {
         }
     }
 
-    func testSiteMaintenance() {
-        do {
-            try validator.validateResponse(statusCode: 503, responseError: nil)
-            XCTFail("Expected success")
-        } catch {
-            XCTAssertEqual(error.localizedDescription, GraphQLRemoteError.siteMaintenance.localizedDescription)
-        }
-    }
-
     func testServerError() {
         do {
             try validator.validateResponse(statusCode: 500, responseError: nil)

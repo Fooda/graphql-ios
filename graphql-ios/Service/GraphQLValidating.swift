@@ -20,12 +20,6 @@ extension GraphQLValidating where Self: GraphQLPayload {
                                             object: nil,
                                             userInfo: ["graphql_resource_error": invalidCredentials])
             throw invalidCredentials
-        case 503:
-            let siteMaintenance = GraphQLRemoteError.siteMaintenance
-            NotificationCenter.default.post(name: Notification.Name.SiteMaintenance,
-                                            object: nil,
-                                            userInfo: ["graphql_resource_error": siteMaintenance])
-            throw siteMaintenance
         case 400...:
             throw GraphQLRemoteError.operationErrors(errors)
         default:
