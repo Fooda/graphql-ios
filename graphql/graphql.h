@@ -1,12 +1,17 @@
 //
-//  graphql_ios.h
-//  graphql-ios
+//  graphql.h
+//  graphql
 //
 //  Created by Craig Olson on 6/3/19.
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#if TARGET_OS_IPHONE
+    @import UIKit;
+#else
+    @import AppKit;
+#endif
+@import Foundation;
 
 //! Project version number for graphql_ios.
 FOUNDATION_EXPORT double graphql_iosVersionNumber;
