@@ -8,6 +8,7 @@
 
 import Alamofire
 import enum Swift.Result
+import Foundation
 
 public class GraphQLClient: GraphQLClientProtocol {
     public static let shared = GraphQLClient()

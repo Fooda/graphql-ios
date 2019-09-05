@@ -11,7 +11,6 @@
 #else
     @import AppKit;
 #endif
-@import Foundation;
 
 //! Project version number for graphql_ios.
 FOUNDATION_EXPORT double graphql_iosVersionNumber;

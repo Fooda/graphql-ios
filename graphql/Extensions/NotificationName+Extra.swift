@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
+import Foundation
+
 extension Notification.Name {
     static let UserUnauthorized = Notification.Name("graphql_ios.UserUnauthorized")
 }

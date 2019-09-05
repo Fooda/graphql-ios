@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
+import Foundation
+
 public protocol GraphQLValidating {
     func validateResponse() throws
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
+import Foundation
+
 extension Bundle {
     static var appVersion: String {
         return main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "/"

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
+import Foundation
+
 internal class GraphQLResponseValidator {
     func validateResponse(statusCode: Int, responseError: Error?) throws {
         switch statusCode {

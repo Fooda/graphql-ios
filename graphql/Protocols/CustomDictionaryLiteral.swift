@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
+import Foundation
+
 internal protocol CustomDictionaryLiteral {
     var dictionary: [String: Any] { get }
 }

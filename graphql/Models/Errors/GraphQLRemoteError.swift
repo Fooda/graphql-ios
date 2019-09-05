@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
+import Foundation
+
 public enum GraphQLRemoteError: LocalizedError {
     case invalidCredentials // 401 or 403
     case serverError(statusCode: Int)

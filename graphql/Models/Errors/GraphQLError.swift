@@ -8,6 +8,9 @@
 
 // Base level graphql error
 // At the same level as "data"
+
+import Foundation
+
 public struct GraphQLError: Decodable {
     let message: String
 }

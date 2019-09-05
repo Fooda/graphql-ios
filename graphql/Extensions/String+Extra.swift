@@ -6,6 +6,8 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
+import Foundation
+
 extension String {
     func localized(_ arguments: [CVarArg] = []) -> String {
         if arguments.isEmpty {
