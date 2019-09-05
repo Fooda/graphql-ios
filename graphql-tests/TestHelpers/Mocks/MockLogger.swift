@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-@testable import graphql_ios
+@testable import graphql
 
 struct MockLogger: GraphQLLogging {
     func infoGraphQL(_ message: String, params: [String : Any]?) {}

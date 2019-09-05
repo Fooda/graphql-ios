@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import graphql_ios
+@testable import graphql
 
 class GraphQLResponseValidatorTests: XCTestCase {
     let validator = GraphQLResponseValidator()

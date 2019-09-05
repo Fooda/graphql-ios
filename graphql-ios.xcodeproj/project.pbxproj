@@ -11,7 +11,6 @@
 		0FCAD44F22BA9BC800BFA931 /* DateFormatter+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */; };
 		0FCAD45122BA9F3B00BFA931 /* GraphQLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD45022BA9F3B00BFA931 /* GraphQLRequest.swift */; };
 		0FCAD45322BAA4BB00BFA931 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD45222BAA4BB00BFA931 /* MockResponse.swift */; };
-		3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */; };
 		8851E15A22B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851E15922B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift */; };
 		A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B129022A6BCD100EAA97E /* GraphQLJSONDecoder.swift */; };
 		A52B12B122A6C00600EAA97E /* CustomDictionaryLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12B022A6C00600EAA97E /* CustomDictionaryLiteral.swift */; };
@@ -70,6 +69,16 @@
 		E8AB56C92320FAA5006DB9F5 /* GraphQLValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */; };
 		E8AB56CA2320FAA5006DB9F5 /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
 		E8AB56CB2320FAC5006DB9F5 /* graphql.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8AB56CC2320FD77006DB9F5 /* GraphQLJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851E15922B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift */; };
+		E8AB56CD2320FD77006DB9F5 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
+		E8AB56CE2320FD77006DB9F5 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
+		E8AB56CF2320FD77006DB9F5 /* MockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7622AEF5A500626D76 /* MockRequest.swift */; };
+		E8AB56D02320FD77006DB9F5 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD45222BAA4BB00BFA931 /* MockResponse.swift */; };
+		E8AB56D12320FD77006DB9F5 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6622AEE69B00626D76 /* StubManager.swift */; };
+		E8AB56D22320FD77006DB9F5 /* GraphQLRemoteErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */; };
+		E8AB56D32320FD77006DB9F5 /* GraphQLClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */; };
+		E8AB56D42320FD77006DB9F5 /* GraphQLValidatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7422AEF4E500626D76 /* GraphQLValidatingTests.swift */; };
+		E8AB56D52320FD77006DB9F5 /* GraphQLResponseValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC8D22AEF95F00626D76 /* GraphQLResponseValidatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,7 +150,6 @@
 		DFAA695145CD70A03E5AA730 /* Pods-graphql-macosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-macosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-macosTests/Pods-graphql-macosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8AB569E2320FA5D006DB9F5 /* graphql_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AB56A62320FA5D006DB9F5 /* graphql-macosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "graphql-macosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +158,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */,
 				C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,7 +252,6 @@
 				A5B6774622A5ACF700708DD3 /* Products */,
 				45D13B9FBE9387DF89215450 /* Pods */,
 				F40FC23B399D73BAFA52EA45 /* Frameworks */,
-				A5D2EC6222AEE13200626D76 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,14 +307,6 @@
 				A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A5D2EC6222AEE13200626D76 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		A5D2EC6322AEE5F700626D76 /* Service */ = {
@@ -760,6 +758,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8AB56CC2320FD77006DB9F5 /* GraphQLJSONDecoderTests.swift in Sources */,
+				E8AB56CD2320FD77006DB9F5 /* MockLogger.swift in Sources */,
+				E8AB56CE2320FD77006DB9F5 /* MockProvider.swift in Sources */,
+				E8AB56CF2320FD77006DB9F5 /* MockRequest.swift in Sources */,
+				E8AB56D02320FD77006DB9F5 /* MockResponse.swift in Sources */,
+				E8AB56D12320FD77006DB9F5 /* StubManager.swift in Sources */,
+				E8AB56D22320FD77006DB9F5 /* GraphQLRemoteErrorTests.swift in Sources */,
+				E8AB56D32320FD77006DB9F5 /* GraphQLClientTests.swift in Sources */,
+				E8AB56D42320FD77006DB9F5 /* GraphQLValidatingTests.swift in Sources */,
+				E8AB56D52320FD77006DB9F5 /* GraphQLResponseValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,7 +928,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fooda.graphql-ios";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -948,7 +958,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fooda.graphql-ios";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1018,6 +1030,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FoodaMobile.Fooda.graphql-macos";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1047,6 +1060,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FoodaMobile.Fooda.graphql-macos";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;

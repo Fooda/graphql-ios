@@ -7,7 +7,8 @@
 //
 
 import XCTest
-@testable import graphql_ios
+
+@testable import graphql
 
 final class GraphQLJSONDecoderTests: XCTestCase {
     func testDecodeDateFromString() {

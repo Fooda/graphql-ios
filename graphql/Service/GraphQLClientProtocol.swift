@@ -1,6 +1,6 @@
 //
 //  GraphQLClientProtocol.swift
-//  graphql_ios
+// graphql
 //
 //  Created by Craig Olson on 4/30/19.
 //  Copyright © 2019 Fooda, Inc. All rights reserved.

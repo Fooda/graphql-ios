@@ -6,18 +6,19 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-#if TARGET_OS_IPHONE
-    @import UIKit;
-#else
+#if TARGET_OS_OSX
     @import AppKit;
+#else
+    @import UIKit;
 #endif
 
-//! Project version number for graphql_ios.
-FOUNDATION_EXPORT double graphql_iosVersionNumber;
+//! Project version number for graphql.
+FOUNDATION_EXPORT double graphql_VersionNumber;
 
-//! Project version string for graphql_ios.
-FOUNDATION_EXPORT const unsigned char graphql_iosVersionString[];
+//! Project version string for graphql.
+FOUNDATION_EXPORT const unsigned char graphql_VersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <graphql_ios/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <graphql/PublicHeader.h>
+
 
 

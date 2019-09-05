@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-@testable import graphql_ios
+@testable import graphql
 
 struct MockResponse: GraphQLPayload {
     struct DecodableResult: GraphQLDecodable {

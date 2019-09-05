@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-@testable import graphql_ios
+@testable import graphql
 
 class MockProvider: GraphQLProvider {
     var fullUrl: String
