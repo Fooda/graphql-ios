@@ -69,7 +69,7 @@ s.source       = { :git => "git@github.com:Fooda/graphql-ios.git", :tag => s.ver
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = "graphql-ios/**/*.{swift}", "graphql-ios/**/**/*.{swift}"
+s.source_files  = "graphql/**/*.{swift}", "graphql/**/**/*.{swift}"
 
 
 # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
