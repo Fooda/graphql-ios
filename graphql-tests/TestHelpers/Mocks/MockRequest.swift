@@ -6,11 +6,7 @@
 //  Copyright © 2019 Fooda. All rights reserved.
 //
 
-#if os(iOS)
-  @testable import graphql_ios
-#else
-  @testable import graphql_macos
-#endif
+@testable import graphql
 
 enum MockRequest: GraphQLRequest {
     case authenticated

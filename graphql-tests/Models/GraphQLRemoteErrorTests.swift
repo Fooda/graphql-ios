@@ -7,12 +7,7 @@
 //
 
 import XCTest
-
-#if os(iOS)
-  @testable import graphql_ios
-#else
-  @testable import graphql_macos
-#endif
+@testable import graphql
 
 class GraphQLRemoteErrorTests: XCTestCase {
     private let defaultMessage = "We’re having trouble connecting to Fooda, try again in a few minutes. If the problem persists, please contact support. We apologize for this inconvenience.".localized()

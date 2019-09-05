@@ -17,8 +17,7 @@
 		A52B12BD22A6C36F00EAA97E /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		A52B12BF22A6C45800EAA97E /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
 		A52B12D022A712A900EAA97E /* NotificationName+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */; };
-		A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B6774522A5ACF700708DD3 /* graphql_ios.framework */; };
-		A5B6775622A5ACF700708DD3 /* graphql.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5B6774F22A5ACF700708DD3 /* graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B6774522A5ACF700708DD3 /* graphql.framework */; };
 		A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776322A5AE1400708DD3 /* GraphQLClient.swift */; };
 		A5B6776B22A5AE1400708DD3 /* GraphQLValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */; };
 		A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */; };
@@ -45,7 +44,8 @@
 		C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */; };
 		DE749344BAC707BCFF6A67AE /* Pods_graphql_macosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335FCC4DC97E5DBB47C4D7CE /* Pods_graphql_macosTests.framework */; };
 		E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */; };
-		E8AB56A72320FA5D006DB9F5 /* graphql_macos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AB569E2320FA5D006DB9F5 /* graphql_macos.framework */; };
+		E89FB1F6232128AF009C888A /* graphql-ios.h in Headers */ = {isa = PBXBuildFile; fileRef = E89FB1F52321287C009C888A /* graphql-ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8AB56A72320FA5D006DB9F5 /* graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AB569E2320FA5D006DB9F5 /* graphql.framework */; };
 		E8AB56B52320FAA5006DB9F5 /* String+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BC22A6C36F00EAA97E /* String+Extra.swift */; };
 		E8AB56B62320FAA5006DB9F5 /* Bundle+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */; };
 		E8AB56B72320FAA5006DB9F5 /* NotificationName+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */; };
@@ -68,7 +68,7 @@
 		E8AB56C82320FAA5006DB9F5 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */; };
 		E8AB56C92320FAA5006DB9F5 /* GraphQLValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776422A5AE1400708DD3 /* GraphQLValidating.swift */; };
 		E8AB56CA2320FAA5006DB9F5 /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
-		E8AB56CB2320FAC5006DB9F5 /* graphql.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8AB56CB2320FAC5006DB9F5 /* graphql-macos.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B6774822A5ACF700708DD3 /* graphql-macos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8AB56CC2320FD77006DB9F5 /* GraphQLJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8851E15922B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift */; };
 		E8AB56CD2320FD77006DB9F5 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
 		E8AB56CE2320FD77006DB9F5 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
@@ -117,8 +117,8 @@
 		A52B12BC22A6C36F00EAA97E /* String+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extra.swift"; sourceTree = "<group>"; };
 		A52B12BE22A6C45800EAA97E /* Bundle+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extra.swift"; sourceTree = "<group>"; };
 		A52B12CF22A712A900EAA97E /* NotificationName+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extra.swift"; sourceTree = "<group>"; };
-		A5B6774522A5ACF700708DD3 /* graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5B6774822A5ACF700708DD3 /* graphql.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graphql.h; sourceTree = "<group>"; };
+		A5B6774522A5ACF700708DD3 /* graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5B6774822A5ACF700708DD3 /* graphql-macos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "graphql-macos.h"; sourceTree = "<group>"; };
 		A5B6774922A5ACF700708DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B6774E22A5ACF700708DD3 /* graphql-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "graphql-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B6775522A5ACF700708DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,7 +148,8 @@
 		A814F49ED9B01D6BECBF26D1 /* Pods_graphql_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAA695145CD70A03E5AA730 /* Pods-graphql-macosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-macosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-macosTests/Pods-graphql-macosTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E8AB569E2320FA5D006DB9F5 /* graphql_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E89FB1F52321287C009C888A /* graphql-ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "graphql-ios.h"; sourceTree = "<group>"; };
+		E8AB569E2320FA5D006DB9F5 /* graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AB56A62320FA5D006DB9F5 /* graphql-macosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "graphql-macosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF727609E3B635DF3AA19349 /* Pods-graphql-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B6774F22A5ACF700708DD3 /* graphql_ios.framework in Frameworks */,
+				A5B6774F22A5ACF700708DD3 /* graphql.framework in Frameworks */,
 				E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8AB56A72320FA5D006DB9F5 /* graphql_macos.framework in Frameworks */,
+				E8AB56A72320FA5D006DB9F5 /* graphql.framework in Frameworks */,
 				DE749344BAC707BCFF6A67AE /* Pods_graphql_macosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,9 +259,9 @@
 		A5B6774622A5ACF700708DD3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5B6774522A5ACF700708DD3 /* graphql_ios.framework */,
+				A5B6774522A5ACF700708DD3 /* graphql.framework */,
 				A5B6774E22A5ACF700708DD3 /* graphql-iosTests.xctest */,
-				E8AB569E2320FA5D006DB9F5 /* graphql_macos.framework */,
+				E8AB569E2320FA5D006DB9F5 /* graphql.framework */,
 				E8AB56A62320FA5D006DB9F5 /* graphql-macosTests.xctest */,
 			);
 			name = Products;
@@ -348,7 +349,8 @@
 				A52B128F22A6BCC000EAA97E /* Utils */,
 				A5B6776E22A5B04800708DD3 /* Models */,
 				A5B6775F22A5ADEE00708DD3 /* Service */,
-				A5B6774822A5ACF700708DD3 /* graphql.h */,
+				A5B6774822A5ACF700708DD3 /* graphql-macos.h */,
+				E89FB1F52321287C009C888A /* graphql-ios.h */,
 			);
 			path = graphql;
 			sourceTree = "<group>";
@@ -384,7 +386,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B6775622A5ACF700708DD3 /* graphql.h in Headers */,
+				E89FB1F6232128AF009C888A /* graphql-ios.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +394,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8AB56CB2320FAC5006DB9F5 /* graphql.h in Headers */,
+				E8AB56CB2320FAC5006DB9F5 /* graphql-macos.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +417,7 @@
 			);
 			name = "graphql-ios";
 			productName = "graphql-ios";
-			productReference = A5B6774522A5ACF700708DD3 /* graphql_ios.framework */;
+			productReference = A5B6774522A5ACF700708DD3 /* graphql.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A5B6774D22A5ACF700708DD3 /* graphql-iosTests */ = {
@@ -454,7 +456,7 @@
 			);
 			name = "graphql-macos";
 			productName = "graphql-macos";
-			productReference = E8AB569E2320FA5D006DB9F5 /* graphql_macos.framework */;
+			productReference = E8AB569E2320FA5D006DB9F5 /* graphql.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E8AB56A52320FA5D006DB9F5 /* graphql-macosTests */ = {
@@ -921,6 +923,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					TARGET_OS_OSX,
+				);
 				INFOPLIST_FILE = graphql/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -930,8 +937,8 @@
 				);
 				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fooda.graphql-ios";
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = graphql;
+				PRODUCT_NAME = graphql;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -951,6 +958,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = graphql/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -960,8 +971,8 @@
 				);
 				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fooda.graphql-ios";
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = graphql;
+				PRODUCT_NAME = graphql;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1021,6 +1032,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = graphql/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1030,8 +1045,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FoodaMobile.Fooda.graphql-macos";
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = graphql;
+				PRODUCT_NAME = graphql;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1051,6 +1066,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = graphql/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1060,8 +1079,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FoodaMobile.Fooda.graphql-macos";
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = graphql;
+				PRODUCT_NAME = graphql;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
