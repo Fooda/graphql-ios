@@ -1,0 +1,346 @@
+version: 2
+
+aliases:
+  - &test_1_name iPhone6_iOS11_tests
+  - &test_1_sim "iPhone 6 (11.4)"
+  - &test_1_device "iPhone 6"
+  - &test_1_version "11.4"
+
+  - &test_2_name iPhone8Plus_iOS12_tests
+  - &test_2_sim "iPhone 8 Plus (12.2)"
+  - &test_2_device "iPhone 8 Plus"
+  - &test_2_version "12.2"
+
+  - &test_3_name iPhoneX_iOS12_tests
+  - &test_3_sim "iPhone X (12.2)"
+  - &test_3_device "iPhone X"
+  - &test_3_version "12.2"
+
+  - &test_4_name iPhoneXs_Max_iOS12_tests
+  - &test_4_sim "iPhone Xs Max (12.2)"
+  - &test_4_device "iPhone Xs Max"
+  - &test_4_version "12.2"
+
+  - &test_1_ui iPhone6_iOS11_ui_tests
+  - &test_2_ui iPhone8Plus_iOS12_ui_tests
+
+job-defaults: &default_job_settings
+  macos:
+    xcode: "10.2.0"
+  working_directory: /Users/distiller/project
+  environment:
+    TZ: "/usr/share/zoneinfo/America/Chicago"
+  shell: /bin/bash --login -o pipefail
+
+step-defaults:
+  - &save_code_cache
+    save_cache:
+      key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      paths:
+        - /Users/distiller/project
+  - &save_gem_cache
+    save_cache:
+      key: v1-gems-{{ checksum "Gemfile.lock" }}
+      paths:
+        - vendor/bundle
+  - &restore_code_cache
+    restore_cache:
+      key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+  - &restore_gem_cache
+    restore_cache:
+      keys:
+        - v1-gems-{{ checksum "Gemfile.lock" }}
+        - v1-gems-
+  - &save_node_package_cache
+    save_cache:
+      key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      paths:
+        - ~/usr/local/lib/node_modules
+  - &restore_node_package_cache
+    keys:
+      - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - node-v1-{{ .Branch }}-
+      - node-v1-
+  - &create_output_folder
+    run:
+      name: Create output folder
+      command: mkdir output
+  - &install_bundle
+    run:
+      name: Installing bundle
+      command: bundle check || bundle install --path vendor/bundle
+  - &install_packages
+    run:
+      name: Installing packages 
+      command: npm install github-release-notes -g
+  - &copy_xml_report
+    run:
+      name: Copy Report.xml
+      command: cp fastlane/test_output/report.junit output/Report.xml
+      when: always
+  - &copy_html_report
+    run:
+      name: Copy Report.html
+      command: cp fastlane/test_output/report.html output/Report.html
+      when: always
+  - &copy_log
+    run:
+      name: Copy iFooda.log
+      command: cp ~/Library/Logs/scan/iFooda-iFooda.log output/iFooda.log
+      when: always
+  - &store_artifacts
+    store_artifacts:
+      path: output
+  - &store_test_results
+    store_test_results:
+      path: output
+
+base_unit_tests: &base_unit_tests
+  steps:
+    - *restore_code_cache
+    - *restore_gem_cache
+    - *create_output_folder
+    - *install_bundle
+    - run:
+        name: Pre-start simulator
+        command: |
+          xcrun instruments -w "${PRESTART_SIM}" || true
+    - run:
+        name: Build and run tests
+        command: |
+          bundle exec fastlane scan_unit_tests device:"${SCAN_DEVICE}" version:$SCAN_VERSION
+        environment:
+          SCAN_SCHEME: iFooda
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
+    - run: bundle exec danger --verbose
+    - *copy_xml_report
+    - *copy_html_report
+    - *copy_log
+    - *store_artifacts
+    - *store_test_results
+
+base_ui_tests: &base_ui_tests
+  steps:
+    - *restore_code_cache
+    - *restore_gem_cache
+    - *create_output_folder
+    - *install_bundle
+    - run:
+        name: Pre-start simulator
+        command: |
+          xcrun instruments -w "${PRESTART_SIM}" || true
+    - run:
+        name: Build and run tests
+        command: |
+          bundle exec fastlane scan_ui_tests device:"${SCAN_DEVICE}" version:$SCAN_VERSION
+        environment:
+          SCAN_SCHEME: iFooda
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
+    - *copy_xml_report
+    - *copy_html_report
+    - *copy_log
+    - *store_artifacts
+    - *store_test_results
+
+jobs:
+  prepare_project:
+    <<: *default_job_settings
+    steps:
+      - run:
+          name: Prepare tests
+          command: echo "Preparing tests..."
+      - checkout
+      - run: git submodule update --init
+      - *save_code_cache
+      - *restore_gem_cache
+      - *install_bundle
+      - *save_gem_cache
+
+  prepare_node_packages:
+    <<: *default_job_settings
+    steps:
+      - run:
+          name: Prepare tests
+          command: echo "Preparing tests..."
+      - checkout
+      - *restore_node_package_cache
+      - *install_packages
+      - *save_node_package_cache
+
+  tag_release:
+    <<: *default_job_settings
+    steps: 
+      - run:
+          name: Prepare release notes
+          command: echo "Preparing release notes..."
+      - checkout 
+      - *restore_gem_cache
+      - *restore_node_package_cache
+      - run: bundle exec fastlane release_notes
+
+  *test_1_name:
+    <<: *default_job_settings
+    environment:
+      PRESTART_SIM: *test_1_sim
+      SCAN_DEVICE: *test_1_device
+      SCAN_VERSION: *test_1_version
+    <<: *base_unit_tests
+
+  *test_2_name:
+    <<: *default_job_settings
+    environment:
+      PRESTART_SIM: *test_2_sim
+      SCAN_DEVICE: *test_2_device
+      SCAN_VERSION: *test_2_version
+    <<: *base_unit_tests
+
+  *test_3_name:
+    <<: *default_job_settings
+    environment:
+      PRESTART_SIM: *test_3_sim
+      SCAN_DEVICE: *test_3_device
+      SCAN_VERSION: *test_3_version
+    <<: *base_unit_tests
+
+  *test_4_name:
+    <<: *default_job_settings
+    environment:
+      PRESTART_SIM: *test_4_sim
+      SCAN_DEVICE: *test_4_device
+      SCAN_VERSION: *test_4_version
+    <<: *base_unit_tests
+
+  *test_1_ui:
+    <<: *default_job_settings
+    environment:
+      PRESTART_SIM: *test_1_sim
+      SCAN_DEVICE: *test_1_device
+      SCAN_VERSION: *test_1_version
+    <<: *base_ui_tests
+
+  *test_2_ui:
+    <<: *default_job_settings
+    environment:
+      PRESTART_SIM: *test_2_sim
+      SCAN_DEVICE: *test_2_device
+      SCAN_VERSION: *test_2_version
+    <<: *base_ui_tests
+
+  deployment:
+    <<: *default_job_settings
+    steps:
+      - *restore_code_cache
+      - *restore_gem_cache
+      - *create_output_folder
+      - *install_bundle
+      - run:
+          name: Fastlane auto distribution
+          command: bundle exec fastlane auto_distribute
+          no_output_timeout: 20m # default is 10 minutes
+          environment:
+            LC_ALL: en_US.UTF-8
+            LANG: en_US.UTF-8
+      - run:
+          name: Copy IPA
+          command: cp *.ipa output/
+      - run:
+          name: Copy DSYMs
+          command: cp *.app.dSYM.zip output/
+      - *store_artifacts
+
+workflows:
+  version: 2
+  test-and-deploy-workflow:
+    jobs:
+      - prepare_project:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+                - /^release\/.+$/
+                - /^hotfix\/.+$/
+                - /^epic\/.+$/
+      - prepare_node_packages:
+          filters:
+            branches:
+              only:
+                - master
+      - *test_1_name:
+          requires:
+            - prepare_project
+      - *test_2_name:
+          requires:
+            - prepare_project
+      - *test_3_name:
+          requires:
+            - prepare_project
+      - *test_4_name:
+          requires:
+            - prepare_project
+      - deployment:
+          requires:
+            - *test_1_name
+            - *test_2_name
+            - *test_3_name
+            - *test_4_name
+      - tag_release:
+          filters: 
+            branches:
+              only:
+                - master
+          requires: 
+            - deployment
+            - prepare_node_packages
+
+  test-workflow:
+    jobs:
+      - start:
+          type: approval
+          filters:
+            branches:
+              ignore:
+                - master
+                - develop
+                - /^release\/.+$/
+                - /^hotfix\/.+$/
+                - /^epic\/.+$/
+      - prepare_project:
+          requires:
+            - start
+      - *test_1_name:
+          requires:
+            - prepare_project
+      - *test_2_name:
+          requires:
+            - prepare_project
+      - *test_3_name:
+          requires:
+            - prepare_project
+      - *test_4_name:
+          requires:
+            - prepare_project
+
+  test-ui-workflow:
+    jobs:
+      - start:
+          type: approval
+          filters:
+            branches:
+              ignore:
+                - master
+                - develop
+                - /^release\/.+$/
+                - /^hotfix\/.+$/
+                - /^epic\/.+$/
+      - prepare_project:
+          requires:
+            - start
+      - *test_1_ui:
+          requires:
+            - prepare_project
+      - *test_2_ui:
+          requires:
+            - prepare_project
