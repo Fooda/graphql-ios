@@ -55,11 +55,9 @@ private extension GraphQLClient {
         let url = provider.fullUrl
         let requestId = UUID().uuidString
         logger?.infoGraphQL("graphql_start",
-                            params: [
-                                "url": url,
-                                "requestId": requestId,
-                                "name": request.name
-        ])
+                            params: ["url": url,
+                                     "requestId": requestId,
+                                     "name": request.name])
         var updatedHeaders: [String: String]
         do {
             updatedHeaders = try requestHeaders(with: headers,
@@ -68,12 +66,10 @@ private extension GraphQLClient {
         } catch {
             completion(.failure(error))
             logger?.errorGraphQL("graphql_invalid_header",
-                                 params: [
-                                    "url": url,
-                                    "requestId": requestId,
-                                    "name": request.name,
-                                    "error": error.localizedDescription
-            ])
+                                 params: ["url": url,
+                                          "requestId": requestId,
+                                          "name": request.name,
+                                          "error": error.localizedDescription])
             return
         }
 
@@ -107,44 +103,39 @@ private extension GraphQLClient {
                                       headers: [String: String]?,
                                       response: DataResponse<Any>,
                                       completion: @escaping ((Result<T, Error>) -> Void)) {
-        let statusCode = response.response?.statusCode ?? 0
+        let httpStatusCode = response.response?.statusCode ?? 0
 
-        logger?.infoGraphQL("graphql_complete", params: [
-            "url": url,
-            "requestId": requestId,
-            "status": statusCode,
-            "name": request.name,
-            "variables": parameters?["variables"] ?? [:],
-            "timeline": ["latency": response.timeline.latency,
-                         "request": response.timeline.requestDuration,
-                         "parsing": response.timeline.serializationDuration,
-                         "total": response.timeline.totalDuration]
-        ])
-
+        logger?.infoGraphQL("graphql_complete",
+                            params: ["url": url,
+                                     "requestId": requestId,
+                                     "status": httpStatusCode,
+                                     "name": request.name,
+                                     "variables": parameters?["variables"] ?? [:],
+                                     "timeline": ["latency": response.timeline.latency,
+                                                  "request": response.timeline.requestDuration,
+                                                  "parsing": response.timeline.serializationDuration,
+                                                  "total": response.timeline.totalDuration]])
         let data = response.data ?? Data()
-        // rawJson is for logging purposes only
-        let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
-
         do {
-            try self.validateResponse(httpStatusCode: statusCode, responseError: response.error)
+            try self.validateResponse(httpStatusCode: httpStatusCode, responseError: response.error)
 
             let apiResponse = try decoder.decode(GraphQLResponse<T>.self, from: data)
 
             if let errors = apiResponse.errors, !errors.isEmpty {
-                // handle base error, 200 status code
-                throw GraphQLRemoteError.protocolError(statusCode: statusCode, errors: errors)
+                throw GraphQLRemoteError.protocolError(httpStatusCode: httpStatusCode, errors: errors)
             }
             guard let result = apiResponse.data else {
-                throw GraphQLRemoteError.unexpectedJSON
+                throw GraphQLRemoteError.unexpectedJSON(httpStatusCode: httpStatusCode)
             }
 
             completion(.success(result))
         } catch {
+            let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
             logger?.errorGraphQL("graphql_failure",
                                  params: [
                                     "url": url,
                                     "requestId": requestId,
-                                    "status": statusCode,
+                                    "status": httpStatusCode,
                                     "name": request.name,
                                     "variables": parameters?["variables"] ?? [:],
                                     "timeline": ["latency": response.timeline.latency,
@@ -158,7 +149,9 @@ private extension GraphQLClient {
         }
     }
 
-    func requestHeaders(with customHeader: [String: String]?, clientToken: String?, authentication: GraphQLAuthentication) throws -> [String: String] {
+    func requestHeaders(with customHeader: [String: String]?,
+                        clientToken: String?,
+                        authentication: GraphQLAuthentication) throws -> [String: String] {
         var headers: [String: String] = ["X-AppPlatform": "iOS",
                                          "X-AppVersion": Bundle.appVersion,
                                          "X-AppBundle": Bundle.bundleId ?? "/"]
@@ -169,7 +162,7 @@ private extension GraphQLClient {
                 headers[key] = value
             }
         }
-
+        
         // client token
         if let clientToken = clientToken {
             headers["X-ClientToken"] = clientToken
@@ -190,7 +183,7 @@ private extension GraphQLClient {
     func validateResponse(httpStatusCode: Int, responseError: Error?) throws {
         switch httpStatusCode {
         case 500...:
-            throw GraphQLRemoteError.serverError(statusCode: httpStatusCode)
+            throw GraphQLRemoteError.serverError(httpStatusCode: httpStatusCode)
         case 0:
             if let urlError = responseError as? URLError {
                 throw GraphQLRemoteError.networkError(urlError)

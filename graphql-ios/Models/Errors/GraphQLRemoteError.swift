@@ -7,10 +7,10 @@
 //
 
 public enum GraphQLRemoteError: LocalizedError {
-    case serverError(statusCode: Int)
-    case protocolError(statusCode: Int, errors: [GraphQLProtocolError])
+    case serverError(httpStatusCode: Int)
+    case protocolError(httpStatusCode: Int, errors: [GraphQLProtocolError])
     case networkError(URLError)
-    case unexpectedJSON
+    case unexpectedJSON(httpStatusCode: Int)
     case undefinedHost
     case unknown
 
@@ -22,15 +22,18 @@ public enum GraphQLRemoteError: LocalizedError {
             return errors.first?.message ?? defaultMessage
         case let .networkError(urlError):
             return urlError.localizedDescription
-        case .serverError, .unexpectedJSON, .unknown, .undefinedHost:
+        case .serverError,
+             .unexpectedJSON,
+             .unknown,
+             .undefinedHost:
             return defaultMessage
         }
     }
 
     var debugDescription: String {
         switch self {
-        case let .serverError(statusCode):
-            return "server_\(statusCode)"
+        case let .serverError(httpStatusCode):
+            return "server_\(httpStatusCode)"
         case .protocolError:
             return "protocol_error"
         case .unknown:
@@ -41,6 +44,19 @@ public enum GraphQLRemoteError: LocalizedError {
             return "undefined_host"
         case let .networkError(urlError):
             return "network_\((urlError as NSError).debugDescription)"
+        }
+    }
+
+    var httpStatusCode: Int {
+        switch self {
+        case let .serverError(httpStatusCode),
+             let .protocolError(httpStatusCode, _),
+             let .unexpectedJSON(httpStatusCode):
+            return httpStatusCode
+        case .networkError,
+             .undefinedHost,
+             .unknown:
+            return 0
         }
     }
 }
