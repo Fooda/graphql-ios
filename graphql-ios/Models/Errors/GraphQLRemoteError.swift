@@ -11,7 +11,6 @@ public enum GraphQLRemoteError: LocalizedError {
     case protocolError(statusCode: Int, errors: [GraphQLProtocolError])
     case networkError(URLError)
     case unexpectedJSON
-    case operationErrors(_ errors: [GraphQLOperationError])
     case undefinedHost
     case unknown
 
@@ -20,8 +19,6 @@ public enum GraphQLRemoteError: LocalizedError {
 
         switch self {
         case let .protocolError(_, errors: errors):
-            return errors.first?.message ?? defaultMessage
-        case let .operationErrors(errors):
             return errors.first?.message ?? defaultMessage
         case let .networkError(urlError):
             return urlError.localizedDescription
@@ -36,8 +33,6 @@ public enum GraphQLRemoteError: LocalizedError {
             return "server_\(statusCode)"
         case .protocolError:
             return "protocol_error"
-        case .operationErrors:
-            return "operation_error"
         case .unknown:
             return "unknown_error"
         case .unexpectedJSON:
