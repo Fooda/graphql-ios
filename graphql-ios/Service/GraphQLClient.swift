@@ -222,7 +222,8 @@ private extension GraphQLClient {
                                     "name": request.name,
                                     "variables": parameters?["variables"] ?? [:],
                                     "response": rawJson ?? [:],
-                                    "operation_error": error.dictionary
+                                    "operation_error_code": error.code,
+                                    "operation_error_message": error.message
                 ])
         }
     }
