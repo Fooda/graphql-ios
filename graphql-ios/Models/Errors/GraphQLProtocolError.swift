@@ -1,5 +1,5 @@
 //
-//  GraphQLError.swift
+//  GraphQLProtocolError.swift
 //  graphql_ios
 //
 //  Created by Craig Olson on 5/9/19.
@@ -8,6 +8,6 @@
 
 // Base level graphql error
 // At the same level as "data"
-public struct GraphQLError: Decodable {
+public struct GraphQLProtocolError: Decodable {
     let message: String
 }

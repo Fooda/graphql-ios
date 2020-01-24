@@ -8,7 +8,7 @@
 
 public enum GraphQLRemoteError: LocalizedError {
     case serverError(statusCode: Int)
-    case protocolError(statusCode: Int, errors: [GraphQLError])
+    case protocolError(statusCode: Int, errors: [GraphQLProtocolError])
     case networkError(URLError)
     case unexpectedJSON
     case operationErrors(_ errors: [GraphQLNamedOperationError])

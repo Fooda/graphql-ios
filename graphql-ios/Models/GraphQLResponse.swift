@@ -11,5 +11,5 @@
 // was improperly formatted 
 internal struct GraphQLResponse<T: GraphQLPayload>: Decodable {
     let data: T?
-    let errors: [GraphQLError]?
+    let errors: [GraphQLProtocolError]?
 }
