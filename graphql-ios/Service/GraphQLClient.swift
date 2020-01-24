@@ -13,7 +13,6 @@ public class GraphQLClient: GraphQLClientProtocol {
     public static let shared = GraphQLClient()
     private let manager: Alamofire.SessionManager
     private let decoder: GraphQLJSONDecoder
-    private let responseValidator: GraphQLResponseValidator
 
     // MARK: - Configurable properties
     private var logger: GraphQLLogging?
@@ -24,7 +23,6 @@ public class GraphQLClient: GraphQLClientProtocol {
         let configuration = URLSessionConfiguration.default
         manager = Alamofire.SessionManager(configuration: configuration)
         decoder = GraphQLJSONDecoder()
-        responseValidator = GraphQLResponseValidator()
     }
 
     public func configure(logger: GraphQLLogging?, provider: GraphQLProvider) {
@@ -128,7 +126,7 @@ private extension GraphQLClient {
         let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
 
         do {
-            try self.responseValidator.validateResponse(httpStatusCode: statusCode, responseError: response.error)
+            try self.validateResponse(httpStatusCode: statusCode, responseError: response.error)
 
             let apiResponse = try decoder.decode(GraphQLResponse<T>.self, from: data)
 
@@ -189,6 +187,23 @@ private extension GraphQLClient {
             }
         }
         return headers
+    }
+
+    func validateResponse(httpStatusCode: Int, responseError: Error?) throws {
+        switch httpStatusCode {
+        case 500...:
+            throw GraphQLRemoteError.serverError(statusCode: httpStatusCode)
+        case 0:
+            if let urlError = responseError as? URLError {
+                throw GraphQLRemoteError.networkError(urlError)
+            } else if let genericError = responseError {
+                throw genericError
+            } else {
+                throw GraphQLRemoteError.unknown
+            }
+        default:
+            break
+        }
     }
 
     func logOperationErrors<T: GraphQLPayload>(request: GraphQLRequest,

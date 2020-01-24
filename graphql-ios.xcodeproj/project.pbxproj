@@ -30,7 +30,6 @@
 		A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */; };
 		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
 		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
-		A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */; };
 		A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */; };
 		A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */; };
 		A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6622AEE69B00626D76 /* StubManager.swift */; };
@@ -84,7 +83,6 @@
 		A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteErrorTests.swift; sourceTree = "<group>"; };
 		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
-		A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponseValidator.swift; sourceTree = "<group>"; };
 		A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLLogging.swift; sourceTree = "<group>"; };
 		A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientTests.swift; sourceTree = "<group>"; };
 		A5D2EC6622AEE69B00626D76 /* StubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubManager.swift; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 				A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */,
 				A5B6776322A5AE1400708DD3 /* GraphQLClient.swift */,
 				A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */,
-				A5C595E822A837AC00028D1F /* GraphQLResponseValidator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -482,7 +479,6 @@
 			files = (
 				A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */,
 				A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */,
-				A5C595E922A837AC00028D1F /* GraphQLResponseValidator.swift in Sources */,
 				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
 				A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */,
 				A5B6776A22A5AE1400708DD3 /* GraphQLClient.swift in Sources */,
