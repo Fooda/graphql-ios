@@ -128,7 +128,7 @@ private extension GraphQLClient {
         let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
 
         do {
-            try self.responseValidator.validateResponse(statusCode: statusCode, responseError: response.error)
+            try self.responseValidator.validateResponse(httpStatusCode: statusCode, responseError: response.error)
 
             let apiResponse = try decoder.decode(GraphQLResponse<T>.self, from: data)
 

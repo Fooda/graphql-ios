@@ -7,7 +7,7 @@
 //
 
 public enum GraphQLRemoteError: LocalizedError {
-    case invalidCredentials // 401 or 403
+    case invalidCredentials
     case serverError(statusCode: Int)
     case protocolError(statusCode: Int, errors: [GraphQLError])
     case networkError(URLError)

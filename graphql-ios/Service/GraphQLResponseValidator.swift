@@ -7,12 +7,10 @@
 //
 
 internal class GraphQLResponseValidator {
-    func validateResponse(statusCode: Int, responseError: Error?) throws {
-        switch statusCode {
-        case 401, 403:
-            throw GraphQLRemoteError.invalidCredentials
+    func validateResponse(httpStatusCode: Int, responseError: Error?) throws {
+        switch httpStatusCode {
         case 500...:
-            throw GraphQLRemoteError.serverError(statusCode: statusCode)
+            throw GraphQLRemoteError.serverError(statusCode: httpStatusCode)
         case 0:
             if let urlError = responseError as? URLError {
                 throw GraphQLRemoteError.networkError(urlError)
