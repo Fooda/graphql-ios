@@ -31,9 +31,9 @@ public class GraphQLClient: GraphQLClientProtocol {
         self.provider = provider
     }
 
-    public func performOperation<T: GraphQLPayload>(request: GraphQLRequest,
-                                                    headers: [String: String]? = nil,
-                                                    completion: @escaping ((Result<T, Error>) -> Void)) {
+    public func performOperation<T: Decodable>(request: GraphQLRequest,
+                                               headers: [String: String]? = nil,
+                                               completion: @escaping ((Result<T, Error>) -> Void)) {
         self.request(request: request,
                      method: .post,
                      headers: headers,
@@ -43,10 +43,10 @@ public class GraphQLClient: GraphQLClientProtocol {
 
 // MARK: - Private Methods
 private extension GraphQLClient {
-    func request<T: GraphQLPayload>(request: GraphQLRequest,
-                                    method: HTTPMethod,
-                                    headers: [String: String]? = nil,
-                                    completion: @escaping ((Result<T, Error>) -> Void)) {
+    func request<T: Decodable>(request: GraphQLRequest,
+                               method: HTTPMethod,
+                               headers: [String: String]? = nil,
+                               completion: @escaping ((Result<T, Error>) -> Void)) {
         guard let provider = provider else {
             completion(.failure(GraphQLRemoteError.undefinedHost))
             return
@@ -59,7 +59,7 @@ private extension GraphQLClient {
                                 "url": url,
                                 "requestId": requestId,
                                 "name": request.name
-            ])
+        ])
         var updatedHeaders: [String: String]
         do {
             updatedHeaders = try requestHeaders(with: headers,
@@ -73,7 +73,7 @@ private extension GraphQLClient {
                                     "requestId": requestId,
                                     "name": request.name,
                                     "error": error.localizedDescription
-                ])
+            ])
             return
         }
 
@@ -99,14 +99,14 @@ private extension GraphQLClient {
         }
     }
 
-    func handleResponse<T: GraphQLPayload>(request: GraphQLRequest,
-                                           url: String,
-                                           requestId: String,
-                                           method: HTTPMethod,
-                                           parameters: Parameters?,
-                                           headers: [String: String]?,
-                                           response: DataResponse<Any>,
-                                           completion: @escaping ((Result<T, Error>) -> Void)) {
+    func handleResponse<T: Decodable>(request: GraphQLRequest,
+                                      url: String,
+                                      requestId: String,
+                                      method: HTTPMethod,
+                                      parameters: Parameters?,
+                                      headers: [String: String]?,
+                                      response: DataResponse<Any>,
+                                      completion: @escaping ((Result<T, Error>) -> Void)) {
         let statusCode = response.response?.statusCode ?? 0
 
         logger?.infoGraphQL("graphql_complete", params: [
@@ -119,7 +119,7 @@ private extension GraphQLClient {
                          "request": response.timeline.requestDuration,
                          "parsing": response.timeline.serializationDuration,
                          "total": response.timeline.totalDuration]
-            ])
+        ])
 
         let data = response.data ?? Data()
         // rawJson is for logging purposes only
@@ -138,8 +138,6 @@ private extension GraphQLClient {
                 throw GraphQLRemoteError.unexpectedJSON
             }
 
-            logOperationErrors(request: request, url: url, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
-
             completion(.success(result))
         } catch {
             logger?.errorGraphQL("graphql_failure",
@@ -155,7 +153,7 @@ private extension GraphQLClient {
                                                  "total": response.timeline.totalDuration],
                                     "response": rawJson ?? [:],
                                     "error": (error as? GraphQLRemoteError)?.debugDescription ?? error.localizedDescription
-                ])
+            ])
             completion(.failure(error))
         }
     }
@@ -203,28 +201,6 @@ private extension GraphQLClient {
             }
         default:
             break
-        }
-    }
-
-    func logOperationErrors<T: GraphQLPayload>(request: GraphQLRequest,
-                                               url: String,
-                                               requestId: String,
-                                               parameters: Parameters?,
-                                               result: T,
-                                               rawJson: [String: Any]?,
-                                               response: DataResponse<Any>) {
-        for error in result.errors {
-            logger?.errorGraphQL("graphql_operation_error",
-                                 params: [
-                                    "url": url,
-                                    "requestId": requestId,
-                                    "status": response.response?.statusCode ?? 0,
-                                    "name": request.name,
-                                    "variables": parameters?["variables"] ?? [:],
-                                    "response": rawJson ?? [:],
-                                    "operation_error_code": error.code,
-                                    "operation_error_message": error.message
-                ])
         }
     }
 }
