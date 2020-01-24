@@ -181,13 +181,10 @@ private extension GraphQLClient {
 
         // session token
         switch authentication {
-        case .authenticated:
-            guard let sessionToken = provider?.sessionToken else {
-                throw GraphQLRemoteError.invalidCredentials
-            }
+        case let .authenticated(sessionToken):
             headers["X-SessionToken"] = sessionToken
-        case .anonymous:
-            if let sessionToken = provider?.sessionToken {
+        case let .anonymous(sessionToken):
+            if let sessionToken = sessionToken {
                 headers["X-SessionToken"] = sessionToken
             }
         }

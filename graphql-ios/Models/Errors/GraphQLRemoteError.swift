@@ -7,7 +7,6 @@
 //
 
 public enum GraphQLRemoteError: LocalizedError {
-    case invalidCredentials
     case serverError(statusCode: Int)
     case protocolError(statusCode: Int, errors: [GraphQLError])
     case networkError(URLError)
@@ -20,8 +19,6 @@ public enum GraphQLRemoteError: LocalizedError {
         let defaultMessage = "We’re having trouble connecting to Fooda, try again in a few minutes. If the problem persists, please contact support. We apologize for this inconvenience.".localized()
 
         switch self {
-        case .invalidCredentials:
-            return "Invalid credentials".localized()
         case let .protocolError(_, errors: errors):
             return errors.first?.message ?? defaultMessage
         case let .operationErrors(errors):
@@ -35,8 +32,6 @@ public enum GraphQLRemoteError: LocalizedError {
 
     var debugDescription: String {
         switch self {
-        case .invalidCredentials:
-            return "invalid_credentials"
         case let .serverError(statusCode):
             return "server_\(statusCode)"
         case .protocolError:

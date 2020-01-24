@@ -9,5 +9,4 @@
 public protocol GraphQLProvider {
     var fullUrl: String { get }
     var clientToken: String { get }
-    var sessionToken: String? { get }
 }

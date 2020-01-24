@@ -7,5 +7,6 @@
 //
 
 public enum GraphQLAuthentication {
-    case authenticated, anonymous
+    case authenticated(sessionToken: String)
+    case anonymous(sessionToken: String?)
 }
