@@ -7,6 +7,6 @@
 //
 
 // GraphQL response nested inside of "data"
-public protocol GraphQLPayload: Decodable, GraphQLValidating {
+public protocol GraphQLPayload: Decodable {
     var errors: [GraphQLNamedOperationError] { get }
 }

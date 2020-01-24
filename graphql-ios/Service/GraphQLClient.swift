@@ -141,7 +141,6 @@ private extension GraphQLClient {
             }
 
             logOperationErrors(request: request, url: url, requestId: requestId, parameters: parameters, result: result, rawJson: rawJson, response: response)
-            try result.validateResponse()
 
             completion(.success(result))
         } catch {
