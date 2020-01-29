@@ -23,7 +23,14 @@ final class GraphQLJSONDecoderTests: XCTestCase {
                 return
         }
 
-        let expectedDate = DateFormatter.iso8601Formatter.date(from: "2014-06-13T12:00:00+00:00")
+
+        let expectedDate: Date?
+        if #available(iOS 10.0, *) {
+            expectedDate = ISO8601DateFormatter().date(from: "2014-06-13T12:00:00+00:00")
+        } else {
+            expectedDate = DateFormatter.iso8601Formatter.date(from: "2014-06-13T12:00:00+00:00")
+        }
+
         XCTAssertEqual(date, expectedDate)
     }
 }
