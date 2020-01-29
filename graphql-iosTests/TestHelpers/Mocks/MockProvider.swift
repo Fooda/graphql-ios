@@ -11,13 +11,10 @@
 class MockProvider: GraphQLProvider {
     var fullUrl: String
     var clientToken: String
-    var sessionToken: String?
 
     init(fullUrl: String = "api.fooda.com/graphql",
-         clientToken: String = "aaaaaaaaaaaa",
-         sessionToken: String? = nil) {
+         clientToken: String = "aaaaaaaaaaaa") {
         self.fullUrl = fullUrl
         self.clientToken = clientToken
-        self.sessionToken = sessionToken
     }
 }

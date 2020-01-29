@@ -9,8 +9,8 @@
 @testable import graphql_ios
 
 enum MockRequest: GraphQLRequest {
-    case authenticated
-    case anonymous
+    case authenticated(sessionToken: String)
+    case anonymous(sessionToken: String?)
 
     var name: String { return "name" }
     var query: String { return "query" }
@@ -18,10 +18,10 @@ enum MockRequest: GraphQLRequest {
 
     var authentication: GraphQLAuthentication {
         switch self {
-        case .anonymous:
-            return .anonymous
-        case .authenticated:
-            return .authenticated
+        case let .authenticated(sessionToken):
+            return .authenticated(sessionToken: sessionToken)
+        case let .anonymous(sessionToken):
+            return .anonymous(sessionToken: sessionToken)
         }
     }
 }
