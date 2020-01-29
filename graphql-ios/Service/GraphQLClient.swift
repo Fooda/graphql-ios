@@ -151,7 +151,7 @@ private extension GraphQLClient {
 
     func requestHeaders(with customHeader: [String: String]?,
                         clientToken: String?,
-                        authentication: GraphQLAuthentication) throws -> [String: String] {
+                        authentication: GraphQLAuthentication) -> [String: String] {
         var headers: [String: String] = ["X-AppPlatform": "iOS",
                                          "X-AppVersion": Bundle.appVersion,
                                          "X-AppBundle": Bundle.bundleId ?? "/"]
@@ -162,7 +162,7 @@ private extension GraphQLClient {
                 headers[key] = value
             }
         }
-        
+
         // client token
         if let clientToken = clientToken {
             headers["X-ClientToken"] = clientToken
