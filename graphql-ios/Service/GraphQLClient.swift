@@ -58,20 +58,9 @@ private extension GraphQLClient {
                             params: ["url": url,
                                      "requestId": requestId,
                                      "name": request.name])
-        var updatedHeaders: [String: String]
-        do {
-            updatedHeaders = try requestHeaders(with: headers,
-                                                clientToken: provider.clientToken,
-                                                authentication: request.authentication)
-        } catch {
-            completion(.failure(error))
-            logger?.errorGraphQL("graphql_invalid_header",
-                                 params: ["url": url,
-                                          "requestId": requestId,
-                                          "name": request.name,
-                                          "error": error.localizedDescription])
-            return
-        }
+        let updatedHeaders: [String: String] = requestHeaders(with: headers,
+                                                              clientToken: provider.clientToken,
+                                                              authentication: request.authentication)
 
         var parameters: [String: Any] = ["query": request.query]
         if !request.variables.isEmpty {
