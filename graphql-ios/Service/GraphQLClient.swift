@@ -25,7 +25,8 @@ public class GraphQLClient: GraphQLClientProtocol {
         decoder = GraphQLJSONDecoder()
     }
 
-    public func configure(logger: GraphQLLogging?, provider: GraphQLProvider) {
+    public func configure(logger: GraphQLLogging?,
+                          provider: GraphQLProvider?) {
         self.logger = logger
         decoder.logger = logger
         self.provider = provider

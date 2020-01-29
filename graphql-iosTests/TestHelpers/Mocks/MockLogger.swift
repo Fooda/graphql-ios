@@ -8,7 +8,29 @@
 
 @testable import graphql_ios
 
-struct MockLogger: GraphQLLogging {
-    func infoGraphQL(_ message: String, params: [String : Any]?) {}
-    func errorGraphQL(_ message: String, params: [String : Any]?) {}
+class MockLogger: GraphQLLogging {
+    struct Log {
+        enum LogLevel {
+            case info, error
+        }
+        let type: LogLevel
+        let message: String
+        let params: [String: Any]?
+    }
+
+    private(set) var logs = [Log]()
+
+    func infoGraphQL(_ message: String, params: [String: Any]?) {
+        let log = Log(type: .info, message: message, params: params)
+        logs.append(log)
+    }
+
+    func errorGraphQL(_ message: String, params: [String: Any]?) {
+        let log = Log(type: .error, message: message, params: params)
+        logs.append(log)
+    }
+
+    func reset() {
+        logs = []
+    }
 }
