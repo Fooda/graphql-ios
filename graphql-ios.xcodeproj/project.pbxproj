@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F23FF9523E48E4E006FF019 /* GraphQLAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23FF9423E48E4E006FF019 /* GraphQLAuthenticationTests.swift */; };
 		0FCAD44F22BA9BC800BFA931 /* DateFormatter+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */; };
 		0FCAD45122BA9F3B00BFA931 /* GraphQLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAD45022BA9F3B00BFA931 /* GraphQLRequest.swift */; };
 		3088C3F363EB74FC188038E2 /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F23FF9423E48E4E006FF019 /* GraphQLAuthenticationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLAuthenticationTests.swift; sourceTree = "<group>"; };
 		0FCAD44E22BA9BC800BFA931 /* DateFormatter+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extra.swift"; sourceTree = "<group>"; };
 		0FCAD45022BA9F3B00BFA931 /* GraphQLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRequest.swift; sourceTree = "<group>"; };
 		31ECD3641C634A8788AA2152 /* Pods-graphql-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphql-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphql-iosTests/Pods-graphql-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */,
+				0F23FF9423E48E4E006FF019 /* GraphQLAuthenticationTests.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			files = (
 				8851E15A22B9820D00B8A2C1 /* GraphQLJSONDecoderTests.swift in Sources */,
 				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
+				0F23FF9523E48E4E006FF019 /* GraphQLAuthenticationTests.swift in Sources */,
 				A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */,
 				A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */,
 				A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */,
