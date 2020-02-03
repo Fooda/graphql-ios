@@ -6,8 +6,14 @@
 //  Copyright © 2019 Fooda, Inc. All rights reserved.
 //
 
-// Base level graphql error
-// At the same level as "data"
+/**
+ `GraphQLProtocolError` is an error that the server responds with when the server cannot understand the request.
+ The server will respond with an array of `errors`.
+
+ ## Examples
+ - The query has field(s) that do not exist.
+ - The operation does not provide the required inputs.
+ */
 public struct GraphQLProtocolError: Decodable {
     let message: String
 }

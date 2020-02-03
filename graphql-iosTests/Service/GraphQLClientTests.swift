@@ -9,10 +9,12 @@
 import XCTest
 @testable import graphql_ios
 
+// Mock response that is simple to decode
 struct MockResponse: Decodable {
 
 }
 
+// Mock response that throws `GraphQLRemoteError.unexpectedJSON` when the response is empty
 struct UnexpectedJsonResponse: Decodable {
     let result: Result?
 
@@ -148,6 +150,7 @@ class GraphQLClientTests: XCTestCase {
     }
 
     func testDecodingError() {
+        // Decoding error is triggered by failing to decode `GraphQLProtocolError`.  Missing field `message`.
         let body = """
                     {
                       "errors": [
