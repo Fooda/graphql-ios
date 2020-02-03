@@ -12,30 +12,30 @@ import enum Swift.Result
 public class GraphQLClient: GraphQLClientProtocol {
     public static let shared = GraphQLClient()
     private let manager: Alamofire.SessionManager
-    private let decoder: GraphQLJSONDecoder
+    private let decoder = GraphQLJSONDecoder()
 
     // MARK: - Configurable properties
     private var logger: GraphQLLogging?
-    private var provider: GraphQLProvider?
 
     // MARK: - Initializers
     private init() {
         let configuration = URLSessionConfiguration.default
         manager = Alamofire.SessionManager(configuration: configuration)
-        decoder = GraphQLJSONDecoder()
     }
 
-    public func configure(logger: GraphQLLogging?,
-                          provider: GraphQLProvider?) {
+    public func configure(logger: GraphQLLogging?) {
         self.logger = logger
         decoder.logger = logger
-        self.provider = provider
     }
 
-    public func performOperation<T: Decodable>(request: GraphQLRequest,
+    public func performOperation<T: Decodable>(url: String,
+                                               clientToken: String,
+                                               request: GraphQLRequest,
                                                headers: [String: String]? = nil,
                                                completion: @escaping ((Result<T, Error>) -> Void)) {
-        self.request(request: request,
+        self.request(url: url,
+                     clientToken: clientToken,
+                     request: request,
                      method: .post,
                      headers: headers,
                      completion: completion)
@@ -44,23 +44,19 @@ public class GraphQLClient: GraphQLClientProtocol {
 
 // MARK: - Private Methods
 private extension GraphQLClient {
-    func request<T: Decodable>(request: GraphQLRequest,
+    func request<T: Decodable>(url: String,
+                               clientToken: String,
+                               request: GraphQLRequest,
                                method: HTTPMethod,
                                headers: [String: String]? = nil,
                                completion: @escaping ((Result<T, Error>) -> Void)) {
-        guard let provider = provider else {
-            completion(.failure(GraphQLRemoteError.undefinedHost))
-            return
-        }
-
-        let url = provider.fullUrl
         let requestId = UUID().uuidString
         logger?.infoGraphQL("graphql_start",
                             params: ["url": url,
                                      "requestId": requestId,
                                      "name": request.name])
         let updatedHeaders: [String: String] = requestHeaders(with: headers,
-                                                              clientToken: provider.clientToken,
+                                                              clientToken: clientToken,
                                                               authentication: request.authentication)
 
         var parameters: [String: Any] = ["query": request.query]

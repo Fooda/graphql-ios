@@ -21,7 +21,6 @@
 		A5B6776D22A5AE1400708DD3 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */; };
 		A5B6777522A5B0E100708DD3 /* GraphQLProtocolError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777222A5B0E100708DD3 /* GraphQLProtocolError.swift */; };
 		A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */; };
-		A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */; };
 		A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */; };
 		A5C595E522A811C100028D1F /* GraphQLRemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */; };
 		A5C595E722A836C400028D1F /* GraphQLAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */; };
@@ -29,7 +28,6 @@
 		A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */; };
 		A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6622AEE69B00626D76 /* StubManager.swift */; };
 		A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */; };
-		A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */; };
 		A5D2EC7722AEF5A500626D76 /* MockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2EC7622AEF5A500626D76 /* MockRequest.swift */; };
 		C3CFDE3E4A9CFC31CACFA50E /* Pods_graphql_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8048760F790EB4649BB286AF /* Pods_graphql_ios.framework */; };
 		E0737342D982C6223176CD35 /* Pods_graphql_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5569D19D30C38659AFBEBD3F /* Pods_graphql_iosTests.framework */; };
@@ -67,7 +65,6 @@
 		A5B6776622A5AE1400708DD3 /* GraphQLClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLClientProtocol.swift; sourceTree = "<group>"; };
 		A5B6777222A5B0E100708DD3 /* GraphQLProtocolError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLProtocolError.swift; sourceTree = "<group>"; };
 		A5B6777822A5B10200708DD3 /* GraphQLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
-		A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLProvider.swift; sourceTree = "<group>"; };
 		A5BFD29122AEA33500B37555 /* GraphQLRemoteErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteErrorTests.swift; sourceTree = "<group>"; };
 		A5C595E422A811C100028D1F /* GraphQLRemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRemoteError.swift; sourceTree = "<group>"; };
 		A5C595E622A836C400028D1F /* GraphQLAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthentication.swift; sourceTree = "<group>"; };
@@ -75,7 +72,6 @@
 		A5D2EC6422AEE61500626D76 /* GraphQLClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientTests.swift; sourceTree = "<group>"; };
 		A5D2EC6622AEE69B00626D76 /* StubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubManager.swift; sourceTree = "<group>"; };
 		A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
-		A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
 		A5D2EC7622AEF5A500626D76 /* MockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequest.swift; sourceTree = "<group>"; };
 		CF2987E69367824BB4B6F464 /* libPods-graphql-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphql-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9BF25D3A418576D8C9D23E /* Pods_graphql_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_graphql_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +130,6 @@
 		A52B12AF22A6BFDE00EAA97E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A5BFD28A22A99AED00B37555 /* GraphQLProvider.swift */,
 				A5C595EA22A967FD00028D1F /* GraphQLLogging.swift */,
 			);
 			path = Protocols;
@@ -264,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				A5D2EC6A22AEEBE300626D76 /* MockLogger.swift */,
-				A5D2EC6C22AEEC9A00626D76 /* MockProvider.swift */,
 				A5D2EC7622AEF5A500626D76 /* MockRequest.swift */,
 			);
 			path = Mocks;
@@ -457,7 +451,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5BFD28B22A99AED00B37555 /* GraphQLProvider.swift in Sources */,
 				A52B129122A6BCD100EAA97E /* GraphQLJSONDecoder.swift in Sources */,
 				A5B6777B22A5B10200708DD3 /* GraphQLResponse.swift in Sources */,
 				A5C595EB22A967FD00028D1F /* GraphQLLogging.swift in Sources */,
@@ -481,7 +474,6 @@
 				A5BFD29222AEA33500B37555 /* GraphQLRemoteErrorTests.swift in Sources */,
 				0F23FF9523E48E4E006FF019 /* GraphQLAuthenticationTests.swift in Sources */,
 				A5D2EC6722AEE69B00626D76 /* StubManager.swift in Sources */,
-				A5D2EC6D22AEEC9A00626D76 /* MockProvider.swift in Sources */,
 				A5D2EC6522AEE61500626D76 /* GraphQLClientTests.swift in Sources */,
 				A5D2EC7722AEF5A500626D76 /* MockRequest.swift in Sources */,
 				A5D2EC6B22AEEBE300626D76 /* MockLogger.swift in Sources */,

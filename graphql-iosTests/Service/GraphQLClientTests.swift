@@ -26,12 +26,13 @@ struct UnexpectedJsonResponse: Decodable {
 class GraphQLClientTests: XCTestCase {
     private let client = GraphQLClient.shared
     private let url = "api.fooda.com/graphql"
+    private let clientToken = "client-token"
     private let logger = MockLogger()
-    private lazy var provider = MockProvider(fullUrl: url, clientToken: "client-token")
 
     override func setUp() {
         super.setUp()
         logger.reset()
+        client.configure(logger: logger)
     }
 
     func testSuccessResponse() {
@@ -46,12 +47,11 @@ class GraphQLClientTests: XCTestCase {
             }
         """
 
-        client.configure(logger: logger, provider: provider)
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
         let request = MockRequest.authenticated(sessionToken: "abc123")
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
@@ -66,46 +66,16 @@ class GraphQLClientTests: XCTestCase {
         waitForExpectations(timeout: 2.0, handler: nil)
     }
 
-    func testMissingProvider() {
-        let body = """
-                    {
-                    }
-                """
-        client.configure(logger: logger, provider: nil)
-        StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
-        let promise = expectation(description: "Wait for client")
-
-        let request = MockRequest.anonymous(sessionToken: nil)
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
-            switch result {
-            case .success:
-                XCTFail("Expected failure")
-            case let .failure(error):
-                guard case GraphQLRemoteError.undefinedHost = error else {
-                    XCTFail("Unexpected error: \(error.localizedDescription)")
-                    return
-                }
-                XCTAssertFalse(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
-                XCTAssertFalse(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
-                XCTAssertFalse(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
-                promise.fulfill()
-            }
-        }
-
-        waitForExpectations(timeout: 2.0, handler: nil)
-    }
-
     func testServerError() {
         let body = """
                     {
                     }
                 """
-        client.configure(logger: logger, provider: provider)
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 500, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
         let request = MockRequest.anonymous(sessionToken: nil)
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
@@ -125,12 +95,10 @@ class GraphQLClientTests: XCTestCase {
     }
 
     func testNetworkError() {
-        let mockProvider = MockProvider(fullUrl: "not-a-url", clientToken: "")
-        client.configure(logger: logger, provider: mockProvider)
         let promise = expectation(description: "Wait for client")
 
         let request = MockRequest.anonymous(sessionToken: nil)
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        client.performOperation(url: "not-a-url", clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
@@ -165,12 +133,11 @@ class GraphQLClientTests: XCTestCase {
                       ]
                     }
                 """
-        client.configure(logger: logger, provider: provider)
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
         let request = MockRequest.anonymous(sessionToken: nil)
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
@@ -205,12 +172,11 @@ class GraphQLClientTests: XCTestCase {
                       ]
                     }
                 """
-        client.configure(logger: logger, provider: provider)
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
         let request = MockRequest.anonymous(sessionToken: nil)
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
@@ -234,12 +200,11 @@ class GraphQLClientTests: XCTestCase {
                     {
                     }
                 """
-        client.configure(logger: logger, provider: provider)
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
         let request = MockRequest.anonymous(sessionToken: nil)
-        client.performOperation(request: request) { (result: Result<UnexpectedJsonResponse, Error>) in
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<UnexpectedJsonResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
@@ -255,5 +220,6 @@ class GraphQLClientTests: XCTestCase {
             }
         }
 
-        waitForExpectations(timeout: 2.0, handler: nil)    }
+        waitForExpectations(timeout: 2.0, handler: nil)
+    }
 }

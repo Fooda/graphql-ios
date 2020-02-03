@@ -22,7 +22,6 @@ class GraphQLRemoteErrorTests: XCTestCase {
         XCTAssertEqual(GraphQLRemoteError.protocolError(httpStatusCode: 403, errors: apiErrors).errorDescription, apiErrors.first?.message)
         XCTAssertEqual(GraphQLRemoteError.networkError(urlError).errorDescription, urlError.localizedDescription)
         XCTAssertEqual(GraphQLRemoteError.unexpectedJSON(httpStatusCode: 200).errorDescription, defaultMessage)
-        XCTAssertEqual(GraphQLRemoteError.undefinedHost.errorDescription, defaultMessage)
         XCTAssertEqual(GraphQLRemoteError.unknown.errorDescription, defaultMessage)
     }
 
@@ -33,7 +32,6 @@ class GraphQLRemoteErrorTests: XCTestCase {
         XCTAssertEqual(GraphQLRemoteError.networkError(urlError).debugDescription, "network_\((urlError as NSError).debugDescription)")
 
         XCTAssertEqual(GraphQLRemoteError.unexpectedJSON(httpStatusCode: 200).debugDescription, "unexpected_json")
-        XCTAssertEqual(GraphQLRemoteError.undefinedHost.debugDescription, "undefined_host")
         XCTAssertEqual(GraphQLRemoteError.unknown.debugDescription, "unknown_error")
     }
 
@@ -43,7 +41,6 @@ class GraphQLRemoteErrorTests: XCTestCase {
         XCTAssertEqual(GraphQLRemoteError.networkError(urlError).httpStatusCode, 0)
 
         XCTAssertEqual(GraphQLRemoteError.unexpectedJSON(httpStatusCode: 200).httpStatusCode, 200)
-        XCTAssertEqual(GraphQLRemoteError.undefinedHost.httpStatusCode, 0)
         XCTAssertEqual(GraphQLRemoteError.unknown.httpStatusCode, 0)
     }
 }
