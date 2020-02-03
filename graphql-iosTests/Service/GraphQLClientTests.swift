@@ -9,13 +9,30 @@
 import XCTest
 @testable import graphql_ios
 
+// Mock response that is simple to decode
+struct MockResponse: Decodable {
+
+}
+
+// Mock response that throws `GraphQLRemoteError.unexpectedJSON` when the response is empty
+struct UnexpectedJsonResponse: Decodable {
+    let result: Result?
+
+    struct Result: Decodable {
+
+    }
+}
+
 class GraphQLClientTests: XCTestCase {
-    private lazy var client = GraphQLClient.shared
-    private lazy var url = "api.fooda.com/graphql"
+    private let client = GraphQLClient.shared
+    private let url = "api.fooda.com/graphql"
+    private let clientToken = "client-token"
+    private let logger = MockLogger()
 
     override func setUp() {
         super.setUp()
-        client.configure(logger: MockLogger(), provider: MockProvider())
+        logger.reset()
+        client.configure(logger: logger)
     }
 
     func testSuccessResponse() {
@@ -30,38 +47,46 @@ class GraphQLClientTests: XCTestCase {
             }
         """
 
-        let provider = MockProvider(sessionToken: "abc123")
-        client.configure(logger: MockLogger(), provider: provider)
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let request = MockRequest.authenticated
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        let request = MockRequest.authenticated(sessionToken: "abc123")
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
+                XCTAssertFalse(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
                 promise.fulfill()
-            case .failure:
-                XCTFail("Expected success")
+            case let .failure(error):
+                XCTFail("Expected success: \(error.localizedDescription)")
             }
         }
 
         waitForExpectations(timeout: 2.0, handler: nil)
     }
 
-    func testInvalidRequestHeader() {
-        StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200)
+    func testServerError() {
+        let body = """
+                    {
+                    }
+                """
+        StubManager.shared.stub(url: url, method: "post", responseStatusCode: 500, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let request = MockRequest.authenticated
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        let request = MockRequest.anonymous(sessionToken: nil)
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
             case let .failure(error):
-                guard case GraphQLRemoteError.invalidCredentials = error else {
+                guard case GraphQLRemoteError.serverError = error else {
                     XCTFail("Unexpected error: \(error.localizedDescription)")
                     return
                 }
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
                 promise.fulfill()
             }
         }
@@ -69,17 +94,22 @@ class GraphQLClientTests: XCTestCase {
         waitForExpectations(timeout: 2.0, handler: nil)
     }
 
-    func testInvalidResponse() {
-        let body = "{}"
-        StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
+    func testNetworkError() {
         let promise = expectation(description: "Wait for client")
 
-        let request = MockRequest.anonymous
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        let request = MockRequest.anonymous(sessionToken: nil)
+        client.performOperation(url: "not-a-url", clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
-            case .failure:
+            case let .failure(error):
+                guard case GraphQLRemoteError.networkError = error else {
+                    XCTFail("Unexpected error: \(error.localizedDescription)")
+                    return
+                }
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
                 promise.fulfill()
             }
         }
@@ -87,27 +117,66 @@ class GraphQLClientTests: XCTestCase {
         waitForExpectations(timeout: 2.0, handler: nil)
     }
 
-    func testBaseErrorsStatusCode200() {
+    func testDecodingError() {
+        // Decoding error is triggered by failing to decode `GraphQLProtocolError`.  Missing field `message`.
         let body = """
-            {
-              "errors": [
-                {
-                  "message": "test",
-                  "locations": [
                     {
-                      "line": 1,
-                      "column": 20
+                      "errors": [
+                        {
+                          "locations": [
+                            {
+                              "line": 1,
+                              "column": 20
+                            }
+                          ]
+                        }
+                      ]
                     }
-                  ]
-                }
-              ]
-            }
-        """
+                """
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let request = MockRequest.anonymous
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        let request = MockRequest.anonymous(sessionToken: nil)
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
+            switch result {
+            case .success:
+                XCTFail("Expected failure")
+            case let .failure(error):
+                guard error is DecodingError else {
+                    XCTFail("Unexpected error: \(error.localizedDescription)")
+                    return
+                }
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
+                promise.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: 2.0, handler: nil)
+    }
+
+    func testProtocolError() {
+        let body = """
+                    {
+                      "errors": [
+                        {
+                          "message": "test",
+                          "locations": [
+                            {
+                              "line": 1,
+                              "column": 20
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                """
+        StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
+        let promise = expectation(description: "Wait for client")
+
+        let request = MockRequest.anonymous(sessionToken: nil)
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<MockResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
@@ -116,6 +185,9 @@ class GraphQLClientTests: XCTestCase {
                     XCTFail("Unexpected error: \(error.localizedDescription)")
                     return
                 }
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
                 promise.fulfill()
             }
         }
@@ -123,32 +195,27 @@ class GraphQLClientTests: XCTestCase {
         waitForExpectations(timeout: 2.0, handler: nil)
     }
 
-    func testResultOperationErrors() {
+    func testUnexpectedJsonError() {
         let body = """
-            {
-                "data": {
-                    "result": {
-                        "error": {
-                            "code": 401,
-                            "message": "invalid credentials"
-                        }
+                    {
                     }
-                }
-            }
-        """
+                """
         StubManager.shared.stub(url: url, method: "post", responseStatusCode: 200, responseBody: body)
         let promise = expectation(description: "Wait for client")
 
-        let request = MockRequest.anonymous
-        client.performOperation(request: request) { (result: Result<MockResponse, Error>) in
+        let request = MockRequest.anonymous(sessionToken: nil)
+        client.performOperation(url: url, clientToken: clientToken, request: request) { (result: Result<UnexpectedJsonResponse, Error>) in
             switch result {
             case .success:
                 XCTFail("Expected failure")
             case let .failure(error):
-                guard case GraphQLRemoteError.invalidCredentials = error else {
+                guard case GraphQLRemoteError.unexpectedJSON = error else {
                     XCTFail("Unexpected error: \(error.localizedDescription)")
                     return
                 }
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_start" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_complete" }))
+                XCTAssertTrue(self.logger.logs.contains(where: { $0.message == "graphql_failure" }))
                 promise.fulfill()
             }
         }

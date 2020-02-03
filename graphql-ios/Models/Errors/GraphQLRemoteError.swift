@@ -7,50 +7,51 @@
 //
 
 public enum GraphQLRemoteError: LocalizedError {
-    case invalidCredentials // 401 or 403
-    case serverError(statusCode: Int)
-    case protocolError(statusCode: Int, errors: [GraphQLError])
+    case serverError(httpStatusCode: Int)
+    case protocolError(httpStatusCode: Int, errors: [GraphQLProtocolError])
     case networkError(URLError)
-    case unexpectedJSON
-    case operationErrors(_ errors: [GraphQLNamedOperationError])
-    case undefinedHost
+    case unexpectedJSON(httpStatusCode: Int)
     case unknown
 
     public var errorDescription: String? {
         let defaultMessage = "We’re having trouble connecting to Fooda, try again in a few minutes. If the problem persists, please contact support. We apologize for this inconvenience.".localized()
 
         switch self {
-        case .invalidCredentials:
-            return "Invalid credentials".localized()
         case let .protocolError(_, errors: errors):
             return errors.first?.message ?? defaultMessage
-        case let .operationErrors(errors):
-            return errors.first?.error.message ?? defaultMessage
         case let .networkError(urlError):
             return urlError.localizedDescription
-        case .serverError, .unexpectedJSON, .unknown, .undefinedHost:
+        case .serverError,
+             .unexpectedJSON,
+             .unknown:
             return defaultMessage
         }
     }
 
     var debugDescription: String {
         switch self {
-        case .invalidCredentials:
-            return "invalid_credentials"
-        case let .serverError(statusCode):
-            return "server_\(statusCode)"
+        case let .serverError(httpStatusCode):
+            return "server_\(httpStatusCode)"
         case .protocolError:
             return "protocol_error"
-        case .operationErrors:
-            return "operation_error"
         case .unknown:
             return "unknown_error"
         case .unexpectedJSON:
             return "unexpected_json"
-        case .undefinedHost:
-            return "undefined_host"
         case let .networkError(urlError):
             return "network_\((urlError as NSError).debugDescription)"
+        }
+    }
+
+    var httpStatusCode: Int {
+        switch self {
+        case let .serverError(httpStatusCode),
+             let .protocolError(httpStatusCode, _),
+             let .unexpectedJSON(httpStatusCode):
+            return httpStatusCode
+        case .networkError,
+             .unknown:
+            return 0
         }
     }
 }

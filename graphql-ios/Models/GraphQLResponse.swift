@@ -9,7 +9,7 @@
 // GraphQL object directly inside response body
 // Can get data or a list of errors if the request
 // was improperly formatted 
-internal struct GraphQLResponse<T: GraphQLPayload>: Decodable {
+internal struct GraphQLResponse<T: Decodable>: Decodable {
     let data: T?
-    let errors: [GraphQLError]?
+    let errors: [GraphQLProtocolError]?
 }
