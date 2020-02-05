@@ -77,7 +77,7 @@ let request = CreateSessionRequest(email: "email", password: "password")
 GraphQLClient.shared.performOperation(url: url,
                                       clientToken: clientToken,
                                       request: request,
-                                      headers: nil) { (result: Result<CustomResponse, Error>) in 
+                                      headers: nil) { (result: Result<CreateSessionResponse, Error>) in 
   // handle the response                                       
 }
 ```
