@@ -50,14 +50,15 @@ private extension GraphQLClient {
                                method: HTTPMethod,
                                headers: [String: String]? = nil,
                                completion: @escaping ((Result<T, Error>) -> Void)) {
-        let requestId = UUID().uuidString
+        let requestTraceId = UUID().uuidString
         logger?.infoGraphQL("graphql_start",
                             params: ["url": url,
-                                     "requestId": requestId,
+                                     "requestTraceId": requestTraceId,
                                      "name": request.name])
         let updatedHeaders: [String: String] = requestHeaders(with: headers,
                                                               clientToken: clientToken,
-                                                              authentication: request.authentication)
+                                                              authentication: request.authentication,
+                                                              requestTraceId: requestTraceId)
 
         var parameters: [String: Any] = ["query": request.query]
         if !request.variables.isEmpty {
@@ -72,7 +73,7 @@ private extension GraphQLClient {
             .responseJSON { response in
                 self.handleResponse(request: request,
                                     url: url,
-                                    requestId: requestId,
+                                    requestTraceId: requestTraceId,
                                     method: method,
                                     parameters: parameters,
                                     headers: headers,
@@ -83,7 +84,7 @@ private extension GraphQLClient {
 
     func handleResponse<T: Decodable>(request: GraphQLRequest,
                                       url: String,
-                                      requestId: String,
+                                      requestTraceId: String,
                                       method: HTTPMethod,
                                       parameters: Parameters?,
                                       headers: [String: String]?,
@@ -93,7 +94,7 @@ private extension GraphQLClient {
 
         logger?.infoGraphQL("graphql_complete",
                             params: ["url": url,
-                                     "requestId": requestId,
+                                     "request_trace_id": requestTraceId,
                                      "status": httpStatusCode,
                                      "name": request.name,
                                      "variables": parameters?["variables"] ?? [:],
@@ -120,7 +121,7 @@ private extension GraphQLClient {
             logger?.errorGraphQL("graphql_failure",
                                  params: [
                                     "url": url,
-                                    "requestId": requestId,
+                                    "request_trace_id": requestTraceId,
                                     "status": httpStatusCode,
                                     "name": request.name,
                                     "variables": parameters?["variables"] ?? [:],
@@ -137,10 +138,12 @@ private extension GraphQLClient {
 
     func requestHeaders(with customHeader: [String: String]?,
                         clientToken: String?,
-                        authentication: GraphQLAuthentication) -> [String: String] {
+                        authentication: GraphQLAuthentication,
+                        requestTraceId: String) -> [String: String] {
         var headers: [String: String] = ["X-AppPlatform": "iOS",
                                          "X-AppVersion": Bundle.appVersion,
-                                         "X-AppBundle": Bundle.bundleId ?? "/"]
+                                         "X-AppBundle": Bundle.bundleId ?? "/",
+                                         "X-RequestId": requestTraceId]
 
         // custom headers
         if let customHeader = customHeader {
