@@ -143,7 +143,7 @@ private extension GraphQLClient {
         var headers: [String: String] = ["X-AppPlatform": "iOS",
                                          "X-AppVersion": Bundle.appVersion,
                                          "X-AppBundle": Bundle.bundleId ?? "/",
-                                         "X-RequestId": requestTraceId]
+                                         "X-Request-Id": requestTraceId]
 
         // custom headers
         if let customHeader = customHeader {
