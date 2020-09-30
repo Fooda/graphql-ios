@@ -18,7 +18,10 @@ public class GraphQLClient: GraphQLClientProtocol {
     private var logger: GraphQLLogging?
 
     // MARK: - Initializers
-    init(configuration: URLSessionConfiguration = URLSessionConfiguration.default) {
+    private init() {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 10
+        configuration.timeoutIntervalForResource = 10
         manager = Alamofire.SessionManager(configuration: configuration)
     }
 
