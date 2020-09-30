@@ -18,8 +18,7 @@ public class GraphQLClient: GraphQLClientProtocol {
     private var logger: GraphQLLogging?
 
     // MARK: - Initializers
-    private init() {
-        let configuration = URLSessionConfiguration.default
+    init(configuration: URLSessionConfiguration = URLSessionConfiguration.default) {
         manager = Alamofire.SessionManager(configuration: configuration)
     }
 
