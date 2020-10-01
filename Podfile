@@ -2,7 +2,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 def availablePods
-  pod 'Alamofire', '4.8.2'
+  pod 'Alamofire', '5.2.2'
 end
 
 target 'graphql-ios' do
