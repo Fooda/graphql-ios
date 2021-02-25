@@ -119,6 +119,20 @@ private extension GraphQLClient {
 
             completion(.success(result))
         } catch {
+            var debugDescription = ""
+            switch error {
+            case let DecodingError.dataCorrupted(context):
+                debugDescription = "data_corrupted - \(context.debugDescription) - \(error)"
+            case let DecodingError.keyNotFound(key, context):
+                debugDescription = "key_not_found - \(key) - \(context.debugDescription) - \(error)"
+            case let DecodingError.valueNotFound(value, context):
+                debugDescription = "value_not_found - \(value) - \(context.debugDescription) - \(error)"
+            case let DecodingError.typeMismatch(type, context):
+                debugDescription = "type_mismatch - \(type) - \(context.debugDescription) - \(error)"
+            default:
+                debugDescription = (error as? GraphQLRemoteError)?.debugDescription ?? error.localizedDescription
+            }
+
             let rawJson = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any]
             logger?.errorGraphQL("graphql_failure",
                                  params: [
@@ -132,7 +146,7 @@ private extension GraphQLClient {
                                                  "parsing": response.timeline.serializationDuration,
                                                  "total": response.timeline.totalDuration],
                                     "response": rawJson ?? [:],
-                                    "error": (error as? GraphQLRemoteError)?.debugDescription ?? error.localizedDescription
+                                    "error": debugDescription
             ])
             completion(.failure(error))
         }
